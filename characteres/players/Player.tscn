@@ -392,13 +392,12 @@ script = ExtResource("1_mh4ux")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_no5bb")
-animation = &"idle_up"
+animation = &"move_left"
 autoplay = "idle_down"
-frame_progress = 0.446812
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_wum0e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
+zoom = Vector2(0.75, 0.75)
