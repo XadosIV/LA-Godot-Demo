@@ -1,22 +1,22 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 var position_x : int
 var position_y : int
 var healthPoints : int = 1
 var facing_direction : Vector2 = Vector2.ZERO
 
-@export var MAXHEALTHPOINT : int = 100
+@export var MAXHEALTH_POINT : int = 100
 @export var SPEED : int = 300.0
 @export var ACCELERATION : int = 100
 @export var FRICTION : int = 300
 
 @onready var animatedSprite = $AnimatedSprite2D
 
-func _ready():
-	healthPoints = MAXHEALTHPOINT
+func _ready() -> void:
+	healthPoints = MAXHEALTH_POINT
 	facing_direction.y = 1
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	var input: Vector2 = Vector2.ZERO
 	
 	# Get the input direction
@@ -34,16 +34,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func apply_friction():
+func apply_friction() -> void:
 	velocity.x = move_toward(velocity.x, 0, FRICTION)
 	velocity.y = move_toward(velocity.y, 0, FRICTION)
 	
-func apply_acceleration(input: Vector2):
+func apply_acceleration(input: Vector2) -> void:
 	input = input.normalized()
 	velocity.x = move_toward(velocity.x, SPEED * input.x, ACCELERATION)
 	velocity.y = move_toward(velocity.y, SPEED * input.y, ACCELERATION)
 	
-func apply_direction_on_sprite(input: Vector2):
+func apply_direction_on_sprite(input: Vector2) -> void:
 	if (input == Vector2.ZERO):
 		if (animatedSprite.animation != "idle_left" and facing_direction.x < 0):
 			animatedSprite.animation = "idle_left"

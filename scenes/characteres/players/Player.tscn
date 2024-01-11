@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://dgf1bg7ra1non"]
+[gd_scene load_steps=54 format=3 uid="uid://dgf1bg7ra1non"]
 
-[ext_resource type="Texture2D" uid="uid://b5xfa7iqg48ic" path="res://characteres/players/resources/Roki_16x16.png" id="1_g5cif"]
-[ext_resource type="Script" path="res://characteres/players/Player.gd" id="1_mh4ux"]
+[ext_resource type="Texture2D" uid="uid://b5xfa7iqg48ic" path="res://scenes/characteres/players/resources/Roki_16x16.png" id="1_g5cif"]
+[ext_resource type="Script" path="res://scenes/characteres/players/Player.gd" id="1_mh4ux"]
+[ext_resource type="PackedScene" uid="uid://hw021365sa1i" path="res://_debug/info_display/debug_panel.tscn" id="3_s3beh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yx4fe"]
 atlas = ExtResource("1_g5cif")
@@ -399,3 +400,5 @@ shape = SubResource("CapsuleShape2D_wum0e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="DebugPanel" parent="Camera2D" instance=ExtResource("3_s3beh")]

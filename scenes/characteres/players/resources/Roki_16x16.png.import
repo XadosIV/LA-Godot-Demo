@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5xfa7iqg48ic"
-path="res://.godot/imported/Roki_16x16.png-6ed50086471bd37f0d4cf664219f4c58.ctex"
+path="res://.godot/imported/Roki_16x16.png-d200b601c5343e50fbf6e29e1fa68180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characteres/players/resources/Roki_16x16.png"
-dest_files=["res://.godot/imported/Roki_16x16.png-6ed50086471bd37f0d4cf664219f4c58.ctex"]
+source_file="res://scenes/characteres/players/resources/Roki_16x16.png"
+dest_files=["res://.godot/imported/Roki_16x16.png-d200b601c5343e50fbf6e29e1fa68180.ctex"]
 
 [params]
 
