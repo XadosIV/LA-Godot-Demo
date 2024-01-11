@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://7mex0w35sbmm"]
+
+[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/interiors_building.tres" id="1_rnk0i"]
+[ext_resource type="TileSet" uid="uid://dwuv88sa7b4qq" path="res://scenes/levels/tiles_maps/logic_tileset.tres" id="2_fk4k3"]
+[ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="3_d20j5"]
+[ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="4_t0u7f"]
+
+[node name="TestMap1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_rnk0i")
+format = 2
+layer_0/name = "Props"
+layer_0/z_index = -1
+layer_1/name = "Walls"
+layer_1/z_index = -2
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Floor"
+layer_2/z_index = -3
+layer_2/tile_data = PackedInt32Array()
+
+[node name="LogicMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_fk4k3")
+format = 2
+layer_0/name = "Layer"
+layer_0/tile_data = PackedInt32Array(-262143, 1, 0, -262144, 1, 0, -196609, 1, 0, -196610, 1, 0, -196611, 1, 0, -196612, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 196609, 0, 65532, 1, 0, 131068, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, -65534, 1, 0, -262141, 196609, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -131060, 196609, 0, -65524, 1, 0, -65523, 1, 0, 13, 1, 0, 65549, 1, 0, 131085, 1, 0, 196621, 1, 0, 131081, 1, 0, 131080, 1, 0, 131079, 1, 0, 131078, 1, 0, 131077, 1, 0, 12, 65537, 0, 65548, 1, 0, 65547, 1, 0, -65525, 1, 0, -262142, 1, 0, 262157, 1, 0, 262156, 1, 0, 262155, 1, 0, 262154, 1, 0, 196617, 1, 0, 65545, 1, 0, -65533, 1, 0, 3, 1, 0, 2, 1, 0)
+script = ExtResource("3_d20j5")
+
+[node name="Player" parent="." instance=ExtResource("4_t0u7f")]
+position = Vector2(-56, -8)
+SPEED = 150
+FRICTION = 0

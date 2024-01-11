@@ -383,22 +383,23 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wum0e"]
-radius = 8.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htuyu"]
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mh4ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_no5bb")
 animation = &"move_left"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_wum0e")
+shape = SubResource("RectangleShape2D_htuyu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -8)
 zoom = Vector2(3, 3)
 
 [node name="DebugPanel" parent="Camera2D" instance=ExtResource("3_s3beh")]
