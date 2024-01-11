@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://70owtm87gmby"]
+[gd_scene load_steps=5 format=3 uid="uid://70owtm87gmby"]
 
 [ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/interiors_building.tres" id="1_2vy6y"]
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6nwg4"]
+[ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="1_ov4u7"]
+[ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="3_ljtlh"]
 
-[node name="TestMap1" type="Node2D"]
+[node name="TestMap1" type="Node2D" node_paths=PackedStringArray("player", "warps")]
+script = ExtResource("1_6nwg4")
+player = NodePath("Player")
+warps = [NodePath("warp_t2")]
+
+[node name="warp_t2" parent="." instance=ExtResource("1_ov4u7")]
+position = Vector2(56, -72)
+ENTRY_DIRECTION = 2
+TRANSITION_TYPE = "fade_to_black"
+TARGETED_SCENE = "res://scenes/levels/test_world/test_map_1.tscn"
+ENTRY_WARP_NAME = "warp_t1"
+
+[node name="Player" parent="." instance=ExtResource("3_ljtlh")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_2vy6y")

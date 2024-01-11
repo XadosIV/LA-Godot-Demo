@@ -6,7 +6,7 @@ var healthPoints : int = 1
 var facing_direction : Vector2 = Vector2.ZERO
 
 @export var MAXHEALTH_POINT : int = 100
-@export var SPEED : int = 300.0
+@export var SPEED : int = 300
 @export var ACCELERATION : int = 100
 @export var FRICTION : int = 300
 
@@ -62,5 +62,4 @@ func apply_direction_on_sprite(input: Vector2) -> void:
 			animatedSprite.animation = "move_up"
 		if (animatedSprite.animation != "move_down" and input.y > 0):
 			animatedSprite.animation = "move_down"
-
 
