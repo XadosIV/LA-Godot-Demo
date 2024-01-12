@@ -12,6 +12,7 @@ var currentMovement : Vector2 = Vector2(1, 0) # valeur par défaut hardcodé, à
 
 @export var MAXHEALTH_POINT : int = 100
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
+@export var SPEED_SPRINT : float = 1.6 #Ajouté au multiplicateur au moment de sprint
 
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -29,7 +30,10 @@ func move(direction : Vector2) -> void: #déplace le joueur dans la direction do
 	setCurrentMovement(direction)
 
 func visualMove() -> void: #Gere le visuel du déplacement
-	var posAfter : Vector2 = position + currentMovement * SPEED_MULTIPLICATOR #calcule la position après déplacement
+	var multiplicator = SPEED_MULTIPLICATOR
+	if Input.is_action_pressed("sprint"):
+		multiplicator += SPEED_SPRINT
+	var posAfter : Vector2 = position + currentMovement * multiplicator #calcule la position après déplacement
 	
 	#stocke la valeur avant déplacement, après déplacement, et la valeur souhaitée (milieu de la tuile)
 	var tab = []
@@ -83,7 +87,7 @@ func _process(delta) -> void:
 		# Si il y a aucun mouvement, on en attend un.
 		playerMoveInput()
 	
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
 		map.interact(facing_direction)
 
 
