@@ -5,7 +5,7 @@ class_name Level extends Node
 var data: LevelDataHandoff
 
 func _ready() -> void:
-	#player.disable()
+	player.disable()
 	#player.visible = false
 	# if we don't us the SceneManager
 	if data == null:
@@ -14,18 +14,20 @@ func _ready() -> void:
 func enter_level() -> void:
 	if data != null:
 		init_player_location()
-	#player.enable()
+	player.enable()
+	#player.visible = true
 	_connect_to_warps()
 
 # teleport the player to the correct warp
 func init_player_location() -> void:
+	#var facing_direction : Vector2 = Vector2.ZERO
 	if data != null:
 		for warp in warps:
-			print(warp.name)
 			if warp.name == data.entry_warp_name:
+				#facing_direction = warp.get_move_direction()
 				player.position = warp.get_player_entry_vector()
 		# TODO Fix this shit
-		#player.apply_direction_on_sprite(data.move_dir)
+		#player.apply_direction_on_sprite(facing_direction)
 
 # disable warps and player
 # and create a handoff to pass data to the new scene

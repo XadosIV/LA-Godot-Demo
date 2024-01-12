@@ -2,11 +2,12 @@ class_name Player extends CharacterBody2D
 
 var healthPoints : int = 1
 var facing_direction : Vector2 = Vector2.ZERO
+var movement_allowed : bool = true
 
 var gridPos : Vector2 #correspond aux coordonnées du milieu de la case où est censé être le joueur
 var isMoving : bool = true # est en train de se déplacer entre deux cases, mis à true par défaut pour le mouvement
 							# d'entrée dans la zone
-var currentMovement : Vector2 = Vector2(1, 0) # valeur par défaut hardcodé, à changer.
+var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
 
 
@@ -47,7 +48,7 @@ func visualMove() -> void: #Gere le visuel du déplacement
 		tab.append_array([position.y, posAfter.y])
 	tab.append(targetValue)
 	tab.sort() # on trie le tableau pour trouver rapidement le médian
-	
+
 	if tab[1] == targetValue:
 		# Si le médian est le milieu de la tuile, alors le joueur va dépasser la tuile durant le mouvement
 		# On le place donc pile sur la tuile au lieu de le faire continuer d'avancer
@@ -76,43 +77,49 @@ func playerMoveInput() -> bool: # Vérifie, et exécute, l'input de déplacement
 	return false
 
 func _process(delta) -> void:
-	if isMoving and position != gridPos:
-		visualMove()
-	elif isMoving:
-		# on check à la fin du mouvement, si il continue d'appuyer sur une touche
-		# pour fluidifier le mouvement et ne pas l'arrêter
-		if (not playerMoveInput()): 
-			# Si c'est pas le cas, on l'arrête
-			setCurrentMovement(Vector2.ZERO)
-	else:
-		# Si il y a aucun mouvement, on en attend un.
-		playerMoveInput()
+	if movement_allowed:
+		if isMoving and position != gridPos:
+			visualMove()
+		elif isMoving:
+			# on check à la fin du mouvement, si il continue d'appuyer sur une touche
+			# pour fluidifier le mouvement et ne pas l'arrêter
+			if (not playerMoveInput()): 
+				# Si c'est pas le cas, on l'arrête
+				setCurrentMovement(Vector2.ZERO)
+		else:
+			# Si il y a aucun mouvement, on en attend un.
+			playerMoveInput()
 	
 	if Input.is_action_just_pressed("interact"):
 		map.interact(facing_direction)
 
+func enable():
+	movement_allowed = true
 
-func apply_direction_on_sprite() -> void:
+func disable():
+	movement_allowed = false
+
+func apply_direction_on_sprite(toward: Vector2 = facing_direction) -> void:
 	if (currentMovement == Vector2.ZERO):
-		if (animatedSprite.animation != "idle_left" and facing_direction.x < 0):
+		if (animatedSprite.animation != "idle_left" and toward.x < 0):
 			animatedSprite.animation = "idle_left"
-		if (animatedSprite.animation != "idle_right" and facing_direction.x > 0):
+		if (animatedSprite.animation != "idle_right" and toward.x > 0):
 			animatedSprite.animation = "idle_right"
-		if (animatedSprite.animation != "idle_up" and facing_direction.y < 0):
+		if (animatedSprite.animation != "idle_up" and toward.y < 0):
 			animatedSprite.animation = "idle_up"
-		if (animatedSprite.animation != "idle_down" and facing_direction.y > 0):
+		if (animatedSprite.animation != "idle_down" and toward.y > 0):
 			animatedSprite.animation = "idle_down"
 	else:
 		if (animatedSprite.animation != "move_left" and currentMovement.x < 0):
 			animatedSprite.animation = "move_left"
-			facing_direction = Vector2(-1,0)
+			toward = Vector2.LEFT
 		if (animatedSprite.animation != "move_right" and currentMovement.x > 0):
 			animatedSprite.animation = "move_right"
-			facing_direction = Vector2(1,0)
+			toward = Vector2.RIGHT
 		if (animatedSprite.animation != "move_up" and currentMovement.y < 0):
 			animatedSprite.animation = "move_up"
-			facing_direction = Vector2(0,-1)
+			toward = Vector2.UP
 		if (animatedSprite.animation != "move_down" and currentMovement.y > 0):
 			animatedSprite.animation = "move_down"
-			facing_direction = Vector2(0,1)
+			toward = Vector2.DOWN
 
