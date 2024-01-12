@@ -82,6 +82,9 @@ func _process(delta) -> void:
 	else:
 		# Si il y a aucun mouvement, on en attend un.
 		playerMoveInput()
+	
+	if Input.is_action_pressed("interact"):
+		map.interact(facing_direction)
 
 
 func apply_direction_on_sprite() -> void:

@@ -21,5 +21,12 @@ func playerMove(movement) -> bool: # renvoie si le mouvement a pu être fait ou 
 		return true
 	return false
 
+func interact(movement) -> bool:
+	var atlasCoord = get_cell_atlas_coords(0, posPlayer + movement)
+	if atlasCoord == Vector2i(1,0):
+		set_cell(0, posPlayer+movement)
+		return true
+	return false
+
 func _process(delta) -> void:
 	pass
