@@ -383,7 +383,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fal8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htuyu"]
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
@@ -396,7 +396,8 @@ animation = &"move_left"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7fal8")
+
+shape = SubResource("RectangleShape2D_htuyu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -8)
