@@ -77,17 +77,17 @@ func playerMoveInput() -> bool: # Vérifie, et exécute, l'input de déplacement
 	return false
 
 func _process(delta) -> void:
-	if movement_allowed:
-		if isMoving and position != gridPos:
-			visualMove()
-		elif isMoving:
-			# on check à la fin du mouvement, si il continue d'appuyer sur une touche
-			# pour fluidifier le mouvement et ne pas l'arrêter
-			if (not playerMoveInput()): 
-				# Si c'est pas le cas, on l'arrête
-				setCurrentMovement(Vector2.ZERO)
-		else:
-			# Si il y a aucun mouvement, on en attend un.
+	if isMoving and position != gridPos:
+		visualMove()
+	elif isMoving:
+		# on check à la fin du mouvement, si il continue d'appuyer sur une touche
+		# pour fluidifier le mouvement et ne pas l'arrêter
+		if (not playerMoveInput()): 
+			# Si c'est pas le cas, on l'arrête
+			setCurrentMovement(Vector2.ZERO)
+	else:
+		# Si il y a aucun mouvement, on en attend un.
+		if movement_allowed:
 			playerMoveInput()
 	
 	if Input.is_action_just_pressed("interact"):
