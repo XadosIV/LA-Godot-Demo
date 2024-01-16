@@ -90,7 +90,7 @@ func _process(delta) -> void:
 		if movement_allowed:
 			playerMoveInput()
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and movement_allowed:
 		map.interact(facing_direction)
 
 func enable():
