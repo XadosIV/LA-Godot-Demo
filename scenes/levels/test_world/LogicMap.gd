@@ -12,7 +12,7 @@ func _ready() -> void:
 func load_map() -> void: #pour plus tard
 	for child in get_children():
 		actors[str(local_to_map(child.position))] = child
-	print(actors)
+	#print(actors)
 
 func init() -> void: #Stocke la position du player par rapport à la tilemap
 	posPlayer = local_to_map(get_parent().get_node("Player").position)

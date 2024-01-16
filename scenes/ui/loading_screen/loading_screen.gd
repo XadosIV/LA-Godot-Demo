@@ -34,7 +34,7 @@ func finish_transition() -> void:
 	# wait that the animation finish
 	await anim_player.animation_finished
 	
-	queue_free()
+	self.queue_free()
 	
 func report_midpoint() -> void:
 	transition_in_complete.emit()

@@ -21,6 +21,7 @@ func load_new_scene(content_path: String, transition_type: String = "fade_to_bla
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
+	await loading_screen.anim_player.animation_finished
 	_load_content(content_path)
 	
 func _load_content(content_path: String) -> void:
@@ -57,6 +58,7 @@ func monitor_load_status() -> void:
 			_load_progress_timer.queue_free()
 			content_finished_loading.emit(ResourceLoader.load_threaded_get(_content_path).instantiate())
 			return
+			
 func on_content_failed_to_load(path:String) -> void:
 	printerr("error: Failed to load resource: '%s'" % [path])	
 
@@ -72,24 +74,21 @@ func on_content_finished_loading(content) -> void:
 	
 	if content is Level:
 		content.data = incoming_data
-		
-	# remove the old scene
-	outgoing_scene.queue_free()
 	
 	# add the new one
 	get_tree().root.call_deferred("add_child", content)
 	get_tree().set_deferred("current_scene", content)
 	
+	# remove the old scene
+	outgoing_scene.queue_free()
+	
 	if loading_screen != null:
 		loading_screen.finish_transition()
 		if content is Level:
 			content.init_player_location()
-			
 		# wait the transition
-		await  loading_screen.anim_player.animation_finished
+		await loading_screen.anim_player.animation_finished
 		loading_screen = null
 		if content != null:
 			if content is Level:
 				content.enter_level()
-		
-
