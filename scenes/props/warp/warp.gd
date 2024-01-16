@@ -14,7 +14,7 @@ func _on_body_entered(body: CharacterBody2D):
 		
 		SceneManager.load_new_scene(TARGETED_SCENE, TRANSITION_TYPE)
 		queue_free()
-
+		
 # return the player starting location based on the warp location and the entry direction
 func get_player_entry_vector() -> Vector2:
 	var vector: Vector2 = Vector2.UP

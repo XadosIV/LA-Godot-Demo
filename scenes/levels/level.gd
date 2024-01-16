@@ -33,8 +33,8 @@ func init_player_location() -> void:
 # and create a handoff to pass data to the new scene
 func _on_player_entered_warp(warp:Warp) -> void:
 	_disconnect_from_warps()
-	#player.disable()
-	player.queue_free()
+	player.disable()
+	#player.queue_free()
 	data = LevelDataHandoff.new()
 	data.entry_warp_name = warp.ENTRY_WARP_NAME
 	data.move_dir = warp.get_move_direction()

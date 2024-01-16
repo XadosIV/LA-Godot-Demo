@@ -99,27 +99,27 @@ func enable():
 func disable():
 	movement_allowed = false
 
-func apply_direction_on_sprite(toward: Vector2 = facing_direction) -> void:
+func apply_direction_on_sprite() -> void:
 	if (currentMovement == Vector2.ZERO):
-		if (animatedSprite.animation != "idle_left" and toward.x < 0):
+		if (animatedSprite.animation != "idle_left" and facing_direction.x < 0):
 			animatedSprite.animation = "idle_left"
-		if (animatedSprite.animation != "idle_right" and toward.x > 0):
+		if (animatedSprite.animation != "idle_right" and facing_direction.x > 0):
 			animatedSprite.animation = "idle_right"
-		if (animatedSprite.animation != "idle_up" and toward.y < 0):
+		if (animatedSprite.animation != "idle_up" and facing_direction.y < 0):
 			animatedSprite.animation = "idle_up"
-		if (animatedSprite.animation != "idle_down" and toward.y > 0):
+		if (animatedSprite.animation != "idle_down" and facing_direction.y > 0):
 			animatedSprite.animation = "idle_down"
 	else:
 		if (animatedSprite.animation != "move_left" and currentMovement.x < 0):
 			animatedSprite.animation = "move_left"
-			toward = Vector2.LEFT
+			facing_direction = Vector2.LEFT
 		if (animatedSprite.animation != "move_right" and currentMovement.x > 0):
 			animatedSprite.animation = "move_right"
-			toward = Vector2.RIGHT
+			facing_direction = Vector2.RIGHT
 		if (animatedSprite.animation != "move_up" and currentMovement.y < 0):
 			animatedSprite.animation = "move_up"
-			toward = Vector2.UP
+			facing_direction = Vector2.UP
 		if (animatedSprite.animation != "move_down" and currentMovement.y > 0):
 			animatedSprite.animation = "move_down"
-			toward = Vector2.DOWN
+			facing_direction = Vector2.DOWN
 
