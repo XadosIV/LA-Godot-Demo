@@ -1,6 +1,6 @@
 class_name Warp extends Area2D
 
-signal  player_entered_warp(warp: Warp, TRANSITION_TYPE:String)
+signal player_entered_warp(warp: Warp, TRANSITION_TYPE:String)
 
 @export_enum("north", "east", "south", "west") var ENTRY_DIRECTION
 @export_enum("fade_to_black", "wipe_to_right") var TRANSITION_TYPE:String

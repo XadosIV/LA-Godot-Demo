@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba862mjbti1es"
-path="res://.godot/imported/Room_Builder_Floors_16x16.png-842c2ad083c0af4ff0f4f8a590b5f399.ctex"
+uid="uid://ewbrlv13xob1"
+path="res://.godot/imported/19_Hospital_Black_Shadow_16x16.png-38fddfa77b888aa5d848bc22469fca08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/modern_interior/interior/room_builder/Room_Builder_Floors_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_Floors_16x16.png-842c2ad083c0af4ff0f4f8a590b5f399.ctex"]
+source_file="res://assets/modern_interior/interior/props/19_Hospital_Black_Shadow_16x16.png"
+dest_files=["res://.godot/imported/19_Hospital_Black_Shadow_16x16.png-38fddfa77b888aa5d848bc22469fca08.ctex"]
 
 [params]
 

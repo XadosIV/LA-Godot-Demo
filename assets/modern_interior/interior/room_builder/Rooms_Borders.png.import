@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c27raxs5ldx7u"
-path="res://.godot/imported/Room_Builder_Arched_Entryways_16x16.png-1d97b4ed1bfca191b498fe7705c98176.ctex"
+uid="uid://edgc7djsltx6"
+path="res://.godot/imported/Rooms_Borders.png-05821c9ffd80c2b5fccd7cd1bc759a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/modern_interior/interior/room_builder/Room_Builder_Arched_Entryways_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_Arched_Entryways_16x16.png-1d97b4ed1bfca191b498fe7705c98176.ctex"]
+source_file="res://assets/modern_interior/interior/room_builder/Rooms_Borders.png"
+dest_files=["res://.godot/imported/Rooms_Borders.png-05821c9ffd80c2b5fccd7cd1bc759a24.ctex"]
 
 [params]
 

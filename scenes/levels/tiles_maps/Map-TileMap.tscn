@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://crr6puwwsw3lh"]
+
+[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="1_x68rm"]
+
+[node name="TileMap" type="TileMap"]
+y_sort_enabled = true
+tile_set = ExtResource("1_x68rm")
+format = 2
+layer_0/name = "Props"
+layer_0/y_sort_enabled = true
+layer_1/name = "Walls"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Floor"
+layer_2/z_index = -2
+layer_2/tile_data = PackedInt32Array()
