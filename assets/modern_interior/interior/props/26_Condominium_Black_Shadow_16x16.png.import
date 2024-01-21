@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://itoltq6qsdrg"
-path="res://.godot/imported/Room_Builder_Walls_16x16.png-f17a8bc137949e8cfbd84b16e1e82ad7.ctex"
+uid="uid://ldns1gvdx5ne"
+path="res://.godot/imported/26_Condominium_Black_Shadow_16x16.png-a9e8d5c95b1651881840e396b8ed220c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/modern_interior/interior/room_builder/Room_Builder_Walls_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_Walls_16x16.png-f17a8bc137949e8cfbd84b16e1e82ad7.ctex"]
+source_file="res://assets/modern_interior/interior/props/26_Condominium_Black_Shadow_16x16.png"
+dest_files=["res://.godot/imported/26_Condominium_Black_Shadow_16x16.png-a9e8d5c95b1651881840e396b8ed220c.ctex"]
 
 [params]
 

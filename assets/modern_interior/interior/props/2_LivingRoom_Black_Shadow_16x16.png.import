@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://edgc7djsltx6"
-path="res://.godot/imported/Room_Builder_borders_16x16.png-ff5c96597e855868316e7a9848f372f7.ctex"
+uid="uid://bpkgu3ohbd7gf"
+path="res://.godot/imported/2_LivingRoom_Black_Shadow_16x16.png-3115bb0f4ab27e87e7d2c6790a0d9d92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/modern_interior/interior/room_builder/Room_Builder_borders_16x16.png"
-dest_files=["res://.godot/imported/Room_Builder_borders_16x16.png-ff5c96597e855868316e7a9848f372f7.ctex"]
+source_file="res://assets/modern_interior/interior/props/2_LivingRoom_Black_Shadow_16x16.png"
+dest_files=["res://.godot/imported/2_LivingRoom_Black_Shadow_16x16.png-3115bb0f4ab27e87e7d2c6790a0d9d92.ctex"]
 
 [params]
 

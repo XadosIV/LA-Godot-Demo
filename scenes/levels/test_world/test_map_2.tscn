@@ -1,19 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://70owtm87gmby"]
+[gd_scene load_steps=7 format=3 uid="uid://70owtm87gmby"]
 
-[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/interiors_building.tres" id="1_2vy6y"]
+[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="1_2vy6y"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6nwg4"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="1_ov4u7"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="3_ljtlh"]
-[ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/logic_tileset.tres" id="5_qan27"]
+[ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="5_qan27"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="6_lxbtj"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01jxp"]
-load_path = "res://.godot/imported/cyber-EDSR_x4.png-d03060ef311d9ecd69c2ae5b373ad9f1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rhuue"]
-load_path = "res://.godot/imported/blackhole-LapSRN4.png-8c7ced0dc52dbb15ab17e4c158c0bf30.ctex"
-
-[node name="TestMap1" type="Node2D" node_paths=PackedStringArray("player", "warps")]
+[node name="TestMap2" type="Node2D" node_paths=PackedStringArray("player", "warps")]
 script = ExtResource("1_6nwg4")
 player = NodePath("Player")
 warps = [NodePath("warp_t2")]
@@ -46,12 +40,3 @@ position = Vector2(56, -72)
 ENTRY_DIRECTION = 2
 TARGETED_SCENE = "res://scenes/levels/test_world/test_map_1.tscn"
 ENTRY_WARP_NAME = "warp_t1"
-
-[node name="Cyber-edsrX4" type="Sprite2D" parent="."]
-position = Vector2(-2036, -1032)
-scale = Vector2(0.515625, 0.451852)
-texture = SubResource("CompressedTexture2D_01jxp")
-
-[node name="Blackhole-lapSrn4" type="Sprite2D" parent="."]
-position = Vector2(-2224, 264)
-texture = SubResource("CompressedTexture2D_rhuue")
