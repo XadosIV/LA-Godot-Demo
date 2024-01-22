@@ -5,7 +5,7 @@ var facing_direction : Vector2 = Vector2.ZERO
 var movement_allowed : bool = true
 
 var gridPos : Vector2 #correspond aux coordonnées du milieu de la case où est censé être le joueur
-var isMoving : bool = true # est en train de se déplacer entre deux cases, mis à true par défaut pour le mouvement
+var isMoving : bool = false # est en train de se déplacer entre deux cases, mis à true par défaut pour le mouvement
 							# d'entrée dans la zone
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
@@ -20,11 +20,6 @@ var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à
 
 func _ready() -> void:
 	healthPoints = MAXHEALTH_POINT
-	spawn()
-
-func spawn() -> void: #à appeler lorsque le joueur arrivera sur une nouvelle map
-	map.init() # faudra redéfinir la map avant de l'init du coup
-	move(currentMovement) # idem, faudra redéfinir le mouvement d'entrée du joueur
 
 func move(direction : Vector2) -> void: #déplace le joueur dans la direction donnée
 	if map.playerMove(direction): #renvoie true si le mouvement a été effectué
@@ -67,6 +62,10 @@ func playerMoveInput() -> bool: # Vérifie, et exécute, l'input de déplacement
 	# Get the input direction
 	input.x = Input.get_axis("left", "right")
 	input.y = Input.get_axis("up", "down")
+	if input.x > 0: input.x = 1
+	elif input.x < 0: input.x = -1
+	if input.y > 0: input.y = 1
+	elif input.y < 0: input.y = -1
 	
 	if (input.x or input.y):
 		if input.x :
@@ -82,9 +81,10 @@ func _process(delta) -> void:
 	elif isMoving:
 		# on check à la fin du mouvement, si il continue d'appuyer sur une touche
 		# pour fluidifier le mouvement et ne pas l'arrêter
-		if (not playerMoveInput()): 
-			# Si c'est pas le cas, on l'arrête
-			setCurrentMovement(Vector2.ZERO)
+		if movement_allowed:
+			if (not playerMoveInput()): 
+				# Si c'est pas le cas, on l'arrête
+				setCurrentMovement(Vector2.ZERO)
 	else:
 		# Si il y a aucun mouvement, on en attend un.
 		if movement_allowed:

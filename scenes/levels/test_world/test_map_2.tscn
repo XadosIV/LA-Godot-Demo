@@ -7,10 +7,8 @@
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="5_qan27"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="6_lxbtj"]
 
-[node name="TestMap2" type="Node2D" node_paths=PackedStringArray("player", "warps")]
+[node name="TestMap2" type="Node2D"]
 script = ExtResource("1_6nwg4")
-player = NodePath("Player")
-warps = [NodePath("warp_t2")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_2vy6y")
@@ -32,11 +30,11 @@ layer_0/name = "Layer"
 layer_0/tile_data = PackedInt32Array(-196619, 1, 0, -196618, 1, 0, -196617, 1, 0, -196616, 1, 0, -196615, 1, 0, -262151, 1, 0, -327687, 1, 0, -327686, 1, 0, -327685, 1, 0, -327684, 1, 0, -327683, 1, 0, -327682, 1, 0, -327681, 1, 0, -393216, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 1, 0, -327676, 1, 0, -262140, 1, 0, -196604, 1, 0, -131068, 1, 0, 65540, 1, 0, 4, 1, 0, -65532, 1, 0, 65539, 1, 0, 65538, 1, 0, 65537, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 131067, 1, 0, 131066, 1, 0, 131065, 1, 0, 65529, 1, 0, -7, 1, 0, -8, 1, 0, -9, 1, 0, -10, 1, 0, -11, 1, 0, -65547, 1, 0, -131083, 1, 0, -327677, 196609, 0)
 script = ExtResource("6_lxbtj")
 
-[node name="Player" parent="." instance=ExtResource("3_ljtlh")]
-position = Vector2(8, 8)
-
-[node name="warp_t2" parent="." instance=ExtResource("1_ov4u7")]
+[node name="warp_t2" parent="LogicMap" instance=ExtResource("1_ov4u7")]
 position = Vector2(56, -72)
 ENTRY_DIRECTION = 2
 TARGETED_SCENE = "res://scenes/levels/test_world/test_map_1.tscn"
 ENTRY_WARP_NAME = "warp_t1"
+
+[node name="Player" parent="." instance=ExtResource("3_ljtlh")]
+position = Vector2(8, 8)

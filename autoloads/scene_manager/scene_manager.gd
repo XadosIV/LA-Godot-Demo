@@ -10,6 +10,9 @@ var _transition:String
 var _content_path:String
 var _load_progress_timer:Timer
 
+var entry_warp_name : String
+var player : Player
+
 func _ready() -> void:
 	content_invalid.connect(on_content_invalid)
 	content_failed_to_load.connect(on_content_failed_to_load)
@@ -68,13 +71,6 @@ func on_content_invalid(path:String) -> void:
 func on_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	
-	var incoming_data: LevelDataHandoff
-	if get_tree().current_scene is Level:
-		incoming_data = get_tree().current_scene.data as LevelDataHandoff
-	
-	if content is Level:
-		content.data = incoming_data
-	
 	# add the new one
 	get_tree().root.call_deferred("add_child", content)
 	get_tree().set_deferred("current_scene", content)
@@ -84,11 +80,6 @@ func on_content_finished_loading(content) -> void:
 	
 	if loading_screen != null:
 		loading_screen.finish_transition()
-		if content is Level:
-			content.init_player_location()
 		# wait the transition
 		await loading_screen.anim_player.animation_finished
 		loading_screen = null
-		if content != null:
-			if content is Level:
-				content.enter_level()
