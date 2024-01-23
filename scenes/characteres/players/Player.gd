@@ -9,14 +9,11 @@ var isMoving : bool = false # est en train de se déplacer entre deux cases, mis
 							# d'entrée dans la zone
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
-
-
+@onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @export var MAXHEALTH_POINT : int = 100
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
 @export var SPEED_SPRINT : float = 1.6 #Ajouté au multiplicateur au moment de sprint
-
-@onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	healthPoints = MAXHEALTH_POINT

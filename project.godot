@@ -19,9 +19,17 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://autoloads/scene_manager/scene_manager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="LAEditor-Demo"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/PressStart2P-Regular.ttf"
 
 [input]
 
