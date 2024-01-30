@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 var healthPoints : int = 1
 var facing_direction : Vector2 = Vector2.ZERO
 var movement_allowed : bool = true
+var in_dialog : bool = false
 
 var gridPos : Vector2 #correspond aux coordonnées du milieu de la case où est censé être le joueur
 var isMoving : bool = false # est en train de se déplacer entre deux cases, mis à true par défaut pour le mouvement
@@ -10,6 +11,7 @@ var isMoving : bool = false # est en train de se déplacer entre deux cases, mis
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var dialog_box : DialogBox = $Camera2D/DialogBox
 
 @export var MAXHEALTH_POINT : int = 100
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
@@ -87,8 +89,8 @@ func _process(delta) -> void:
 		if movement_allowed:
 			playerMoveInput()
 	
-	if Input.is_action_just_pressed("interact") and movement_allowed:
-		map.interact(facing_direction)
+	if Input.is_action_just_released("interact") and movement_allowed and not in_dialog:
+		await map.interact(facing_direction)
 
 func enable():
 	movement_allowed = true
@@ -120,3 +122,5 @@ func apply_direction_on_sprite() -> void:
 			animatedSprite.animation = "move_down"
 			facing_direction = Vector2.DOWN
 
+func dialog(json: JSON):
+	dialog_box.dialog_init(json)

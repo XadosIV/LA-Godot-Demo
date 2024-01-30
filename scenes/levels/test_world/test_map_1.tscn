@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb7kg5djhb6v3"]
+[gd_scene load_steps=9 format=3 uid="uid://cb7kg5djhb6v3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ds6ne"]
 [ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_xdlnn"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="3_1611w"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="3_mby55"]
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="5_tp1v3"]
+[ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="6_55plw"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="6_eicnd"]
+
+[sub_resource type="JSON" id="JSON_0ld6v"]
+data = null
 
 [node name="TestMap1" type="Node2D"]
 y_sort_enabled = true
@@ -33,8 +37,12 @@ visible = false
 tile_set = ExtResource("5_tp1v3")
 format = 2
 layer_0/name = "Layer"
-layer_0/tile_data = PackedInt32Array(65529, 1, 0, -7, 1, 0, -8, 1, 0, -9, 1, 0, -10, 1, 0, -11, 1, 0, -65547, 1, 0, -196619, 1, 0, -131083, 1, 0, -196618, 1, 0, -196617, 1, 0, -196616, 1, 0, -196615, 1, 0, -262151, 1, 0, -327687, 1, 0, -327686, 1, 0, -327685, 1, 0, -327684, 1, 0, -327683, 1, 0, -327682, 1, 0, -327681, 1, 0, -393216, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 1, 0, -327676, 1, 0, -262140, 1, 0, -196604, 1, 0, -131068, 1, 0, -65532, 1, 0, 4, 1, 0, 65540, 1, 0, 65539, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 131067, 1, 0, 131066, 1, 0, 131065, 1, 0, 65538, 1, 0, 65537, 1, 0, -65536, 1, 0, -262146, 196609, 0)
+layer_0/tile_data = PackedInt32Array(65529, 1, 0, -7, 1, 0, -8, 1, 0, -9, 1, 0, -10, 1, 0, -11, 1, 0, -65547, 1, 0, -196619, 1, 0, -131083, 1, 0, -196618, 1, 0, -196617, 1, 0, -196616, 1, 0, -196615, 1, 0, -262151, 1, 0, -327687, 1, 0, -327686, 1, 0, -327685, 1, 0, -327684, 1, 0, -327683, 1, 0, -327682, 1, 0, -327681, 1, 0, -393216, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 1, 0, -327676, 1, 0, -262140, 1, 0, -196604, 1, 0, -131068, 1, 0, -65532, 1, 0, 4, 1, 0, 65540, 1, 0, 65539, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 131067, 1, 0, 131066, 1, 0, 131065, 1, 0, 65538, 1, 0, 65537, 1, 0, -65536, 1, 0, -262146, 196609, 0, -131081, 131073, 0)
 script = ExtResource("6_eicnd")
+
+[node name="First Actor" parent="LogicMap" instance=ExtResource("6_55plw")]
+position = Vector2(-136, -40)
+test = SubResource("JSON_0ld6v")
 
 [node name="warp_t1" parent="LogicMap" instance=ExtResource("3_mby55")]
 position = Vector2(-24, -72)

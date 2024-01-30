@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5xfa7iqg48ic" path="res://scenes/characteres/players/resources/Roki_16x16.png" id="1_g5cif"]
 [ext_resource type="Script" path="res://scenes/characteres/players/Player.gd" id="1_mh4ux"]
 [ext_resource type="PackedScene" uid="uid://hw021365sa1i" path="res://_debug/info_display/debug_panel.tscn" id="3_s3beh"]
-[ext_resource type="PackedScene" uid="uid://ctc4nodvnxof0" path="res://scenes/ui/dialogues/dialogue_box.tscn" id="4_i0p3s"]
+[ext_resource type="PackedScene" uid="uid://ctc4nodvnxof0" path="res://scenes/ui/dialog/dialog_box.tscn" id="3_xuoct"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yx4fe"]
 atlas = ExtResource("1_g5cif")
@@ -403,7 +403,7 @@ shape = SubResource("RectangleShape2D_htuyu")
 position = Vector2(0, -8)
 zoom = Vector2(3, 3)
 
-[node name="DialogueBox" parent="Camera2D" instance=ExtResource("4_i0p3s")]
+[node name="DialogBox" parent="Camera2D" instance=ExtResource("3_xuoct")]
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugPanel" parent="Camera2D" instance=ExtResource("3_s3beh")]
