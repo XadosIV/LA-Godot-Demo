@@ -89,7 +89,7 @@ func _process(delta) -> void:
 		if movement_allowed:
 			playerMoveInput()
 	
-	if Input.is_action_just_released("interact") and movement_allowed and not in_dialog:
+	if Input.is_action_just_pressed("interact") and movement_allowed and not in_dialog:
 		await map.interact(facing_direction)
 
 func enable():
@@ -122,5 +122,5 @@ func apply_direction_on_sprite() -> void:
 			animatedSprite.animation = "move_down"
 			facing_direction = Vector2.DOWN
 
-func dialog(json: JSON):
-	dialog_box.dialog_init(json)
+func dialog(tab: Array):
+	dialog_box.dialog_init(tab)

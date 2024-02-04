@@ -389,6 +389,9 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mh4ux")
+MAXHEALTH_POINT = null
+SPEED_MULTIPLICATOR = null
+SPEED_SPRINT = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

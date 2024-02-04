@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://c68rgx0udpjax"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_siekl"]
+[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_c0dxt"]
+[ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="3_ihwga"]
+[ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="4_b6knj"]
+[ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="5_xi1sw"]
+[ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="6_fqyas"]
+
+[node name="sv_h3_f0" type="Node2D"]
+script = ExtResource("1_siekl")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_c0dxt")
+format = 2
+layer_0/name = "Props"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-2, 524291, 13, -327685, 458755, 8, -393216, 458755, 8, -327682, 262147, 13, -196614, 131075, 19, -196613, 327683, 6, -196612, 393219, 6, -196611, 458755, 6, -196610, 131075, 19, -327678, 720899, 60, -262142, 524291, 61, -196606, 655363, 62, -327679, 786435, 59, -327680, 851971, 60, -262150, 917507, 63, 2, 983043, 63, -5, 393219, 11, 65531, 393219, 54, -327683, 851971, 61, -327681, 851971, 61, 65534, 655365, 4)
+layer_1/name = "Walls"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(-327686, 65540, 26, -327685, 65540, 26, -327684, 65540, 26, -327683, 65540, 26, -327681, 65540, 26, -393216, 65540, 26, -393215, 65540, 26, -393214, 65540, 26, -327682, 65540, 26, -393223, 393218, 1, -458749, 524290, 1, -393213, 524290, 2, -327677, 524290, 2, -262141, 524290, 2, -196605, 524290, 2, -131069, 524290, 2, -65533, 524290, 2, 3, 524290, 2, -327687, 393218, 2, -262151, 393218, 2, -196615, 393218, 2, -131079, 393218, 2, -65543, 393218, 2, -7, 393218, 2, 65529, 393218, 2)
+layer_2/name = "Floor"
+layer_2/z_index = -2
+layer_2/tile_data = PackedInt32Array(-262150, 0, 30, -196614, 0, 31, -262149, 65536, 30, -196613, 65536, 31, -262148, 131072, 30, -196612, 131072, 31, -262147, 0, 30, -196611, 0, 31, -262146, 65536, 30, -196610, 65536, 31, -262145, 131072, 30, -196609, 131072, 31, -131075, 0, 30, -65539, 0, 31, -131074, 65536, 30, -65538, 65536, 31, -131073, 131072, 30, -65537, 131072, 31, -196608, 0, 30, -131072, 0, 31, -196607, 65536, 30, -131071, 65536, 31, -196606, 131072, 30, -131070, 131072, 31, -327680, 0, 30, -262144, 0, 31, -327679, 65536, 30, -262143, 65536, 31, -327678, 131072, 30, -262142, 131072, 31, -65536, 0, 30, 0, 0, 31, -65535, 65536, 30, 1, 65536, 31, -65534, 131072, 30, 2, 131072, 31, -3, 0, 30, 65533, 0, 31, -2, 65536, 30, 65534, 65536, 31, -1, 131072, 30, 65535, 131072, 31, -6, 0, 30, 65530, 0, 31, -5, 65536, 30, 65531, 65536, 31, -4, 131072, 30, 65532, 131072, 31, -131078, 0, 30, -65542, 0, 31, -131077, 65536, 30, -65541, 65536, 31, -131076, 131072, 30, -65540, 131072, 31)
+
+[node name="LogicMap" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource("3_ihwga")
+collision_visibility_mode = 2
+format = 2
+layer_0/name = "Layer"
+layer_0/tile_data = PackedInt32Array(65534, 196609, 0, 65532, 1, 0, 65531, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 3, 1, 0, -65533, 1, 0, -131069, 1, 0, -196605, 1, 0, -327677, 1, 0, -262141, 1, 0, -393213, 1, 0, -393214, 1, 0, -393215, 1, 0, -393216, 1, 0, -327681, 1, 0, -327682, 1, 0, -327683, 1, 0, -327684, 1, 0, -327685, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327686, 1, 0, -327687, 1, 0, -262150, 1, 0, -196613, 1, 0, -196612, 1, 0, -196611, 1, 0, -262151, 1, 0, -196615, 1, 0, -131079, 1, 0, -65543, 1, 0, -7, 1, 0, 65529, 1, 0, 2, 1, 0)
+script = ExtResource("4_b6knj")
+
+[node name="warp_h3_start_village_entry" parent="LogicMap" instance=ExtResource("5_xi1sw")]
+position = Vector2(-24, 8)
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village.tscn"
+ENTRY_WARP_NAME = "warp_h3"
+
+[node name="Player" parent="." instance=ExtResource("6_fqyas")]
+position = Vector2(8, 8)

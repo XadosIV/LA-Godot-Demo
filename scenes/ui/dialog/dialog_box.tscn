@@ -6,7 +6,7 @@
 [node name="DialogBox" type="CanvasLayer"]
 script = ExtResource("1_gfhwb")
 
-[node name="ContentBox" type="Panel" parent="."]
+[node name="ParagraphBox" type="Panel" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -21,7 +21,7 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContentBox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ParagraphBox"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,13 +35,13 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NameLabel" type="Label" parent="ContentBox/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="ParagraphBox/VBoxContainer"]
 custom_minimum_size = Vector2(590, 30)
 layout_mode = 2
 text = "Test:"
 label_settings = ExtResource("2_br3n8")
 
-[node name="TextLabel" type="Label" parent="ContentBox/VBoxContainer"]
+[node name="TextLabel" type="Label" parent="ParagraphBox/VBoxContainer"]
 custom_minimum_size = Vector2(590, 100)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -51,3 +51,44 @@ label_settings = ExtResource("2_br3n8")
 autowrap_mode = 2
 justification_flags = 227
 max_lines_visible = 4
+
+[node name="ChoiceBox" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -584.0
+offset_right = 320.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NameLabel" type="Label" parent="ChoiceBox"]
+custom_minimum_size = Vector2(590, 30)
+layout_mode = 2
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 46.0
+size_flags_vertical = 0
+text = "Test:"
+label_settings = ExtResource("2_br3n8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -120.0
+offset_right = 304.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 31

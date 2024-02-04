@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://8bmrp3s871pc"]
+
+[ext_resource type="Script" path="res://scenes/ui/dialog/choice_template.gd" id="1_11xfj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_11xfj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 896.0
+offset_bottom = 56.0
+vertical_alignment = 1
+
+[node name="SelectorIcon" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 48.0
