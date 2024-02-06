@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctc4nodvnxof0"]
+[gd_scene load_steps=4 format=3 uid="uid://ctc4nodvnxof0"]
 
 [ext_resource type="Script" path="res://scenes/ui/dialog/dialog_box.gd" id="1_gfhwb"]
 [ext_resource type="LabelSettings" uid="uid://vjgondykbksi" path="res://scenes/ui/dialog/dialog_box.tres" id="2_br3n8"]
+[ext_resource type="LabelSettings" uid="uid://cg4dmnhn8m18r" path="res://scenes/ui/dialog/dialog_box_name.tres" id="2_t3iy5"]
 
 [node name="DialogBox" type="CanvasLayer"]
 script = ExtResource("1_gfhwb")
@@ -39,7 +40,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(590, 30)
 layout_mode = 2
 text = "Test:"
-label_settings = ExtResource("2_br3n8")
+label_settings = ExtResource("2_t3iy5")
 
 [node name="TextLabel" type="Label" parent="ParagraphBox/VBoxContainer"]
 custom_minimum_size = Vector2(590, 100)
@@ -76,7 +77,7 @@ offset_right = 624.0
 offset_bottom = 46.0
 size_flags_vertical = 0
 text = "Test:"
-label_settings = ExtResource("2_br3n8")
+label_settings = ExtResource("2_t3iy5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ChoiceBox"]
 layout_mode = 1

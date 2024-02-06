@@ -32,6 +32,10 @@ func _process(delta):
 			
 			
 func dialog_init(tab: Array):
+	if (tab[0].name == "Kaiou"):
+		paragraph_text_label.label_settings.font_size = 60
+	else:
+		paragraph_text_label.label_settings.font_size = 14
 	if(len(tab) >= 0):
 		player.disable()
 		dialogList = tab

@@ -1,8 +1,14 @@
 class_name Actors extends Node2D
+@onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 
-@export_enum("je_mur", "qcm", "hummm", "droite", "r_barree", "jcm") var DIALOG_CHOICE : String
+@export_enum("je_mur", "je_kaiou", "qcm", "hummm", "droite", "r_barree", "jcm") var DIALOG_CHOICE : String
 
 var je_mur : Array = [{"type":"paragraph","name":"Mur","avatar":"","text":"Je Mur"}]
+var je_kaiou : Array = [
+	{"type":"paragraph","name":"Kaiou","avatar":"","text":"Je kaiou."},
+	{"type":"mcq","name":"Kaiou","avatar":"","text":"Et toi tu kaiou ?", "questions":["Oui.", "Non.", "Kaiou ?", "KAIOU!"]},
+	{"type":"paragraph","name":"Kaiou","avatar":"","text":"KAIOU."}
+]
 var hummm : Array = [{"type":"paragraph","name":"Panneau","avatar":"","text":"Hummmm ......"}]
 var droite : Array = [{"type":"paragraph","name":"Panneau","avatar":"","text":"<- Vers Le Bourget Du Lac"}]
 var jcm : Array = [
@@ -22,7 +28,7 @@ var jcm : Array = [
 		"type":"mcq",
 		"name":"JCM",
 		"avatar":"",
-		"text":"Quelles sont les couleurs de mes fleurs",
+		"text":"Quelles sont les couleurs de mes fleurs?",
 		"questions":["1- Bleue","2- Rouge","3- Blanche","4- Jaune"]
 	}
 ]
@@ -43,16 +49,32 @@ var qcm : Array = [
 	}
 ]
 @export var actorName : String = "..."
-
+@export var visibile : bool = false
+@export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
-# Called when the node enters the scene tree for the first time.
+@export_enum("north", "east", "south", "west") var facing_direction
+
 func _ready():
-	pass # Replace with function body.
+	
+	if sprite:
+		animatedSprite.sprite_frames = sprite
+		animatedSprite.animation = "idle_up"
+		match facing_direction:
+			1:
+				animatedSprite.animation = "idle_left"
+			2:
+				animatedSprite.animation = "idle_down"
+			3:
+				animatedSprite.animation = "idle_right"
+			
+	animatedSprite.visible = visibile
 
 func interact():
 	match DIALOG_CHOICE:
 		"je_mur":
 			sm.player.dialog(je_mur)
+		"je_kaiou":
+			sm.player.dialog(je_kaiou)
 		"hummm":
 			sm.player.dialog(hummm)
 		"droite":

@@ -28,6 +28,7 @@ layer_0/tile_data = PackedInt32Array(-262143, 1, 0, -262144, 1, 0, -196609, 1, 0
 script = ExtResource("3_d20j5")
 
 [node name="First Actor" parent="LogicMap" instance=ExtResource("4_4dpwk")]
+position = Vector2(104, -8)
 
 [node name="Player" parent="." instance=ExtResource("4_t0u7f")]
 position = Vector2(-56, -8)

@@ -1,6 +1,6 @@
 class_name Choice extends Control
 
-@onready var selector_icon : Panel = $SelectorIcon
+@onready var selector_icon : TextureRect = $SelectorIcon
 @onready var text_label : Label = $Label
 
 func _ready():
