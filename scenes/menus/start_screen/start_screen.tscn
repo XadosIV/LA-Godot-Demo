@@ -11,8 +11,8 @@ script = ExtResource("1_ay0e7")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 7.0
-offset_right = 16.0
-offset_bottom = 15.0
+offset_right = 128.0
+offset_bottom = 48.0
 text = "Enter"
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

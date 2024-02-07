@@ -3,8 +3,10 @@ class_name LogicMap extends TileMap
 var posPlayer : Vector2
 var actors : Dictionary
 var warps : Dictionary
+var items : Dictionary
 
 func _ready() -> void:
+	hide_map()
 	load_map()
 
 func init() -> void:
@@ -17,6 +19,8 @@ func load_map() -> void: # pour maintenant
 			actors[child.name] = [local_to_map(child.position), child]
 		elif isWarp(pos):
 			warps[child.name] = [local_to_map(child.position), child]
+		elif isItem(pos):
+			items[child.name] = [local_to_map(child.position), child]
 
 func posToWarp(pos : Vector2) -> Warp :
 	for name in warps:
@@ -29,6 +33,13 @@ func posToActor(pos : Vector2) -> Actors :
 		if actors[name][0] == Vector2i(pos):
 			return actors[name][1]
 	return null
+	
+func posToItem(pos : Vector2) -> Items :
+	for name in items:
+		if items[name][0] == Vector2i(pos):
+			return items[name][1]
+	return null
+
 
 func isTile(mapPos: Vector2, tileId : Vector2i) -> bool:
 	return get_cell_atlas_coords(0, mapPos) == tileId
@@ -64,7 +75,10 @@ func playerMove(movement) -> bool: # renvoie si le mouvement a pu être fait ou 
 func interact(movement) -> bool:
 	var mapPos = posPlayer + movement
 	if isItem(mapPos): #Item
+		posToItem(mapPos).interact()
+		posToItem(mapPos).queue_free()
 		set_cell(0, mapPos)
+		
 		return true
 	elif isActor(mapPos):
 		posToActor(mapPos).interact()
@@ -73,3 +87,8 @@ func interact(movement) -> bool:
 
 func _process(delta) -> void:
 	pass
+
+func hide_map():
+	set_layer_modulate(0, Color(1.0, 1.0, 1.0, 0.0))
+func show_map():
+	set_layer_modulate(0, Color(1.0, 1.0, 1.0, 1.0))
