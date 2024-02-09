@@ -1,6 +1,6 @@
 extends Control
 
-# TODO create an autoload with all the path to the scenes
+# TODO Créer un autoload avec totues les varaibles vers les scènes
 
 var in_transition : bool = false
 

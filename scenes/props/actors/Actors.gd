@@ -56,6 +56,7 @@ var qcm : Array = [
 
 func _ready():
 	
+	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
 		animatedSprite.sprite_frames = sprite
 		animatedSprite.animation = "idle_up"
@@ -69,6 +70,7 @@ func _ready():
 			
 	animatedSprite.visible = visibile
 
+# Action quand le joueur interagit avec un acteur
 func interact():
 	match DIALOG_CHOICE:
 		"je_mur":
@@ -85,7 +87,3 @@ func interact():
 			sm.player.dialog(r_barree)
 		"qcm":
 			sm.player.dialog(qcm)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
