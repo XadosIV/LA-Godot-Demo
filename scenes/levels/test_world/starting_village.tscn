@@ -815,7 +815,7 @@ y_sort_enabled = true
 script = ExtResource("1_m8626")
 
 [node name="Player" parent="." instance=ExtResource("2_32bso")]
-position = Vector2(127, 7)
+position = Vector2(8, 8)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
