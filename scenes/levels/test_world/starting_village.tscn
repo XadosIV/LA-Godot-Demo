@@ -856,7 +856,7 @@ position = Vector2(-40, 8)
 [node name="Npc_JCM" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(280, -120)
 DIALOG_CHOICE = "jcm"
-visibile = true
+showed = true
 sprite = ExtResource("7_iw3xc")
 facing_direction = 2
 

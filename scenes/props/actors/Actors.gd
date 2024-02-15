@@ -49,7 +49,7 @@ var qcm : Array = [
 	}
 ]
 @export var actorName : String = "..."
-@export var visibile : bool = false
+@export var showed : bool = false
 @export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
 @export_enum("north", "east", "south", "west") var facing_direction
@@ -68,7 +68,7 @@ func _ready():
 			3:
 				animatedSprite.animation = "idle_right"
 			
-	animatedSprite.visible = visibile
+	animatedSprite.visible = showed
 
 # Action quand le joueur interagit avec un acteur
 func interact():

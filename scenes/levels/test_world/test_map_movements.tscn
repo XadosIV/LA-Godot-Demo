@@ -29,7 +29,6 @@ script = ExtResource("3_d20j5")
 
 [node name="First Actor" parent="LogicMap" instance=ExtResource("4_4dpwk")]
 position = Vector2(104, -8)
-visibile = true
 
 [node name="Player" parent="." instance=ExtResource("4_t0u7f")]
 position = Vector2(-56, -8)
