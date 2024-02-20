@@ -10,6 +10,8 @@ func _ready():
 func on_files_dropped(files):
 	print(files)
 
+
+#MDR
 func _on_button_button_up():
 	SceneManager.load_new_scene("res://scenes/levels/test_world/starting_village.tscn", "wipe_to_right")
 	
