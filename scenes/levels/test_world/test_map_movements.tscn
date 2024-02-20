@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="4_4dpwk"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="4_t0u7f"]
 
-[node name="TestMap1" type="Node2D"]
+[node name="TestMap2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_rnk0i")
