@@ -9,11 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Send mail
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Send mail
-      uses: dawidd6/action-send-mail@v3
+      uses: dawidd6/action-send-mail@v3.11.0
       with:
         username: likeasimili@gmail.com
         password: LikeASimili*2023
