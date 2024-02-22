@@ -22,8 +22,8 @@ func create_dialog(nom: String, data:Array):
 	if not dialog_exists(nom):
 		for i in data:
 			if i["type"] == "mcq":
-				i["text"] = sm.json_data["exercises"][i["id"]]["question"]
-				i["questions"] = sm.json_data["exercises"][i["id"]]["options"]
+				i["text"] = sm.json_data["exercises"][i["exercise"]]["question"]
+				i["questions"] = sm.json_data["exercises"][i["exercise"]]["options"]
 		print(data)
 		dialog[nom] = data
 	else:
