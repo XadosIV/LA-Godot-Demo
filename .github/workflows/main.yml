@@ -1,0 +1,22 @@
+name: Send Email on Branch Change
+
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    name: Send mail
+    steps:
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3.11.0
+      with:
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        server_address: smtp.gmail.com
+        server_port: 465
+        subject: Github Actions job result
+        to: rxmagics@gmail.com
+        from: WG SE
+        body: Build job of ${{ github.repository }} completed successfully!

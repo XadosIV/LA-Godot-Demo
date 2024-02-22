@@ -13,7 +13,7 @@ func on_files_dropped(files):
 	if path.ends_with(".json"):
 		$VBoxContainer/Button.visible = true
 		var jstring = FileAccess.get_file_as_string(path)
-		#SceneManager.json_data = JSON.parse_string(jstring)
+		SceneManager.json_data = JSON.parse_string(jstring)
 		$Label.text = str(path)
 	else:
 		path = null

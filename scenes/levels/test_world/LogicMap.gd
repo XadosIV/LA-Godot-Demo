@@ -5,6 +5,8 @@ var actors : Dictionary
 var warps : Dictionary
 var items : Dictionary
 
+var npc_scene = preload("res://scenes/props/actors/actor.tscn")
+
 func _ready() -> void:
 	hide_map()
 	load_map()
@@ -13,6 +15,9 @@ func init() -> void:
 	posPlayer = local_to_map(get_parent().get_node("Player").position)
 
 func load_map() -> void: # pour maintenant
+	actors = {}
+	warps = {}
+	items = {}
 	for child in get_children():
 		var pos = local_to_map(child.position)
 		if isActor(pos):
@@ -84,6 +89,17 @@ func interact(movement) -> bool:
 		posToActor(mapPos).interact()
 		return true
 	return false
+
+func create_actor(mapPos, dialogName, load=true):
+	var npc = npc_scene.instantiate()
+	add_child(npc)
+	npc.position = mapPos * 16 + Vector2i(8,8)
+	
+	npc.DIALOG_NAME = dialogName
+	
+	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
+	if load:
+		load_map()
 
 func _process(delta) -> void:
 	pass
