@@ -27,19 +27,22 @@
 		}
 	],
 	"r_barree":[{"type":"paragraph","name":"Panneau","text":"Route Barrée"}],
-	"qcm":[
+	"dragon":[
 		{
 			"type":"paragraph",
-			"name":"JCM",
-			
-			"text":"Non"
+			"name":"Christine",
+			"text":"J'ai une question pour toi..."
 		},
 		{
 			"type":"mcq",
-			"name":"JCM",
-			
-			"text":"Ceci est une question?",
-			"questions":["1- La réponse 1","2- La réponse 2","3- La réponse 3","4- La réponse 4"]
+			"name":"Christine",
+			"text":"Quel est la différence entre un diagramme de classe et un use case ?",
+			"questions":["1- Quoi ?", "2- QUUUOII?"]
+		},
+		{
+			"type":"paragraph",
+			"name":"Christine",
+			"text":"COUBEH !!!"
 		}
 	]
 }
