@@ -7,7 +7,8 @@ class_name DialogBox extends CanvasLayer
 
 # Récupération des Nodes piur la boite de dialogue à choix multiple
 @onready var mChoice_box : Panel = $ChoiceBox
-@onready var mChoice_container: VBoxContainer = $ChoiceBox/VBoxContainer
+@onready var mChoice_scroll_container: ScrollContainer = $ChoiceBox/ScrollContainer
+@onready var mChoice_container: VBoxContainer = $ChoiceBox/ScrollContainer/VBoxContainer
 @onready var mChoice_name_label : Label = $ChoiceBox/NameLabel
 
 @onready var player : Player = get_parent().get_parent()
@@ -91,6 +92,7 @@ func init_mcq() -> void:
 	temp.set_text("Envoyer")
 	all_choice_node.append(temp)
 	all_choice_node[current_selected_choice].hover()
+	mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
 	show_mChoice_box()
 
 func dialog_mcq_interact() -> void:
@@ -127,13 +129,15 @@ func dialog_mcq_interact() -> void:
 			all_choice_node[current_selected_choice].not_hover()
 			current_selected_choice = (current_selected_choice + 1) % len(all_choice_node)
 			all_choice_node[current_selected_choice].hover()
-
+			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
+			
 		if Input.is_action_just_pressed("up"): 	# Déplace le sélecteur de -1 dans la liste (vers le haut)
 			all_choice_node[current_selected_choice].not_hover()
 			current_selected_choice -= 1
 			if current_selected_choice < 0:
 				current_selected_choice = len(all_choice_node)-1
 			all_choice_node[current_selected_choice].hover()
+			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
 
 # Vide la boite de dialogue à choix multiple	
 func reset_of_mcq() -> void:
