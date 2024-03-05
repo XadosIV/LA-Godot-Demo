@@ -19,8 +19,8 @@ func _ready() -> void:
 		sm.player.move(entryWarp[1].get_move_direction()) #Sort le joueur du warp
 	else:
 		lm.init()
-
 	sm.player.enable()
+
 
 
 func load_json_data():

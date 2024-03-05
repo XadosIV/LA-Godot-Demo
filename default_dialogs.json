@@ -23,7 +23,7 @@
 		},
 		{
 			"type":"mcq","name":"JCM","text":"Quelles sont les couleurs de mes fleurs?",
-			"questions":["1- Bleue","2- Rouge","3- Blanche","4- Jaune"]
+			"questions":["1- Bleue","2- Rouge","3- Blanche","4- Jaune","5- Vert","6- Rose","7- Violet","8- Cyan","9- Orange","10- Bleulaune"]
 		}
 	],
 	"r_barree":[{"type":"paragraph","name":"Panneau","text":"Route Barrée"}],
