@@ -79,7 +79,7 @@ size_flags_vertical = 0
 text = "Test:"
 label_settings = ExtResource("2_t3iy5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceBox"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ChoiceBox"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,4 +92,7 @@ offset_right = 304.0
 offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 31
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceBox/ScrollContainer"]
+layout_mode = 2
