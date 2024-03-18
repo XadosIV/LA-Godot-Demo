@@ -7,12 +7,14 @@ var items : Dictionary
 
 var npc_scene = preload("res://scenes/props/actors/actor.tscn")
 
+@onready var player : Player =get_parent().get_node("Player")
+
 func _ready() -> void:
 	hide_map()
 	load_map()
 
 func init() -> void:
-	posPlayer = local_to_map(get_parent().get_node("Player").position)
+	posPlayer = local_to_map(player.position)
 
 func load_map() -> void: # pour maintenant
 	actors = {}
@@ -80,8 +82,10 @@ func playerMove(movement) -> bool: # renvoie si le mouvement a pu être fait ou 
 func interact(movement) -> bool:
 	var mapPos = posPlayer + movement
 	if isItem(mapPos): #Item
-		posToItem(mapPos).interact()
-		posToItem(mapPos).queue_free()
+		var targeted_item : Items = posToItem(mapPos)
+		targeted_item.interact()
+		player.inventory_add(targeted_item)
+		targeted_item.queue_free()
 		set_cell(0, mapPos)
 		
 		return true
