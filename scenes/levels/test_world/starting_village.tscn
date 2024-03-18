@@ -861,7 +861,6 @@ id = "item_test_1"
 position = Vector2(280, -120)
 DIALOG_NAME = "jcm"
 sprite = ExtResource("7_iw3xc")
-facing_direction_import = 1
 
 [node name="Sign_Left" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-136, -40)
