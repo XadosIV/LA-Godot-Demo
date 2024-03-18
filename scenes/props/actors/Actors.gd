@@ -7,26 +7,43 @@ var actorName : String = "Je n'ai pas de nom!"
 @export var showed : bool = true
 @export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
-@export_enum("north", "east", "south", "west") var facing_direction
+@export_enum("north", "east", "south", "west") var facing_direction_import
+
+var facing_direction : Vector2
 
 func _ready():
 	
 	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
-		animatedSprite.sprite_frames = sprite
-		animatedSprite.animation = "idle_up"
-		match facing_direction:
+		#animatedSprite.sprite_frames = sprite
+		#animatedSprite.animation = "idle_up"
+		facing_direction = Vector2.UP
+		match facing_direction_import:
 			1:
-				animatedSprite.animation = "idle_left"
+				facing_direction = Vector2.RIGHT
 			2:
-				animatedSprite.animation = "idle_down"
+				facing_direction = Vector2.DOWN
 			3:
-				animatedSprite.animation = "idle_right"
+				facing_direction = Vector2.LEFT
+		apply_direction_to_sprite(facing_direction)
 	animatedSprite.visible = showed
 
 # Action quand le joueur interagit avec un acteur
 func interact():
 	var dm = get_tree().root.get_node("/root/DialogManager")
-	
+	facing_direction = Vector2.ZERO - sm.player.facing_direction
+	apply_direction_to_sprite(facing_direction)
 	if dm.dialog_exists(DIALOG_NAME):
 		sm.player.dialog(dm.get_dialog(DIALOG_NAME))
+
+func apply_direction_to_sprite(direction : Vector2):
+	animatedSprite.sprite_frames = sprite
+	match direction:
+		Vector2.RIGHT:
+			animatedSprite.animation = "idle_right"
+		Vector2.LEFT:
+			animatedSprite.animation = "idle_left"
+		Vector2.UP:
+			animatedSprite.animation = "idle_up"
+		_:
+			animatedSprite.animation = "idle_down"
