@@ -55,7 +55,9 @@ func loadPage(id):
 
 func executeNextAction():
 	if actions_fifo.size() != 0:
-		readAction(lastIdExecuted, actions_fifo.remove(0)) #défile l'action mise en paramètre et la renvoie donc
+		var next = readAction(lastIdExecuted, actions_fifo.pop_front()) #défile l'action mise en paramètre et la renvoie donc
+		if next:
+			executeNextAction()
 
 func getName(id, action):
 	var name = "Diantre ! Je n'ai point de nom, how is that possible ?"
@@ -71,16 +73,21 @@ func readAction(id, action):
 	match action.type:
 		"dire":
 			dire(getName(id, action), action.text)
+			return false
 		"exercice":
 			exercice(getName(id, action), action.target, action.echec, action.succes)
+			return false
 		"aller":
 			aller(action.target, action.page)
+			return true
 		"executer":
 			executer(id, action.page)
+			return true
 		"donner":
 			donner(action.id)
+			return true
 		_:
-			print("Mot inconnu.")
+			printerr("Mot inconnu.")
 
 func dire(name, text):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
@@ -94,16 +101,18 @@ func exercice(name, id_exercice, echec, succes):
 	if exercice:
 		dialog_box.dialog_init([{"name":name, "text":exercice.question, "type":"mcq", "questions":exercice.options}])
 	else:
-		print("marche po")
+		printerr("marche po")
 
 func aller(id, page):
 	var npc = getNpcById(id)
-	if npc != -1:
-		if npc.pages.length < page:
+	if npc:
+		if page < npc.pages.size():
 			npc.currentPage = page
+			return 0
 		else:
 			return -2 # Page introuvable
-	return -1 # Pnj introuvable
+	else:
+		return -1 # Pnj introuvable
 
 func executer(id, page):
 	# break l'action courante et lit la page donnée

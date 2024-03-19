@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b51jr8xteu3mk" path="res://scenes/props/items/item.tscn" id="6_3pejo"]
 [ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="6_6x5ob"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="7_e31g6"]
-[ext_resource type="SpriteFrames" uid="uid://bf0hsy5r88851" path="res://scenes/characteres/players/resources/Oldman.tres" id="8_pc8v3"]
+[ext_resource type="SpriteFrames" uid="uid://cpn3ydq07leba" path="res://scenes/characteres/players/resources/Oldman.tres" id="8_pc8v3"]
 [ext_resource type="Texture2D" uid="uid://veifnt8kpulr" path="res://assets/Toothless-tileset.png" id="10_3w0aj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08yjp"]

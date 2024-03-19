@@ -2,8 +2,6 @@ class_name Level extends Node
 
 @onready var sm: SceneManager = get_parent().get_node("SceneManager")
 @onready var am: ActionsManager = get_parent().get_node("ActionManager")
-
-
 @onready var lm = get_node("LogicMap")
 
 # Initialisation d'un level

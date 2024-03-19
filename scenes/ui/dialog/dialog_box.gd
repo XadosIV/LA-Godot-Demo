@@ -48,7 +48,8 @@ func dialog_init(tab: Array):
 	if(len(tab) >= 0):
 		player.disable()
 		dialogList = tab
-		init_paragraph()
+		init_next()
+		#init_paragraph()
 
 
 
@@ -178,6 +179,8 @@ func end_of_dialogue() -> void:		#gere le cas ou l'on arrive à la fin d'un dial
 	paragraph_text_label.lines_skipped = 0
 	player.enable()
 	player.in_dialog = false
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.executeNextAction()
 	
 func hide_paragraph_box() -> void:
 	paragraph_box.visible = false
