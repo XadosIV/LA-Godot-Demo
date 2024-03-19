@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://cb7kg5djhb6v3"]
+[gd_scene load_steps=125 format=3 uid="uid://cb7kg5djhb6v3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_m8626"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="2_32bso"]
@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b51jr8xteu3mk" path="res://scenes/props/items/item.tscn" id="6_3pejo"]
 [ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="6_6x5ob"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="7_e31g6"]
-[ext_resource type="SpriteFrames" uid="uid://bf6qn1pfyawt8" path="res://scenes/characteres/players/resources/Player.tres" id="7_iw3xc"]
+[ext_resource type="SpriteFrames" uid="uid://cpn3ydq07leba" path="res://scenes/characteres/players/resources/Oldman.tres" id="8_pc8v3"]
 [ext_resource type="Texture2D" uid="uid://veifnt8kpulr" path="res://assets/Toothless-tileset.png" id="10_3w0aj"]
-[ext_resource type="Texture2D" uid="uid://dgpi6log1lhgb" path="res://assets/IMG_20240223_072339.jpg" id="11_goxq3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08yjp"]
 atlas = ExtResource("10_3w0aj")
@@ -861,7 +860,7 @@ id = "item_test_1"
 [node name="Npc_JCM" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(280, -120)
 DIALOG_NAME = "jcm"
-sprite = ExtResource("7_iw3xc")
+sprite = ExtResource("8_pc8v3")
 
 [node name="Sign_Left" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-136, -40)
@@ -927,8 +926,3 @@ scale = Vector2(0.3125, 0.3125)
 sprite_frames = SubResource("SpriteFrames_f5a3i")
 autoplay = "default"
 frame_progress = 0.652066
-
-[node name="Img20240223072339" type="Sprite2D" parent="."]
-position = Vector2(-224, 296)
-scale = Vector2(0.0747286, 0.0689337)
-texture = ExtResource("11_goxq3")

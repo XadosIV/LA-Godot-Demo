@@ -40,7 +40,6 @@ func finish_transition() -> void:
 	
 	# atten jusqu'a ce que l'animation soit terminée
 	await anim_player.animation_finished
-	print("ici")
 	# Détruit le loading screen
 	#self.queue_free()
 	
