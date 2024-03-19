@@ -40,9 +40,8 @@ func finish_transition() -> void:
 	
 	# atten jusqu'a ce que l'animation soit terminée
 	await anim_player.animation_finished
-	
 	# Détruit le loading screen
-	self.queue_free()
+	#self.queue_free()
 	
 # Signal pour indiquer la moitier du chargement
 func report_midpoint() -> void:

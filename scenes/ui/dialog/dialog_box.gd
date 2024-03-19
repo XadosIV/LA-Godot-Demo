@@ -78,6 +78,12 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 
 
 
+"""
+
+	Questions à choix multiples
+
+"""
+
 func init_mcq() -> void:
 	selected_choice = []
 	current_selected_choice = 0
@@ -152,6 +158,8 @@ func reset_of_mcq() -> void:
 # TODO Fonction qui renvoie le pourcentage de réussite à une question
 func verif_mcq(tab: Array) -> float:
 	return 1.0
+
+
 
 # Init le prochain élement de dialogue
 func init_next() -> void:

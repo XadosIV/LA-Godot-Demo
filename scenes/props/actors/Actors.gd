@@ -7,17 +7,15 @@ var actorName : String = "Je n'ai pas de nom!"
 @export var showed : bool = true
 @export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
-@export_enum("north", "east", "south", "west") var facing_direction_import
+@export_enum("north", "east", "south", "west") var facing_direction_import = 0
 
 var facing_direction : Vector2
 
 func _ready():
-	
 	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
 		#animatedSprite.sprite_frames = sprite
 		#animatedSprite.animation = "idle_up"
-		facing_direction = Vector2.UP
 		match facing_direction_import:
 			1:
 				facing_direction = Vector2.RIGHT
@@ -25,6 +23,8 @@ func _ready():
 				facing_direction = Vector2.DOWN
 			3:
 				facing_direction = Vector2.LEFT
+			_:
+				facing_direction = Vector2.UP
 		apply_direction_to_sprite(facing_direction)
 	animatedSprite.visible = showed
 
