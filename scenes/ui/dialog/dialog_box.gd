@@ -38,7 +38,6 @@ func _process(delta):
 # Initialise les boites de dialogue
 func dialog_init(tab: Array):
 	for i in tab:
-		print(i)
 		if (not "name" in i):
 			i.name = ""
 	if (tab[0].name == "Kaiou"):

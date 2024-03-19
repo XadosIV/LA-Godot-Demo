@@ -10,8 +10,6 @@ var _transition:String
 var _content_path:String
 var _load_progress_timer:Timer
 
-var json_data : Dictionary
-
 var entry_warp_name : String
 var player : Player
 

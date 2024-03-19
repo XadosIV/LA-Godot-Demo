@@ -127,9 +127,6 @@ func apply_direction_on_sprite() -> void:
 			animatedSprite.animation = "move_down"
 			facing_direction = Vector2.DOWN
 
-func dialog(tab: Array):
-	dialog_box.dialog_init(tab)
-
 func inventory_open_close() -> void:
 	if(Input.is_action_just_pressed("inventory")):
 		print("Inventaire "+str(len(inventory)))

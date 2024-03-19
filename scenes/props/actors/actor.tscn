@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c428rxsmkxacc"]
 
 [ext_resource type="Script" path="res://scenes/props/actors/Actors.gd" id="1_x1qeu"]
-[ext_resource type="SpriteFrames" uid="uid://bf6qn1pfyawt8" path="res://scenes/characteres/players/resources/Roki.tres" id="2_7m5ih"]
+[ext_resource type="SpriteFrames" uid="uid://b5wcve3kf2rhu" path="res://scenes/characteres/players/resources/Roki.tres" id="2_fhupl"]
 
 [node name="First Actor" type="Node2D"]
 script = ExtResource("1_kiev0")
@@ -9,6 +9,6 @@ script = ExtResource("1_kiev0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -8)
-sprite_frames = ExtResource("2_7m5ih")
+sprite_frames = ExtResource("2_fhupl")
 animation = &"idle_down"
 autoplay = "idle_down"

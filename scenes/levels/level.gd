@@ -1,7 +1,7 @@
 class_name Level extends Node
 
 @onready var sm: SceneManager = get_parent().get_node("SceneManager")
-@onready var dm: DialogManager = get_parent().get_node("DialogManager")
+@onready var am: ActionsManager = get_parent().get_node("ActionManager")
 
 
 @onready var lm = get_node("LogicMap")
@@ -21,17 +21,10 @@ func _ready() -> void:
 		lm.init()
 	sm.player.enable()
 
-
-
 func load_json_data():
-	
-	if sm.json_data:
-		if sm.json_data["entities"]:
-			for i in sm.json_data["entities"]:
-				dm.create_dialog(str(i["id"]), i["actions"])
-				lm.create_actor(Vector2i((-6+i["id"]), -7), str(i["id"]))
-			
-			#for i in range(10):
-			#	lm.create_actor(Vector2i((-6+i), -7), "truc")
+	if am.json_data:
+		for i in am.npcs:
+			print("AAAAAAAAAAH")
+			lm.create_actor(i["id"], Vector2i((-6+i["id"]), -7))
 	else:
 		print("No JSON Data Loaded.")
