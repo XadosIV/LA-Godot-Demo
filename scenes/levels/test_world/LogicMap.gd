@@ -101,7 +101,7 @@ func create_actor(mapPos, dialogName, load=true):
 	npc.DIALOG_NAME = dialogName
 	
 	#place holder tant que l'import ne prend pas en charge les sprites
-	npc.sprite = load("res://scenes/characteres/players/resources/Player.tres")
+	npc.sprite = load("res://scenes/characteres/players/resources/Roki.tres")
 	
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
