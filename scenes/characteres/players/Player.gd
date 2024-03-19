@@ -1,12 +1,13 @@
 class_name Player extends CharacterBody2D
 
 var healthPoints : int = 1
+var inventory : Array = []
 var facing_direction : Vector2 = Vector2.ZERO
 var movement_allowed : bool = true
 var in_dialog : bool = false
 
 var gridPos : Vector2 #correspond aux coordonnées du milieu de la case où est censé être le joueur
-var isMoving : bool = false # est en train de se déplacer entre deux cases, mis à true par défaut pour le mouvement
+var isMoving : bool = false # est en train de se déplacer entre deux cases
 							# d'entrée dans la zone
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
@@ -87,6 +88,7 @@ func _process(delta) -> void:
 	else:
 		# Si il y a aucun mouvement, on en attend un.
 		if movement_allowed:
+			inventory_open_close()
 			playerMoveInput()
 	
 	if Input.is_action_just_pressed("interact") and movement_allowed and not in_dialog:
@@ -96,6 +98,9 @@ func enable():
 	movement_allowed = true
 
 func disable():
+	currentMovement = Vector2.ZERO
+	isMoving = false
+	apply_direction_on_sprite()
 	movement_allowed = false
 
 func apply_direction_on_sprite() -> void:
@@ -124,3 +129,11 @@ func apply_direction_on_sprite() -> void:
 
 func dialog(tab: Array):
 	dialog_box.dialog_init(tab)
+
+func inventory_open_close() -> void:
+	if(Input.is_action_just_pressed("inventory")):
+		print("Inventaire "+str(len(inventory)))
+		for item in inventory:
+			print(item.id)
+func inventory_add(item_to_add: Items) -> void:
+	inventory += [{"id":item_to_add.id}]

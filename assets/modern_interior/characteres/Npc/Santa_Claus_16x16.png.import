@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5xfa7iqg48ic"
-path="res://.godot/imported/Roki_16x16.png-d200b601c5343e50fbf6e29e1fa68180.ctex"
+uid="uid://cfauqn5gwqfdq"
+path="res://.godot/imported/Santa_Claus_16x16.png-538db5a446cf2bc0b1b6b753a09a9094.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/characteres/players/resources/Roki_16x16.png"
-dest_files=["res://.godot/imported/Roki_16x16.png-d200b601c5343e50fbf6e29e1fa68180.ctex"]
+source_file="res://assets/modern_interior/characteres/Npc/Santa_Claus_16x16.png"
+dest_files=["res://.godot/imported/Santa_Claus_16x16.png-538db5a446cf2bc0b1b6b753a09a9094.ctex"]
 
 [params]
 
