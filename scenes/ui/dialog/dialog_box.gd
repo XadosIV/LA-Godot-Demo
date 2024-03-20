@@ -17,6 +17,8 @@ class_name DialogBox extends CanvasLayer
 var dialogList : Array
 var currentDialogue : int
 
+var inMcq : bool
+
 # Variables pour la boite de dialogue à choix multiple
 var current_selected_choice : int = 0
 var selected_choice : Array = []
@@ -31,8 +33,10 @@ func _process(delta):
 	if len(dialogList) > 0:
 		match dialogList[currentDialogue]["type"]:
 			"paragraph":
+				inMcq = false
 				dialog_paragraph_interact()
 			"mcq":
+				inMcq = true
 				dialog_mcq_interact()
 			
 # Initialise les boites de dialogue
@@ -109,6 +113,11 @@ func dialog_mcq_interact() -> void:
 			else:
 				if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
 					var res = await verif_mcq(selected_choice)
+					
+					#Envoie du résultat à l'actionsManager
+					var am : ActionManager = get_tree().root.get_node("ActionManager")
+					am.exo_result(res)
+					
 					# Test si fin de dialogue
 					if(currentDialogue >= len(dialogList)-1):
 						reset_of_mcq()
@@ -157,7 +166,13 @@ func reset_of_mcq() -> void:
 	
 # TODO Fonction qui renvoie le pourcentage de réussite à une question
 func verif_mcq(tab: Array) -> float:
-	return 1.0
+	# A supprimer, je teste les valeurs d'échec et de succes
+	# Je considère une réussite si je sélectionne quelque chose du tableau
+	# L'échec si je ne sélectionne rien.
+	if tab.size() != 0:
+		return 1.0
+	else:
+		return 0.0
 
 
 
@@ -179,8 +194,11 @@ func end_of_dialogue() -> void:		#gere le cas ou l'on arrive à la fin d'un dial
 	paragraph_text_label.lines_skipped = 0
 	player.enable()
 	player.in_dialog = false
-	var am : ActionManager = get_tree().root.get_node("ActionManager")
-	am.executeNextAction()
+	
+	if not inMcq: #Dans le cas du mcq, faut renvoyer la valeur res à actionsManager.exo_result()
+		# C'est fait dans dialog_mcq_interact
+		var am : ActionManager = get_tree().root.get_node("ActionManager")
+		am.executeNextAction()
 	
 func hide_paragraph_box() -> void:
 	paragraph_box.visible = false

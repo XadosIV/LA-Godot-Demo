@@ -6,9 +6,12 @@ var json_data = {}
 
 var npcs = []
 var exercises = []
+var items = []
 
 var actions_fifo = []
 var lastIdExecuted = -1
+var lastExerciceExecuted = {}
+
 
 func _ready():
 	var file = FileAccess.get_file_as_string("res://default_dialogs.json")
@@ -26,18 +29,25 @@ func read_json(path):
 	
 	for exercice in jtext.exercises:
 		exercises.append(exercice)
+	
+	if "items" in jtext:
+		for item in jtext.items:
+			items.append(item)
+
+func getIdFromList(id, list):
+	for i in list:
+		if i.id == id:
+			return i
+	return false
 
 func getNpcById(id):
-	for npc in npcs:
-		if npc.id == id:
-			return npc
-	return false #L'id ne correspond à aucun pnj
+	return getIdFromList(id, npcs)
 
 func getExerciceById(id):
-	for exo in exercises:
-		if exo.id == id:
-			return exo
-	return false #L'id ne correspond à aucun exo
+	return getIdFromList(id, exercises)
+
+func getItemById(id):
+	return getIdFromList(id, items)
 
 func interact(id):
 	loadPage(id)
@@ -99,9 +109,17 @@ func exercice(name, id_exercice, echec, succes):
 	
 	var exercice = getExerciceById(id_exercice)
 	if exercice:
+		lastExerciceExecuted = {"exercice":exercice, "echec":echec, "succes":succes}
 		dialog_box.dialog_init([{"name":name, "text":exercice.question, "type":"mcq", "questions":exercice.options}])
 	else:
 		printerr("marche po")
+
+func exo_result(res:float):
+	# A appeler à la fin d'un exo pour exécuter la bonne prochaine action définie dans le graphe.
+	if res >= 0.5: #succes
+		actions_fifo.insert(0, lastExerciceExecuted.succes)
+	else: #echec
+		actions_fifo.insert(0, lastExerciceExecuted.echec)
 
 func aller(id, page):
 	var npc = getNpcById(id)
