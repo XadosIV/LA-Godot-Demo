@@ -22,7 +22,8 @@ func _ready() -> void:
 func load_json_data():
 	if am.json_data:
 		for i in am.npcs:
-			print("AAAAAAAAAAH")
+			if i["id"] < 0:
+				continue
 			lm.create_actor(i["id"], Vector2i((-6+i["id"]), -7))
 	else:
 		print("No JSON Data Loaded.")

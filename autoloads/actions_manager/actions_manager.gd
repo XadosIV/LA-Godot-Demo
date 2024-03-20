@@ -17,6 +17,11 @@ func _ready():
 	var file = FileAccess.get_file_as_string("res://default_dialogs.json")
 	var jtext = JSON.parse_string(file)
 	# charger ces actions
+	for pnj in jtext.pnjs:
+		npcs.append(pnj)
+	
+	for exercice in jtext.exercises:
+		exercises.append(exercice)
 
 func read_json(path):
 	var file = FileAccess.get_file_as_string(path)
@@ -80,6 +85,7 @@ func getName(id, action):
 	return name
 
 func readAction(id, action):
+	print(action)
 	match action.type:
 		"dire":
 			dire(getName(id, action), action.text)
@@ -101,8 +107,9 @@ func readAction(id, action):
 
 func dire(name, text):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
-	
-	dialog_box.dialog_init([{"name":name, "text":text, "type":"paragraph"}])
+	var dia = ParagraphDialog.new()
+	dia.init(name, text)
+	dialog_box.init_paragraph(dia)
 
 func exercice(name, id_exercice, echec, succes):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
@@ -110,16 +117,19 @@ func exercice(name, id_exercice, echec, succes):
 	var exercice = getExerciceById(id_exercice)
 	if exercice:
 		lastExerciceExecuted = {"exercice":exercice, "echec":echec, "succes":succes}
-		dialog_box.dialog_init([{"name":name, "text":exercice.question, "type":"mcq", "questions":exercice.options}])
+		var exoObject = McqDialog.new()
+		exoObject.init(name, exercice.question, exercice.options)
+		dialog_box.init_mcq(exoObject)
 	else:
 		printerr("marche po")
 
-func exo_result(res:float):
+func exo_result(res:Array):
 	# A appeler à la fin d'un exo pour exécuter la bonne prochaine action définie dans le graphe.
-	if res >= 0.5: #succes
+	if res.size() >= 0.5: #succes
 		actions_fifo.insert(0, lastExerciceExecuted.succes)
 	else: #echec
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
+	executeNextAction()
 
 func aller(id, page):
 	var npc = getNpcById(id)

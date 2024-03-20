@@ -27,13 +27,16 @@ func _ready() -> void:
 
 # Choisi quel interaction utiliser selon la nature du dialogue actif
 func _process(delta):
-
 	if(dialog_paragraph):
 		dialog_paragraph_interact()
 	if(dialog_mcq):
 		dialog_mcq_interact()
 
 func init_paragraph(dialog: ParagraphDialog) -> void:
+	if dialog.npc_name == "Kaiou":
+		paragraph_text_label.label_settings.font_size = 60
+	else:
+		paragraph_text_label.label_settings.font_size = 14
 	dialog_paragraph = dialog
 	player.disable()
 	paragraph_text_label.text = dialog_paragraph.text
@@ -56,8 +59,9 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 	dialog_paragraph = null
 	player.enable()
 	player.in_dialog = false
-	#TODO l'appel de la fonction magique de joris
-
+	# Envoi signal de la prochain action au manager
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.executeNextAction()
 
 
 """
@@ -66,6 +70,10 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 
 """
 func init_mcq(dialogue : McqDialog) -> void:
+	if dialogue.npc_name == "Kaiou":
+		paragraph_text_label.label_settings.font_size = 60
+	else:
+		paragraph_text_label.label_settings.font_size = 14
 	dialog_mcq = dialogue
 	player.disable()
 	selected_choice = []
@@ -87,7 +95,6 @@ func init_mcq(dialogue : McqDialog) -> void:
 	show_paragraph_box()
 
 func dialog_mcq_interact() -> void:
-	
 	if mChoice_box.visible:
 		if Input.is_action_just_released("interact"):
 			if (not player.in_dialog):
@@ -146,13 +153,10 @@ func end_of_mcq ():
 	reset_of_mcq()
 	player.enable()
 	player.in_dialog = false
-	#TODO l'appel de la fonction magique de joris
-	print(answers)
 	
-	if not inMcq: #Dans le cas du mcq, faut renvoyer la valeur res à actionsManager.exo_result()
-		# C'est fait dans dialog_mcq_interact
-		var am : ActionManager = get_tree().root.get_node("ActionManager")
-		am.executeNextAction()
+	#l'appel de ma fonction magique
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.exo_result(answers)
 	
 func hide_paragraph_box() -> void:
 	paragraph_box.visible = false

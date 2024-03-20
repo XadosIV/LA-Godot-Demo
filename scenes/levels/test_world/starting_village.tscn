@@ -856,26 +856,32 @@ id = "item_test_1"
 
 [node name="Npc_JCM" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(280, -120)
+id = -8
 sprite = ExtResource("8_pc8v3")
 
 [node name="Sign_Left" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-136, -40)
+id = -7
 showed = false
 
 [node name="Je_kaiou" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-152, -120)
+id = -4
 showed = false
 
 [node name="surf" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(264, 88)
+id = -5
 showed = false
 
 [node name="Sign_Blocked" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-312, -8)
+id = -9
 showed = false
 
 [node name="Sign_Hummm" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(440, -8)
+id = -6
 showed = false
 
 [node name="warp_h1" parent="LogicMap" instance=ExtResource("7_e31g6")]
@@ -896,12 +902,14 @@ ENTRY_DIRECTION = 2
 TARGETED_SCENE = "res://scenes/levels/test_world/start_village_h3_f0.tscn"
 ENTRY_WARP_NAME = "warp_h3_start_village_entry"
 
-[node name="Sign_Left2" parent="LogicMap" instance=ExtResource("6_6x5ob")]
+[node name="ChristineTop" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-488, 138)
+id = -10
 showed = false
 
-[node name="Sign_Left3" parent="LogicMap" instance=ExtResource("6_6x5ob")]
+[node name="ChristineBot" parent="LogicMap" instance=ExtResource("6_6x5ob")]
 position = Vector2(-488, 153)
+id = -10
 showed = false
 
 [node name="Item2" parent="LogicMap" instance=ExtResource("6_3pejo")]

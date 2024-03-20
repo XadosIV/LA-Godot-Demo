@@ -37,14 +37,12 @@ func interact():
 	apply_direction_to_sprite(facing_direction)
 	var actionsManager = get_node("/root/ActionManager")
 	actionsManager.interact(id)
-	if dm.dialog_exists(DIALOG_NAME):
+	"""if dm.dialog_exists(DIALOG_NAME):
 		sm.player.dialog(dm.get_dialog(DIALOG_NAME))
-		"""
 		#La nouvelle façon de faire
 		var test = McqDialog.new()
 		test.init("Moi", "Ceci est la question ?", ["13", "42", "69", "KAIOU"])
-		sm.player.dialog_mcq(test)
-		"""
+		sm.player.dialog_mcq(test)"""
 
 func apply_direction_to_sprite(direction : Vector2):
 	animatedSprite.sprite_frames = sprite
