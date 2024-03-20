@@ -3,5 +3,7 @@ class_name Items extends Node2D
 @export var id: String
 # Action quand le joueur interagit avec un item
 func interact():
-	sm.player.dialog([{"type":"paragraph","name":self.get_name(),"avatar":"","text":"Vous récupérez l'objet \""+self.get_name()+"\"."}])
+	var test = ParagraphDialog.new()
+	test.init(self.get_name(),"Vous récupérez l'objet \""+self.get_name()+"\".")
+	sm.player.dialog_paragraph(test)
 	print("<"+id+">"+self.get_name())
