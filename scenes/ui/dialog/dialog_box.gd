@@ -147,22 +147,7 @@ func reset_of_mcq() -> void:
 	all_choice_node = []
 	selected_choice = []
 	current_selected_choice = 0
-"""
 
-	
-# TODO Fonction qui renvoie le pourcentage de réussite à une question
-func verif_mcq(tab: Array) -> float:
-	return 1.0
-
-func end_of_dialogue() -> void:		#gere le cas ou l'on arrive à la fin d'un dialogue
-	hide_paragraph_box()
-	hide_mChoice_box()
-	dialogList = []
-	currentDialogue = 0
-	paragraph_text_label.lines_skipped = 0
-	player.enable()
-	player.in_dialog = false
-	"""
 func convert_choices_to_text ():
 	var res = []
 	for elt in selected_choice:
