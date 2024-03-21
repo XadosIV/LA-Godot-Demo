@@ -45,13 +45,12 @@ func init_paragraph(dialog: ParagraphDialog) -> void:
 
 # Gere le fonctionnement de la boite de dialogue (paragraphe) en fonction des entrée de l'utilisateur
 func dialog_paragraph_interact() -> void:
-	if Input.is_action_just_released("interact") and paragraph_box.visible:
-		if (not player.in_dialog):
-			player.in_dialog = true
-		else:
-			paragraph_text_label.lines_skipped = paragraph_text_label.lines_skipped + paragraph_text_label.max_lines_visible
-			if(paragraph_text_label.get_visible_line_count() <= 0):	# Action si l'on est à la fin d'un paragraph
-				end_of_paragraph()
+	if (not player.in_dialog):
+		player.in_dialog = true
+	elif Input.is_action_just_pressed("interact") and paragraph_box.visible:
+		paragraph_text_label.lines_skipped = paragraph_text_label.lines_skipped + paragraph_text_label.max_lines_visible
+		if(paragraph_text_label.get_visible_line_count() <= 0):	# Action si l'on est à la fin d'un paragraph
+			end_of_paragraph()
 				
 func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un paragraphe
 	hide_paragraph_box()
@@ -96,23 +95,22 @@ func init_mcq(dialogue : McqDialog) -> void:
 
 func dialog_mcq_interact() -> void:
 	if mChoice_box.visible:
-		if Input.is_action_just_released("interact"):
-			if (not player.in_dialog):
-				player.in_dialog = true
+		if (not player.in_dialog):
+			player.in_dialog = true
+		elif Input.is_action_just_pressed("interact"):
+			if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
+				end_of_mcq()
 			else:
-				if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
-					end_of_mcq()
-				else:
-					if current_selected_choice < len(all_choice_node)-1:
-						var index_in_list = selected_choice.find(all_choice_node[current_selected_choice], 0)
-						# Si déjà selectionner retirer de la liste et actualiser
-						if index_in_list >= 0:
-							selected_choice.remove_at(index_in_list)
-							all_choice_node[current_selected_choice].not_selected()
-						# Si pas dans la liste l'ajouter et actualiser
-						else:
-							selected_choice.append(all_choice_node[current_selected_choice])
-							all_choice_node[current_selected_choice].selected()
+				if current_selected_choice < len(all_choice_node)-1:
+					var index_in_list = selected_choice.find(all_choice_node[current_selected_choice], 0)
+					# Si déjà selectionner retirer de la liste et actualiser
+					if index_in_list >= 0:
+						selected_choice.remove_at(index_in_list)
+						all_choice_node[current_selected_choice].not_selected()
+					# Si pas dans la liste l'ajouter et actualiser
+					else:
+						selected_choice.append(all_choice_node[current_selected_choice])
+						all_choice_node[current_selected_choice].selected()
 
 		if Input.is_action_just_pressed("down"): 	# Déplace le sélecteur de +1 dans la liste (vers le bas)
 			all_choice_node[current_selected_choice].not_hover()
