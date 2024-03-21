@@ -138,5 +138,6 @@ func inventory_open_close() -> void:
 		print("Inventaire "+str(len(inventory)))
 		for item in inventory:
 			print(item.id)
-func inventory_add(item_to_add: Items) -> void:
+
+func inventory_add(item_to_add) -> void:
 	inventory += [{"id":item_to_add.id}]

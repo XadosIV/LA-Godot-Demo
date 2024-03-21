@@ -100,7 +100,7 @@ func readAction(id, action):
 			executer(id, action.page)
 			return true
 		"donner":
-			donner(action.id)
+			donner(action.target)
 			return true
 		_:
 			printerr("Mot inconnu.")
@@ -150,4 +150,11 @@ func executer(id, page):
 		loadPage(id)
 
 func donner(id):
-	pass
+	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
+	var dia = ParagraphDialog.new()
+	
+	var item = getItemById(id)
+	if item:
+		dia.init("Information", "Vous obtenez : " + item.name)
+		dialog_box.init_paragraph(dia)
+		sm.player.inventory_add(item)
