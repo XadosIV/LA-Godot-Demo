@@ -135,9 +135,15 @@ func dialog_mcq(dia: McqDialog):
 
 func inventory_open_close() -> void:
 	if(Input.is_action_just_pressed("inventory")):
-		print("Inventaire "+str(len(inventory)))
+		print("-- Inventaire "+str(len(inventory)) + " --")
 		for item in inventory:
-			print(item.id)
+			if "name" in item:
+				print("x " + str(item.name))
+			else:
+				print("x " + str(item.id))
 
-func inventory_add(item_to_add) -> void:
-	inventory += [{"id":item_to_add.id}]
+func inventory_add(item_to_add, dico=false) -> void:
+	if dico:
+		inventory.append(item_to_add)
+	else:
+		inventory += [{"id":item_to_add.id}]

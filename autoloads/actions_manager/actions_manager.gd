@@ -157,4 +157,4 @@ func donner(id):
 	if item:
 		dia.init("Information", "Vous obtenez : " + item.name)
 		dialog_box.init_paragraph(dia)
-		sm.player.inventory_add(item)
+		sm.player.inventory_add(item, true)

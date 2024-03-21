@@ -6,4 +6,3 @@ func interact():
 	var test = ParagraphDialog.new()
 	test.init(self.get_name(),"Vous récupérez l'objet \""+self.get_name()+"\".")
 	sm.player.dialog_paragraph(test)
-	print("<"+id+">"+self.get_name())
