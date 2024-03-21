@@ -32,24 +32,11 @@ func _process(delta):
 	if(dialog_mcq):
 		dialog_mcq_interact()
 
-#TODO suppr
-# Initialise les boites de dialogue
-func dialog_init(tab):
-	for i in tab:
-		print(i)
-		if (not "name" in i):
-			i.name = ""
-	if (tab[0].name == "Kaiou"):
+func init_paragraph(dialog: ParagraphDialog) -> void:
+	if dialog.npc_name == "Kaiou":
 		paragraph_text_label.label_settings.font_size = 60
 	else:
 		paragraph_text_label.label_settings.font_size = 14
-	# Si on à des dialogues on désactive le joueur et ont initialise le paragraphe
-	if(len(tab) >= 0):
-		player.disable()
-
-
-
-func init_paragraph(dialog: ParagraphDialog) -> void:
 	dialog_paragraph = dialog
 	player.disable()
 	paragraph_text_label.text = dialog_paragraph.text
@@ -58,13 +45,12 @@ func init_paragraph(dialog: ParagraphDialog) -> void:
 
 # Gere le fonctionnement de la boite de dialogue (paragraphe) en fonction des entrée de l'utilisateur
 func dialog_paragraph_interact() -> void:
-	if Input.is_action_just_released("interact") and paragraph_box.visible:
-		if (not player.in_dialog):
-			player.in_dialog = true
-		else:
-			paragraph_text_label.lines_skipped = paragraph_text_label.lines_skipped + paragraph_text_label.max_lines_visible
-			if(paragraph_text_label.get_visible_line_count() <= 0):	# Action si l'on est à la fin d'un paragraph
-				end_of_paragraph()
+	if (not player.in_dialog):
+		player.in_dialog = true
+	elif Input.is_action_just_pressed("interact") and paragraph_box.visible:
+		paragraph_text_label.lines_skipped = paragraph_text_label.lines_skipped + paragraph_text_label.max_lines_visible
+		if(paragraph_text_label.get_visible_line_count() <= 0):	# Action si l'on est à la fin d'un paragraph
+			end_of_paragraph()
 				
 func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un paragraphe
 	hide_paragraph_box()
@@ -72,8 +58,9 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 	dialog_paragraph = null
 	player.enable()
 	player.in_dialog = false
-	#TODO l'appel de la fonction magique de joris
-
+	# Envoi signal de la prochain action au manager
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.executeNextAction()
 
 
 """
@@ -82,6 +69,10 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 
 """
 func init_mcq(dialogue : McqDialog) -> void:
+	if dialogue.npc_name == "Kaiou":
+		paragraph_text_label.label_settings.font_size = 60
+	else:
+		paragraph_text_label.label_settings.font_size = 14
 	dialog_mcq = dialogue
 	player.disable()
 	selected_choice = []
@@ -103,26 +94,23 @@ func init_mcq(dialogue : McqDialog) -> void:
 	show_paragraph_box()
 
 func dialog_mcq_interact() -> void:
-	
 	if mChoice_box.visible:
-		if Input.is_action_just_released("interact"):
-			if (not player.in_dialog):
-				player.in_dialog = true
+		if (not player.in_dialog):
+			player.in_dialog = true
+		elif Input.is_action_just_pressed("interact"):
+			if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
+				end_of_mcq()
 			else:
-				if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
-					end_of_mcq()
-					
-				else:
-					if current_selected_choice < len(all_choice_node)-1:
-						var index_in_list = selected_choice.find(all_choice_node[current_selected_choice], 0)
-						# Si déjà selectionner retirer de la liste et actualiser
-						if index_in_list >= 0:
-							selected_choice.remove_at(index_in_list)
-							all_choice_node[current_selected_choice].not_selected()
-						# Si pas dans la liste l'ajouter et actualiser
-						else:
-							selected_choice.append(all_choice_node[current_selected_choice])
-							all_choice_node[current_selected_choice].selected()
+				if current_selected_choice < len(all_choice_node)-1:
+					var index_in_list = selected_choice.find(all_choice_node[current_selected_choice], 0)
+					# Si déjà selectionner retirer de la liste et actualiser
+					if index_in_list >= 0:
+						selected_choice.remove_at(index_in_list)
+						all_choice_node[current_selected_choice].not_selected()
+					# Si pas dans la liste l'ajouter et actualiser
+					else:
+						selected_choice.append(all_choice_node[current_selected_choice])
+						all_choice_node[current_selected_choice].selected()
 
 		if Input.is_action_just_pressed("down"): 	# Déplace le sélecteur de +1 dans la liste (vers le bas)
 			all_choice_node[current_selected_choice].not_hover()
@@ -163,8 +151,10 @@ func end_of_mcq ():
 	reset_of_mcq()
 	player.enable()
 	player.in_dialog = false
-	#TODO l'appel de la fonction magique de joris
-	print(answers)
+	
+	#l'appel de ma fonction magique
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.exo_result(answers)
 	
 func hide_paragraph_box() -> void:
 	paragraph_box.visible = false

@@ -1,48 +1,225 @@
 {
-	"je_mur":[{"type":"paragraph","name":"Mur","text":"Je Mur"}],
-	"je_kaiou":[
-		{"type":"paragraph","name":"Kaiou","text":"Je kaiou."},
-		{"type":"mcq","name":"Kaiou","text":"Et toi tu kaiou ?", "questions":["Oui.", "Non.", "Kaiou ?", "KAIOU!"]},
-		{"type":"paragraph","name":"Kaiou","text":"KAIOU."}
-	],
-	"surf":[
-		{"type":"paragraph","name":"","text":"L'eau est teintée d'un bleu foncé.\nVoulez-vous utiliser surf ?"},
-		{"type":"mcq","name":"","text":"Voulez-vous utiliser surf ?", "questions":["Oui.", "Non."]},
-		{"type":"paragraph","name":"","text":"Vous utilisez surf !"},
-		{"type":"paragraph","name":"","text":"PLOUF ! Vous vous noyez."},
-		{"type":"paragraph","name":"","text":"En fait le client n'a pas pris la story 'nager avec le joueur'..."}
-	],
-	"hesitation":[{"type":"paragraph","name":"Panneau","text":"Hmmmm ..."}],
-	"toBourgetto":[{"type":"paragraph","name":"Panneau","text":"<- Vers Le Bourget Du Lac"}],
-	"jcm":[
+	"pnjs": [
 		{
-			"type":"paragraph",	"name":"JCM","text":"Ah, il y a plus que ce que l'œil peut voir, mon ami. Ces couleurs cachent un secret que seules mes fleurs connaissent.	Chaque pétale, chaque tige, a un rôle à jouer. Elles font partie de quelque chose de plus grand."
+			"id": -3,
+			"name": "Mur",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "Je Mur",
+						"type": "dire"
+					}
+				]
+			]
 		},
 		{
-			"type":"paragraph",	"name":"JCM","text":"Mais j'ai une question pour toi."
+			"id": -4,
+			"name": "Kaiou",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "Je Kaiou",
+						"type": "dire"
+					},
+					{
+						"target": -3,
+						"type": "exercice",
+						"echec": {
+							"text": "KAIOU",
+							"type": "dire"
+						},
+						"succes": {
+							"text": "KAIOU ...",
+							"type": "dire"
+						}
+					}
+				]
+			]
 		},
 		{
-			"type":"mcq","name":"JCM","text":"Quelles sont les couleurs de mes fleurs?",
-			"questions":["1- Bleue","2- Rouge","3- Blanche","4- Jaune","5- Vert","6- Rose","7- Violet","8- Cyan","9- Orange","10- Bleulaune"]
+			"id": -5,
+			"name": "Surf",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "L'eau est teintée d'un bleu foncé.",
+						"type": "dire"
+					},
+					{
+						"target": -4,
+						"type": "exercice",
+						"echec": {
+							"text": "Ok.",
+							"type": "dire"
+						},
+						"succes": {
+							"page": 1,
+							"type": "executer"
+						}
+					}
+				],
+				[
+					{
+						"type":"dire",
+						"text":"Vous utilisez surf !"
+					},
+					{
+						"type":"dire",
+						"text":"PLOUF ! Vous vous noyez."
+					},
+					{
+						"type":"dire",
+						"text":"En fait le client n'a pas pris la story 'nager avec le joueur'..."
+					},
+					{
+						"type": "aller",
+						"target": -5,
+						"page": 0
+					}
+				]
+			]
+		},
+		{
+			"id": -6,
+			"name": "Panneau",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "Hmmmm ...",
+						"type": "dire"
+					}
+				]
+			]
+		},
+		{
+			"id": -7,
+			"name": "Panneau",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "<- Vers Le Bourget Du Lac",
+						"type": "dire"
+					}
+				]
+			]
+		},
+		{
+			"id": -8,
+			"name": "JCM",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "Ah, il y a plus que ce que l'œil peut voir, mon ami. Ces couleurs cachent un secret que seules mes fleurs connaissent.	Chaque pétale, chaque tige, a un rôle à jouer. Elles font partie de quelque chose de plus grand.",
+						"type": "dire"
+					},
+					{
+						"text": "Mais j'ai une question pour toi.",
+						"type": "dire"
+					},
+					{
+						"target": -5,
+						"type": "exercice",
+						"echec": {
+							"text": "Et non !",
+							"type": "dire"
+						},
+						"succes": {
+							"text": "Bien joué !",
+							"type": "dire"
+						}
+					}
+				]
+			]
+		},
+		{
+			"id": -9,
+			"name": "Panneau",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "Route Barrée",
+						"type": "dire"
+					}
+				]
+			]
+		},
+		{
+			"id": -10,
+			"name": "Christine",
+			"currentPage": 0,
+			"pages": [
+				[
+					{
+						"text": "J'ai une question pour toi...",
+						"type": "dire"
+					},
+					{
+						"target": -6,
+						"type": "exercice",
+						"echec": {
+							"text": "COUBEH !!!",
+							"type": "dire"
+						},
+						"succes": {
+							"text": "COUBEH !!!",
+							"type": "dire"
+						}
+					}
+				]
+			]
 		}
 	],
-	"r_barree":[{"type":"paragraph","name":"Panneau","text":"Route Barrée"}],
-	"dragon":[
+	"exercises":[
 		{
-			"type":"paragraph",
-			"name":"Christine",
-			"text":"J'ai une question pour toi..."
+			"id": -3,
+			"type": "mcq",
+			"name": "Kaiou",
+			"next": [],
+			"options": ["Oui.", "Non.", "Kaiou ?", "KAIOU!"],
+			"question": "Et toi tu kaiou ?",
+			"response": [
+				3
+			]
 		},
 		{
-			"type":"mcq",
-			"name":"Christine",
-			"text":"Quel est la différence entre un diagramme de classe et un use case ?",
-			"questions":["1- Quoi ?", "2- QUUUOII?"]
+			"id": -4,
+			"type": "mcq",
+			"name": "",
+			"next": [],
+			"options": ["Oui.", "Non."],
+			"question": "Voulez-vous utiliser surf ?",
+			"response": [
+				0
+			]
 		},
 		{
-			"type":"paragraph",
-			"name":"Christine",
-			"text":"COUBEH !!!"
+			"id": -5,
+			"type": "mcq",
+			"name": "JCM",
+			"next": [],
+			"options": ["1- Bleue","2- Rouge","3- Blanche","4- Jaune","5- Vert","6- Rose","7- Violet","8- Cyan","9- Orange","10- Bleulaune"],
+			"question": "Quelles sont les couleurs de mes fleurs?",
+			"response": [
+				0, 2, 3
+			]
+		},
+		{
+			"id": -6,
+			"type": "mcq",
+			"name": "Christine",
+			"next": [],
+			"options": ["1- Quoi ?", "2- QUUUOII?"],
+			"question": "Quel est la différence entre un diagramme de classe et un use case ?",
+			"response": [
+				0
+			]
 		}
 	]
 }

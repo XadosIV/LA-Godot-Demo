@@ -1,9 +1,12 @@
 extends Control
 
-# TODO Créer un autoload avec totues les varaibles vers les scènes
+# TODO Créer un autoload avec toutes les varaibles vers les scènes
 
 var in_transition : bool = false
 var path
+
+@onready var actionsManager : ActionsManager = get_node("/root/ActionManager")
+
 func _ready():
 	get_viewport().files_dropped.connect(on_files_dropped)
 	$VBoxContainer/Button.visible = false
@@ -12,8 +15,7 @@ func on_files_dropped(files):
 	path = files[0]
 	if path.ends_with(".json"):
 		$VBoxContainer/Button.visible = true
-		var jstring = FileAccess.get_file_as_string(path)
-		SceneManager.json_data = JSON.parse_string(jstring)
+		actionsManager.read_json(path)
 		$Label.text = str(path)
 	else:
 		path = null
