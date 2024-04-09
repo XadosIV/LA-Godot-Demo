@@ -4,7 +4,6 @@ signal content_finished_loading(content)
 signal content_invalid(content_path:String)
 signal content_failed_to_load(content_path:String)
 
-var loading_screen: LoadingScreen
 var _loading_screen_scene:PackedScene = preload("res://scenes/ui/loading_screen/loading_screen.tscn")
 var _transition:String
 var _content_path:String
@@ -12,14 +11,16 @@ var _load_progress_timer:Timer
 
 var entry_warp_name : String
 var player : Player
+var loading_screen : LoadingScreen
 
 func _ready() -> void:
 	content_invalid.connect(on_content_invalid)
 	content_failed_to_load.connect(on_content_failed_to_load)
 	content_finished_loading.connect(on_content_finished_loading)
+	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
-	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
+	
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
 	await loading_screen.anim_player.animation_finished
