@@ -17,9 +17,7 @@ func _ready():
 	if sprite:
 		#animatedSprite.sprite_frames = sprite
 		#animatedSprite.animation = "idle_up"
-		print(sprite.resource_path)
 		animatedSprite.sprite_frames = sprite
-		
 		match facing_direction_import:
 			1:
 				facing_direction = Vector2.RIGHT
@@ -30,6 +28,7 @@ func _ready():
 			_:
 				facing_direction = Vector2.UP
 		apply_direction_to_sprite(facing_direction)
+		animatedSprite.play()
 	animatedSprite.visible = showed
 
 
