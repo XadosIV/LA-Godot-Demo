@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c428rxsmkxacc"]
 
 [ext_resource type="Script" path="res://scenes/props/actors/Actors.gd" id="1_x1qeu"]
-[ext_resource type="SpriteFrames" uid="uid://bf6qn1pfyawt8" path="res://scenes/characteres/players/resources/Roki.tres" id="2_7m5ih"]
+[ext_resource type="SpriteFrames" uid="uid://cpn3ydq07leba" path="res://scenes/characteres/players/resources/Oldman.tres" id="2_opr5a"]
 
 [node name="First Actor" type="Node2D"]
 script = ExtResource("1_x1qeu")
+facing_direction_import = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -8)
-sprite_frames = ExtResource("2_7m5ih")
+sprite_frames = ExtResource("2_opr5a")
 animation = &"idle_down"
 autoplay = "idle_down"

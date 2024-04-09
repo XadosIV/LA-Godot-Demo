@@ -74,6 +74,7 @@ func on_content_finished_loading(content) -> void:
 	# add the new one
 	get_tree().root.call_deferred("add_child", content)
 	get_tree().set_deferred("current_scene", content)
+	
 	# remove the old scene
 	outgoing_scene.queue_free()
 	if loading_screen != null:
