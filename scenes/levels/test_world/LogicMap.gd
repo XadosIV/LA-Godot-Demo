@@ -106,8 +106,9 @@ func create_actor(id, mapPos, sprite, load=true):
 		res_path += sprite
 	else:
 		"Roki.tres"
-	npc.sprite = load(res_path)
 	
+	npc.sprite = load(res_path)
+	npc._ready()
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
 		load_map()
