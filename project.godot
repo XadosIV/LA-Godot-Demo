@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://autoloads/scene_manager/scene_manager.gd"
 ActionManager="*res://autoloads/actions_manager/actions_manager.gd"
+GameManager="*res://autoloads/game_manager/game_manager.gd"
 
 [display]
 

@@ -42,6 +42,3 @@ ENTRY_WARP_NAME = "warp_h1"
 
 [node name="Player" parent="." instance=ExtResource("6_5jrj2")]
 position = Vector2(8, 8)
-MAXHEALTH_POINT = 100
-SPEED_MULTIPLICATOR = 1.6
-SPEED_SPRINT = 1.6

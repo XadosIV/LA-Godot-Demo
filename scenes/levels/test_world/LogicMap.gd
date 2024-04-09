@@ -94,15 +94,21 @@ func interact(movement) -> bool:
 		return true
 	return false
 
-func create_actor(id, mapPos, load=true):
+func create_actor(id, mapPos, sprite, load=true):
 	var npc = npc_scene.instantiate()
 	add_child(npc)
 	npc.id = id
 	npc.position = mapPos * 16 + Vector2i(8,8)
 	
 	#place holder tant que l'import ne prend pas en charge les sprites
-	npc.sprite = load("res://scenes/characteres/players/resources/Roki.tres")
+	var res_path = "res://scenes/characteres/players/resources/"
+	if sprite != null:
+		res_path += sprite
+	else:
+		"Roki.tres"
 	
+	npc.sprite = load(res_path)
+	npc._ready()
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
 		load_map()

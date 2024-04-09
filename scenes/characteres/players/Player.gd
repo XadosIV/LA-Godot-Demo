@@ -1,7 +1,5 @@
 class_name Player extends CharacterBody2D
 
-var healthPoints : int = 1
-var inventory : Array = []
 var facing_direction : Vector2 = Vector2.ZERO
 var movement_allowed : bool = true
 var in_dialog : bool = false
@@ -14,12 +12,14 @@ var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var dialog_box : DialogBox = $Camera2D/DialogBox
 
+@onready var gm : GameManager = get_tree().root.get_node("GameManager")
+
 @export var MAXHEALTH_POINT : int = 100
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
 @export var SPEED_SPRINT : float = 1.6 #Ajouté au multiplicateur au moment de sprint
 
 func _ready() -> void:
-	healthPoints = MAXHEALTH_POINT
+	gm.healthPoints = MAXHEALTH_POINT
 
 func move(direction : Vector2) -> void: #déplace le joueur dans la direction donnée
 	if map.playerMove(direction): #renvoie true si le mouvement a été effectué
@@ -135,8 +135,8 @@ func dialog_mcq(dia: McqDialog):
 
 func inventory_open_close() -> void:
 	if(Input.is_action_just_pressed("inventory")):
-		print("-- Inventaire "+str(len(inventory)) + " --")
-		for item in inventory:
+		print("-- Inventaire "+str(len(gm.inventory)) + " --")
+		for item in gm.inventory:
 			if "name" in item:
 				print("x " + str(item.name))
 			else:
@@ -144,6 +144,6 @@ func inventory_open_close() -> void:
 
 func inventory_add(item_to_add, dico=false) -> void:
 	if dico:
-		inventory.append(item_to_add)
+		gm.inventory.append(item_to_add)
 	else:
-		inventory += [{"id":item_to_add.id}]
+		gm.inventory += [{"id":item_to_add.id}]
