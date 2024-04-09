@@ -38,11 +38,6 @@ func finish_transition() -> void:
 		ending_animation_name = "fade_from_black"
 	anim_player.play(ending_animation_name)
 	
-	# atten jusqu'a ce que l'animation soit terminée
-	await anim_player.animation_finished
-	# Détruit le loading screen
-	#self.queue_free()
-	
 # Signal pour indiquer la moitier du chargement
 func report_midpoint() -> void:
 	transition_in_complete.emit()

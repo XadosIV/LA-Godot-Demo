@@ -19,8 +19,6 @@ func _ready() -> void:
 	content_finished_loading.connect(on_content_finished_loading)
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
-	_transition = transition_type
-	
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
@@ -79,6 +77,3 @@ func on_content_finished_loading(content) -> void:
 	outgoing_scene.queue_free()
 	if loading_screen != null:
 		loading_screen.finish_transition()
-		# wait the transition
-		await loading_screen.anim_player.animation_finished
-		loading_screen.queue_free() # Fix bizarre
