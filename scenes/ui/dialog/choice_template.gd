@@ -2,6 +2,7 @@ class_name Choice extends Control
 
 @onready var selector_icon : TextureRect = $SelectorIcon
 @onready var text_label : Label = $Label
+@onready var id : int
 """
 Cette scène est un template pour les boîte de dialogue à option elle remprésente une ligne de la sélection
 """
@@ -31,3 +32,9 @@ func set_text(st: String = ""):
 
 func get_text():
 	return text_label.text
+
+func set_id(i: int):
+	id = i
+
+func get_id():
+	return id

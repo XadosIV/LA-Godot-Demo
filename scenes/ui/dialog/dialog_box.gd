@@ -79,10 +79,11 @@ func init_mcq(dialogue : McqDialog) -> void:
 	current_selected_choice = 0
 	paragraph_text_label.text = dialog_mcq.text
 	paragraph_name_label.text = dialog_mcq.npc_name
-	for choice in dialog_mcq.questions:
+	for i in range(dialog_mcq.questions.size()):
 		var temp = load("res://scenes/ui/dialog/choice_template.tscn").instantiate()
 		mChoice_container.add_child(temp)
-		temp.set_text(choice)
+		temp.set_text(dialog_mcq.questions[i])
+		temp.set_id(i)
 		all_choice_node.append(temp)
 	var temp = load("res://scenes/ui/dialog/choice_template.tscn").instantiate()
 	mChoice_container.add_child(temp)
@@ -139,7 +140,7 @@ func reset_of_mcq() -> void:
 func convert_choices_to_text ():
 	var res = []
 	for elt in selected_choice:
-		res += [elt.get_text()]
+		res += [elt.get_id()]
 	return res
 	
 func end_of_mcq ():

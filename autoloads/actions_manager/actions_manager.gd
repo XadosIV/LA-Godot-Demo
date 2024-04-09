@@ -85,7 +85,7 @@ func getName(id, action):
 	return name
 
 func readAction(id, action):
-	print(action)
+	#print(action)
 	match action.type:
 		"dire":
 			dire(getName(id, action), action.text)
@@ -123,9 +123,28 @@ func exercice(name, id_exercice, echec, succes):
 	else:
 		printerr("marche po")
 
+func get_result_value_mcq(query, options, response):
+	var point_negatif = 1/float(options.size())
+	var point = 1/float(response.size())
+	var total = 0
+	print(query)
+	print(response)
+	for i in range(options.size()):
+		if (query.has(i)):
+			print("evaluate " + str(i))
+			if response.has(float(i)):
+				print("positif " + str(point))
+				total += point
+			else:
+				total -= point_negatif
+				print("negatif " + str(point))
+	return total
+
 func exo_result(res:Array):
 	# A appeler à la fin d'un exo pour exécuter la bonne prochaine action définie dans le graphe.
-	if res.size() >= 0.5: #succes
+	var r = get_result_value_mcq(res, lastExerciceExecuted.exercice.options, lastExerciceExecuted.exercice.response)
+	print(r)
+	if r >= 0.5: #succes
 		actions_fifo.insert(0, lastExerciceExecuted.succes)
 	else: #echec
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
