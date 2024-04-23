@@ -24,17 +24,17 @@
 						"type": "dire"
 					},
 					{
-						"target": -3,
-						"type": "exercice",
-						"echec": {
-							"text": "KAIOU",
-							"type": "dire"
-						},
-						"succes": {
-							"text": "KAIOU ...",
-							"type": "dire"
-						}
+						"type":"choisir",
+						"text":"Et toi tu kaiou ?",
+						"target":[
+							{"text":"Oui.", "action":{"type":"dire", "text":"Kaka..."}},
+							{"text":"Non.", "action":{"type":"dire", "text":"*Le Kaiou se jette sur vous*"}},
+							{"text":"Kaiou ?", "action":{"type":"dire", "text":"Kaiou ???"}},
+							{"text":"KAIOU !", "action":{"type":"dire", "text":"KAIOU KAIOU !\n*Kaiou devient votre meilleur ami, en même temps, vous n'en aviez pas avant...*"}}
+						]
 					}
+					
+					
 				]
 			]
 		},
@@ -177,17 +177,6 @@
 		}
 	],
 	"exercises":[
-		{
-			"id": -3,
-			"type": "mcq",
-			"name": "Kaiou",
-			"next": [],
-			"options": ["Oui.", "Non.", "Kaiou ?", "KAIOU!"],
-			"question": "Et toi tu kaiou ?",
-			"response": [
-				3
-			]
-		},
 		{
 			"id": -4,
 			"type": "mcq",

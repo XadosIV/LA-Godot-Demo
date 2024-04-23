@@ -11,6 +11,7 @@ var items = []
 var actions_fifo = []
 var lastIdExecuted = -1
 var lastExerciceExecuted = {}
+var lastChoicesAction = []
 
 
 func _ready():
@@ -101,7 +102,10 @@ func readAction(id, action):
 			return true
 		"donner":
 			donner(action.target)
-			return true
+			return false
+		"choisir":
+			choisir(getName(id, action), action.text, action.target)
+			return false
 		_:
 			printerr("Mot inconnu.")
 
@@ -150,6 +154,11 @@ func exo_result(res:Array):
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
 	executeNextAction()
 
+func choice_result(res:Array):
+	# A appeler à la fin d'un exo pour exécuter la bonne prochaine action définie dans le graphe.
+	actions_fifo.insert(0, lastChoicesAction[res[0]]["action"])
+	executeNextAction()
+
 func aller(id, page):
 	var npc = getNpcById(id)
 	if npc:
@@ -177,3 +186,16 @@ func donner(id):
 		dia.init("Information", "Vous obtenez : " + item.name)
 		dialog_box.init_paragraph(dia)
 		sm.player.inventory_add(item, true)
+
+func choisir(name, question, target):
+	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
+	var choiceObject = McqDialog.new()
+	
+	lastChoicesAction = target
+	
+	var choices = []
+	for i in target:
+		choices.append(i["text"])
+	
+	choiceObject.init(name, question, choices)
+	dialog_box.init_choice(choiceObject)

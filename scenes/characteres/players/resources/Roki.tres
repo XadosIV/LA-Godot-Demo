@@ -309,7 +309,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_down",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -332,7 +332,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_left",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -355,7 +355,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_right",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,5 +378,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_up",
-"speed": 6.0
+"speed": 8.0
 }]

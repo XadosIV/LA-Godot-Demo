@@ -20,6 +20,7 @@ var all_choice_node : Array
 
 var dialog_paragraph : ParagraphDialog = null
 var dialog_mcq : McqDialog = null
+var type = -1 # 0 = paragraph, 1 = mcq, 2 = choice
 
 func _ready() -> void:
 	hide_paragraph_box()
@@ -27,16 +28,22 @@ func _ready() -> void:
 
 # Choisi quel interaction utiliser selon la nature du dialogue actif
 func _process(delta):
-	if(dialog_paragraph):
-		dialog_paragraph_interact()
-	if(dialog_mcq):
-		dialog_mcq_interact()
+	match type:
+		0:
+			dialog_paragraph_interact()
+		1:
+			dialog_mcq_interact()
+		2:
+			dialog_choice_interact()
 
 func init_paragraph(dialog: ParagraphDialog) -> void:
+	type = 0
 	if dialog.npc_name == "Kaiou":
-		paragraph_text_label.label_settings.font_size = 60
+		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
+		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
 	else:
 		paragraph_text_label.label_settings.font_size = 14
+		paragraph_name_label.label_settings.font_size = 18
 	dialog_paragraph = dialog
 	player.disable()
 	paragraph_text_label.text = dialog_paragraph.text
@@ -53,6 +60,7 @@ func dialog_paragraph_interact() -> void:
 			end_of_paragraph()
 				
 func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un paragraphe
+	type = -1
 	hide_paragraph_box()
 	paragraph_text_label.lines_skipped = 0
 	dialog_paragraph = null
@@ -69,10 +77,13 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 
 """
 func init_mcq(dialogue : McqDialog) -> void:
+	type = 1
 	if dialogue.npc_name == "Kaiou":
-		paragraph_text_label.label_settings.font_size = 60
+		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
+		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
 	else:
 		paragraph_text_label.label_settings.font_size = 14
+		paragraph_name_label.label_settings.font_size = 18
 	dialog_mcq = dialogue
 	player.disable()
 	selected_choice = []
@@ -94,12 +105,67 @@ func init_mcq(dialogue : McqDialog) -> void:
 	show_mChoice_box()
 	show_paragraph_box()
 
+func init_choice(dialogue : McqDialog) -> void:
+	type = 2
+	if dialogue.npc_name == "Kaiou":
+		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
+		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
+	else:
+		paragraph_text_label.label_settings.font_size = 14
+		paragraph_name_label.label_settings.font_size = 18
+	dialog_mcq = dialogue
+	player.disable()
+	selected_choice = []
+	current_selected_choice = 0
+	paragraph_text_label.text = dialog_mcq.text
+	paragraph_name_label.text = dialog_mcq.npc_name
+	for i in range(dialog_mcq.questions.size()):
+		var temp = load("res://scenes/ui/dialog/choice_template.tscn").instantiate()
+		mChoice_container.add_child(temp)
+		temp.set_text(dialog_mcq.questions[i])
+		temp.set_id(i)
+		all_choice_node.append(temp)
+	all_choice_node[current_selected_choice].hover()
+	mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
+	show_mChoice_box()
+	show_paragraph_box()
+	
+func dialog_choice_interact() -> void:
+	if mChoice_box.visible:
+		if (not player.in_dialog):
+			player.in_dialog = true
+		elif Input.is_action_just_pressed("interact"):
+			var index_in_list = selected_choice.find(all_choice_node[current_selected_choice], 0)
+			# Si déjà selectionné retirer de la liste et actualiser
+			if index_in_list >= 0:
+				selected_choice.remove_at(index_in_list)
+				all_choice_node[current_selected_choice].not_selected()
+			# Si pas dans la liste l'ajouter et actualiser
+			else:
+				selected_choice.append(all_choice_node[current_selected_choice])
+				all_choice_node[current_selected_choice].selected()
+			end_of_choice()
+
+		if Input.is_action_just_pressed("down"): 	# Déplace le sélecteur de +1 dans la liste (vers le bas)
+			all_choice_node[current_selected_choice].not_hover()
+			current_selected_choice = posmod(current_selected_choice + 1, len(all_choice_node))
+			all_choice_node[current_selected_choice].hover()
+			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
+			
+		if Input.is_action_just_pressed("up"): 	# Déplace le sélecteur de -1 dans la liste (vers le haut)
+			all_choice_node[current_selected_choice].not_hover()
+			current_selected_choice = posmod(current_selected_choice - 1, len(all_choice_node))
+			all_choice_node[current_selected_choice].hover()
+			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
+
+
+
 func dialog_mcq_interact() -> void:
 	if mChoice_box.visible:
 		if (not player.in_dialog):
 			player.in_dialog = true
 		elif Input.is_action_just_pressed("interact"):
-			if current_selected_choice == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
+			if posmod(current_selected_choice, len(all_choice_node)) == len(all_choice_node)-1:	# La ligne de validation à été sélectionner
 				end_of_mcq()
 			else:
 				if current_selected_choice < len(all_choice_node)-1:
@@ -115,15 +181,13 @@ func dialog_mcq_interact() -> void:
 
 		if Input.is_action_just_pressed("down"): 	# Déplace le sélecteur de +1 dans la liste (vers le bas)
 			all_choice_node[current_selected_choice].not_hover()
-			current_selected_choice = (current_selected_choice + 1) % len(all_choice_node)
+			current_selected_choice = posmod(current_selected_choice + 1, len(all_choice_node))
 			all_choice_node[current_selected_choice].hover()
 			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
 			
 		if Input.is_action_just_pressed("up"): 	# Déplace le sélecteur de -1 dans la liste (vers le haut)
 			all_choice_node[current_selected_choice].not_hover()
-			current_selected_choice -= 1
-			if current_selected_choice < 0:
-				current_selected_choice = len(all_choice_node)-1
+			current_selected_choice = posmod(current_selected_choice - 1, len(all_choice_node))
 			all_choice_node[current_selected_choice].hover()
 			mChoice_scroll_container.ensure_control_visible(all_choice_node[current_selected_choice])
 
@@ -144,6 +208,7 @@ func convert_choices_to_text ():
 	return res
 	
 func end_of_mcq ():
+	type = -1
 	hide_paragraph_box()
 	hide_mChoice_box()
 	paragraph_text_label.lines_skipped = 0
@@ -156,6 +221,21 @@ func end_of_mcq ():
 	#l'appel de ma fonction magique
 	var am : ActionManager = get_tree().root.get_node("ActionManager")
 	am.exo_result(answers)
+
+func end_of_choice ():
+	type = -1
+	hide_paragraph_box()
+	hide_mChoice_box()
+	paragraph_text_label.lines_skipped = 0
+	dialog_mcq = null
+	var answers = convert_choices_to_text()
+	reset_of_mcq()
+	player.enable()
+	player.in_dialog = false
+	
+	#l'appel de ma fonction magique
+	var am : ActionManager = get_tree().root.get_node("ActionManager")
+	am.choice_result(answers)
 	
 func hide_paragraph_box() -> void:
 	paragraph_box.visible = false
