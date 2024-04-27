@@ -24,9 +24,9 @@ func get_move_direction() -> Vector2:
 	var dir: Vector2 = Vector2.UP
 	match ENTRY_DIRECTION:
 		1:
-			dir = Vector2.LEFT
+			dir = Vector2.RIGHT
 		2:
 			dir = Vector2.DOWN
 		3:
-			dir = Vector2.RIGHT
+			dir = Vector2.LEFT
 	return dir

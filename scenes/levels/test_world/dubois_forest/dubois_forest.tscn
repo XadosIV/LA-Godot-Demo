@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://br1r1lbmffe32"]
+[gd_scene load_steps=7 format=3 uid="uid://br1r1lbmffe32"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1gi1v"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="2_t7shl"]
 [ext_resource type="TileSet" uid="uid://ddeibq2t2wt0y" path="res://scenes/levels/tiles_maps/tileset/exterior_builder.tres" id="3_qv6lo"]
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="4_d3tx6"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="5_qvyjs"]
+[ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="6_tedud"]
 
-[node name="ExteriorTemplateMap" type="Node2D"]
+[node name="DuboisForest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_1gi1v")
 
@@ -37,10 +38,28 @@ layer_5/tile_data = PackedInt32Array()
 
 [node name="LogicMap" type="TileMap" parent="."]
 y_sort_enabled = true
-position = Vector2(-1, 0)
 tile_set = ExtResource("4_d3tx6")
 format = 2
 layer_0/name = "Layer"
 layer_0/y_sort_enabled = true
 layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(65553, 196609, 0, 131089, 196609, 0, 17, 196609, 0)
 script = ExtResource("5_qvyjs")
+
+[node name="warp_dubois_forest_entrance_1" parent="LogicMap" instance=ExtResource("6_tedud")]
+position = Vector2(280, 8)
+ENTRY_DIRECTION = 3
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/starting_village.tscn"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_1"
+
+[node name="warp_dubois_forest_entrance_2" parent="LogicMap" instance=ExtResource("6_tedud")]
+position = Vector2(280, 24)
+ENTRY_DIRECTION = 3
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/starting_village.tscn"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_2"
+
+[node name="warp_dubois_forest_entrance_3" parent="LogicMap" instance=ExtResource("6_tedud")]
+position = Vector2(280, 40)
+ENTRY_DIRECTION = 3
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/starting_village.tscn"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_3"

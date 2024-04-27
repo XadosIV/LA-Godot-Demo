@@ -842,7 +842,6 @@ layer_5/tile_data = PackedInt32Array(524267, 0, 0, 589803, 0, 0, 655339, 0, 0, 7
 
 [node name="LogicMap" type="TileMap" parent="."]
 y_sort_enabled = true
-position = Vector2(-1, 0)
 tile_set = ExtResource("4_3kmjs")
 format = 2
 layer_0/name = "Layer"
@@ -903,23 +902,23 @@ ENTRY_DIRECTION = 2
 TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/start_village_h3_f0.tscn"
 ENTRY_WARP_NAME = "warp_h3_start_village_entry"
 
-[node name="warp_forest_entrance_1" parent="LogicMap" instance=ExtResource("9_a3n1m")]
+[node name="warp_dubois_forest_entrance_1" parent="LogicMap" instance=ExtResource("9_a3n1m")]
 position = Vector2(-360, -24)
 ENTRY_DIRECTION = 1
 TARGETED_SCENE = "res://scenes/levels/test_world/dubois_forest/dubois_forest.tscn"
-ENTRY_WARP_NAME = "warp_forest_entrance_1"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_1"
 
-[node name="warp_forest_entrance_2" parent="LogicMap" instance=ExtResource("9_a3n1m")]
+[node name="warp_dubois_forest_entrance_2" parent="LogicMap" instance=ExtResource("9_a3n1m")]
 position = Vector2(-360, -8)
 ENTRY_DIRECTION = 1
 TARGETED_SCENE = "res://scenes/levels/test_world/dubois_forest/dubois_forest.tscn"
-ENTRY_WARP_NAME = "warp_forest_entrance_2"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_2"
 
-[node name="warp_forest_entrance_3" parent="LogicMap" instance=ExtResource("9_a3n1m")]
+[node name="warp_dubois_forest_entrance_3" parent="LogicMap" instance=ExtResource("9_a3n1m")]
 position = Vector2(-360, 8)
 ENTRY_DIRECTION = 1
 TARGETED_SCENE = "res://scenes/levels/test_world/dubois_forest/dubois_forest.tscn"
-ENTRY_WARP_NAME = "warp_forest_entrance_3"
+ENTRY_WARP_NAME = "warp_dubois_forest_entrance_3"
 
 [node name="ChristineTop" parent="LogicMap" instance=ExtResource("7_so687")]
 position = Vector2(-488, 138)
