@@ -38,12 +38,12 @@ script = ExtResource("4_p1gst")
 
 [node name="warp_h2_f1_0" parent="LogicMap" instance=ExtResource("5_iauw0")]
 position = Vector2(152, -88)
-TARGETED_SCENE = "res://scenes/levels/test_world/start_village_h2_f0.tscn"
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/start_village_h2_f0.tscn"
 ENTRY_WARP_NAME = "warp_h2_f0_0"
 
 [node name="warp_h2_f1_1" parent="LogicMap" instance=ExtResource("5_iauw0")]
 position = Vector2(168, -88)
-TARGETED_SCENE = "res://scenes/levels/test_world/start_village_h2_f0.tscn"
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/start_village_h2_f0.tscn"
 ENTRY_WARP_NAME = "warp_h2_f0_1"
 
 [node name="Player" parent="." instance=ExtResource("6_5rlgr")]
