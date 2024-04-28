@@ -4,10 +4,12 @@ extends CanvasLayer
 @onready var player = get_parent().get_parent()
 @onready var current_scene_name = player.get_parent().get_name()
 @onready var logic_map = player.get_parent().get_node("LogicMap")
+@onready var gm: GameManager = get_tree().root.get_node("GameManager")
 
 var property_fps
 var property_position
 var property_current_scene
+var property_time
 var property_show_logic_map
 
 var show_logic_map: bool = false
@@ -21,6 +23,7 @@ func _ready() -> void:
 	add_position_debug_property()
 	add_current_scene_debug_property()
 	add_show_logic_map_ebug_property()
+	add_time_debug_property()
 
 func _input(event) -> void:
 	if visible and  event.is_action_pressed("L_key"):
@@ -49,6 +52,9 @@ func _process(delta) -> void:
 		
 		# Update logic map visibility
 		property_show_logic_map.text = "show_logic_map: "+str(show_logic_map)
+		
+		#Update time
+		property_time.text = "time: "+str(gm.time)+"\nhour: "+str(gm.hour)+":"+str(gm.minute)
 
 func add_fps_debug_property() -> void:
 	property_fps = Label.new()
@@ -69,3 +75,8 @@ func add_show_logic_map_ebug_property() -> void:
 	property_show_logic_map = Label.new()
 	property_container.add_child(property_show_logic_map)
 	property_show_logic_map.text = "show_logic_map: "+str(show_logic_map)
+
+func add_time_debug_property() -> void:
+	property_time = Label.new()
+	property_container.add_child(property_time)
+	property_time.text = "time: "+str(gm.time)+"\nhour: "+str(gm.hour)+":"+str(gm.minute)

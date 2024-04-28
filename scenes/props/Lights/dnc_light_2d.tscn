@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvn5j13agr8cj"]
+
+[ext_resource type="Texture2D" uid="uid://d14rneil6asjx" path="res://assets/light.png" id="1_6ltcp"]
+[ext_resource type="Script" path="res://scenes/props/Lights/dncLight2D.gd" id="2_2gjuo"]
+
+[node name="dncLight2D" type="PointLight2D"]
+position = Vector2(-14, 79)
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 50.0
+texture = ExtResource("1_6ltcp")
+texture_scale = 0.5
+script = ExtResource("2_2gjuo")

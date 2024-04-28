@@ -1,7 +1,9 @@
-[gd_scene load_steps=125 format=3 uid="uid://cb7kg5djhb6v3"]
+[gd_scene load_steps=127 format=3 uid="uid://cb7kg5djhb6v3"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_orvug"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="2_drkxi"]
+[ext_resource type="Texture2D" uid="uid://2isy50egvfxi" path="res://assets/LA-Demo/daynight_default_gradient.tres" id="2_pt3t2"]
+[ext_resource type="PackedScene" uid="uid://cvn5j13agr8cj" path="res://scenes/props/Lights/dnc_light_2d.tscn" id="3_vf2wx"]
 [ext_resource type="TileSet" uid="uid://ddeibq2t2wt0y" path="res://scenes/levels/tiles_maps/tileset/exterior_builder.tres" id="3_wov40"]
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="4_3kmjs"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="5_chbnf"]
@@ -813,6 +815,11 @@ animations = [{
 [node name="TestMap1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_orvug")
+gradient = ExtResource("2_pt3t2")
+
+[node name="dncLight2D" parent="." instance=ExtResource("3_vf2wx")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_drkxi")]
 position = Vector2(8, 8)

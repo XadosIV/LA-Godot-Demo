@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6gvuof33tr1y"]
+[gd_scene load_steps=8 format=3 uid="uid://b6gvuof33tr1y"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6hoav"]
+[ext_resource type="Texture2D" uid="uid://io6og8rnta12" path="res://assets/LA-Demo/daynight_interior_default_gradient.tres" id="2_bskqg"]
 [ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_jt07g"]
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="3_rlpg2"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="4_5eao7"]
@@ -10,6 +11,7 @@
 [node name="sv_h2_f0" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6hoav")
+gradient = ExtResource("2_bskqg")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

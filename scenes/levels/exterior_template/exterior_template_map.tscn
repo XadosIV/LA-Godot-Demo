@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh3tewqkb6865"]
+[gd_scene load_steps=7 format=3 uid="uid://dh3tewqkb6865"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_l84v8"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="2_cnfst"]
+[ext_resource type="Texture2D" uid="uid://2isy50egvfxi" path="res://assets/LA-Demo/daynight_default_gradient.tres" id="2_wh74r"]
 [ext_resource type="TileSet" uid="uid://ddeibq2t2wt0y" path="res://scenes/levels/tiles_maps/tileset/exterior_builder.tres" id="3_utn1t"]
 [ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="4_3piwk"]
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="5_p4ytq"]
@@ -9,6 +10,7 @@
 [node name="ExteriorTemplateMap" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_l84v8")
+gradient = ExtResource("2_wh74r")
 
 [node name="Player" parent="." instance=ExtResource("2_cnfst")]
 position = Vector2(8, 8)
@@ -44,3 +46,5 @@ layer_0/name = "Layer"
 layer_0/y_sort_enabled = true
 layer_0/z_index = 1
 script = ExtResource("5_p4ytq")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
