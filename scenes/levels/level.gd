@@ -2,9 +2,14 @@ class_name Level extends Node
 
 @onready var sm: SceneManager = get_parent().get_node("SceneManager")
 @onready var am: ActionsManager = get_parent().get_node("ActionManager")
+@onready var gm: GameManager = get_parent().get_node("GameManager")
 @onready var lm = get_node("LogicMap")
 @onready var current_scene_path = ""
 @onready var current_scene_name = ""
+@onready var canvas_modulate:CanvasModulate = $CanvasModulate
+
+@export var gradient:GradientTexture1D
+
 # Initialisation d'un level
 func _ready() -> void:
 	sm.player = $Player
@@ -19,6 +24,10 @@ func _ready() -> void:
 	else:
 		lm.init()
 	sm.player.enable()
+	
+func _process(delta):
+	if(canvas_modulate):
+		canvas_modulate.color = gradient.gradient.sample((sin(gm.time - (8/PI)) + 1.0) / 2.0)
 
 #func get_scene_file_path():
 #	return super()

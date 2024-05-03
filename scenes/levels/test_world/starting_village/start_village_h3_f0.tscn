@@ -1,19 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://c68rgx0udpjax"]
+[gd_scene load_steps=8 format=3 uid="uid://c68rgx0udpjax"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_siekl"]
-[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_c0dxt"]
-[ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="3_ihwga"]
-[ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="4_b6knj"]
-[ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="5_xi1sw"]
-[ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="6_fqyas"]
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_2it3l"]
+[ext_resource type="Texture2D" uid="uid://io6og8rnta12" path="res://assets/LA-Demo/daynight_interior_default_gradient.tres" id="2_p7om0"]
+[ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_ux7u5"]
+[ext_resource type="TileSet" uid="uid://bsa0adevc47ku" path="res://scenes/levels/tiles_maps/tileset/logic_tileset.tres" id="3_f0nld"]
+[ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="4_o1xnh"]
+[ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="5_k2d40"]
+[ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="6_kna70"]
 
 [node name="sv_h3_f0" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_siekl")
+script = ExtResource("1_2it3l")
+gradient = ExtResource("2_p7om0")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("2_c0dxt")
+tile_set = ExtResource("2_ux7u5")
 format = 2
 layer_0/name = "Props"
 layer_0/y_sort_enabled = true
@@ -27,20 +29,20 @@ layer_2/tile_data = PackedInt32Array(-262150, 0, 30, -196614, 0, 31, -262149, 65
 
 [node name="LogicMap" type="TileMap" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("3_ihwga")
+tile_set = ExtResource("3_f0nld")
 collision_visibility_mode = 2
 format = 2
 layer_0/name = "Layer"
 layer_0/y_sort_enabled = true
 layer_0/z_index = 1
 layer_0/tile_data = PackedInt32Array(65534, 196609, 0, 65532, 1, 0, 65531, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 3, 1, 0, -65533, 1, 0, -131069, 1, 0, -196605, 1, 0, -327677, 1, 0, -262141, 1, 0, -393213, 1, 0, -393214, 1, 0, -393215, 1, 0, -393216, 1, 0, -327681, 1, 0, -327682, 1, 0, -327683, 1, 0, -327684, 1, 0, -327685, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327686, 1, 0, -327687, 1, 0, -262150, 1, 0, -196613, 1, 0, -196612, 1, 0, -196611, 1, 0, -262151, 1, 0, -196615, 1, 0, -131079, 1, 0, -65543, 1, 0, -7, 1, 0, 65529, 1, 0, 2, 1, 0, -262142, 1, 0, -65540, 1, 0, -65541, 1, 0)
-script = ExtResource("4_b6knj")
+script = ExtResource("4_o1xnh")
 
-[node name="warp_h3_start_village_entry" parent="LogicMap" instance=ExtResource("5_xi1sw")]
+[node name="warp_h3_start_village_entry" parent="LogicMap" instance=ExtResource("5_k2d40")]
 position = Vector2(-24, 8)
-TARGETED_SCENE = "res://scenes/levels/test_world/starting_village.tscn"
+TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/starting_village.tscn"
 ENTRY_WARP_NAME = "warp_h3"
 
-[node name="Player" parent="." instance=ExtResource("6_fqyas")]
+[node name="Player" parent="." instance=ExtResource("6_kna70")]
 y_sort_enabled = true
 position = Vector2(8, 8)
