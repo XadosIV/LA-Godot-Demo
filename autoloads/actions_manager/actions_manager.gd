@@ -97,6 +97,9 @@ func readAction(id, action):
 		"aller":
 			aller(action.target, action.page)
 			return true
+		"changer":
+			aller(action.target, action.page)
+			return true
 		"executer":
 			executer(id, action.page)
 			return true
@@ -106,8 +109,10 @@ func readAction(id, action):
 		"choisir":
 			choisir(getName(id, action), action.text, action.target)
 			return false
+		"rien":
+			return true
 		_:
-			printerr("Mot inconnu.")
+			printerr("Mot inconnu : " + action.type)
 
 func dire(name, text):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
