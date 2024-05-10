@@ -84,7 +84,7 @@ func interact(movement) -> bool:
 	if isItem(mapPos): #Item
 		var targeted_item : Items = posToItem(mapPos)
 		targeted_item.interact()
-		player.inventory_add(targeted_item)
+		player.inventory_add(targeted_item.id)
 		targeted_item.queue_free()
 		set_cell(0, mapPos)
 		

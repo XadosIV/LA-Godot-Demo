@@ -39,11 +39,9 @@ func _process(delta):
 func init_paragraph(dialog: ParagraphDialog) -> void:
 	type = 0
 	if dialog.npc_name == "Kaiou":
-		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
-		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
+		paragraph_text_label.label_settings.font_size = randi() % 20 + 14
 	else:
 		paragraph_text_label.label_settings.font_size = 14
-		paragraph_name_label.label_settings.font_size = 18
 	dialog_paragraph = dialog
 	player.disable()
 	paragraph_text_label.text = dialog_paragraph.text

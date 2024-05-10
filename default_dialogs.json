@@ -20,7 +20,34 @@
 			"pages": [
 				[
 					{
-						"text": "Je Kaiou",
+						"type":"tester",
+						"target":"object",
+						"id":-2,
+						"succes": {
+							"type":"executer",
+							"target":-4,
+							"page": 1
+						},
+						"echec": {
+							"type":"dire",
+							"text":"*C'est un kaiou ordinaire...*"
+						}
+					}
+				],
+				[
+					{
+						"type":"dire",
+						"text":"*Vous utilisez la langue des Kaious afin de communiquer avec lui !*"
+					},
+					{
+						"type":"executer",
+						"target":-4,
+						"page":2
+					}
+				],
+				[
+					{
+						"text": "Je Kaiou !!",
 						"type": "dire"
 					},
 					{
@@ -30,7 +57,7 @@
 							{"text":"Oui.", "action":{"type":"dire", "text":"Kaka..."}},
 							{"text":"Non.", "action":{"type":"dire", "text":"*Le Kaiou se jette sur vous*"}},
 							{"text":"Kaiou ?", "action":{"type":"dire", "text":"Kaiou ???"}},
-							{"text":"KAIOU !", "action":{"type":"dire", "text":"KAIOU KAIOU !\n*Kaiou devient votre meilleur ami, en même temps, vous n'en aviez pas avant...*"}}
+							{"text":"KAIOU !", "action":{"type":"dire", "text":"KAIOU KAIOU !\n\n\n\n*Kaiou devient votre meilleur ami !*\n\n\n\n*En même temps... vous n'en aviez pas avant... des amis...*"}}
 						]
 					}
 					
@@ -222,6 +249,16 @@
 			"response": [
 				0
 			]
+		}
+	],
+	"items":[
+		{
+			"id":-1,
+			"name":"La tablette LAEditor"
+		},
+		{
+			"id":-2,
+			"name":"Langue des Kaious"
 		}
 	]
 }

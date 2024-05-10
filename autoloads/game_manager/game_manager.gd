@@ -1,5 +1,6 @@
 extends Node
 
+var exercisesCompleted : Array = []
 var inventory : Array = []
 var healthPoints : int = 1
 
@@ -9,6 +10,8 @@ const INGAME_TO_REAL_MINUTE_DURATION = (2 * PI) / MINUTES_PER_DAY
 
 @export var ingameSpeed = 1.0
 @export var initialHour = 11
+
+@onready var am = get_tree().root.get_node("ActionManager")
 
 var time:float = 0.0
 var day = 0
@@ -30,3 +33,8 @@ func _recalculate_time():
 	
 	hour = int(current_day_minutes / MINUTES_PER_HOURS)
 	minute = int(current_day_minutes % MINUTES_PER_HOURS)
+
+func showInventory():
+	print("-- Inventaire "+str(len(inventory)) + " --")
+	for id in inventory:
+		print("x " + am.getItemById(id).name)

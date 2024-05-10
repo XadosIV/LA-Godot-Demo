@@ -1,6 +1,7 @@
 class_name ActionsManager extends Node
 
 @onready var sm = get_tree().root.get_node("SceneManager")
+@onready var gm = get_tree().root.get_node("GameManager")
 
 var json_data = {}
 
@@ -23,6 +24,9 @@ func _ready():
 	
 	for exercice in jtext.exercises:
 		exercises.append(exercice)
+	
+	for item in jtext.items:
+		items.append(item)
 
 func read_json(path):
 	var file = FileAccess.get_file_as_string(path)
@@ -42,7 +46,7 @@ func read_json(path):
 
 func getIdFromList(id, list):
 	for i in list:
-		if i.id == id:
+		if int(i.id) == int(id):
 			return i
 	return false
 
@@ -106,10 +110,27 @@ func readAction(id, action):
 		"choisir":
 			choisir(getName(id, action), action.text, action.target)
 			return false
+		"tester":
+			tester(action.target, action.id, action.succes, action.echec)
+			return true
 		"rien":
 			return true
 		_:
 			printerr("Mot inconnu : " + action.type)
+
+func tester(type, id, succes, echec):
+	var list = []
+	if type == "exercice":
+		list = gm.exercicesCompleted
+	elif type == "object":
+		list = gm.inventory
+	else:
+		return -1 # type inconnu
+	
+	if list.has(int(id)):
+		actions_fifo.insert(0, succes)
+	else:
+		actions_fifo.insert(0, echec)
 
 func dire(name, text):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
@@ -133,25 +154,22 @@ func get_result_value_mcq(query, options, response):
 	var point_negatif = 1/float(options.size())
 	var point = 1/float(response.size())
 	var total = 0
-	print(query)
-	print(response)
 	for i in range(options.size()):
 		if (query.has(i)):
-			print("evaluate " + str(i))
 			if response.has(float(i)):
-				print("positif " + str(point))
 				total += point
 			else:
 				total -= point_negatif
-				print("negatif " + str(point))
 	return total
 
 func exo_result(res:Array):
 	# A appeler à la fin d'un exo pour exécuter la bonne prochaine action définie dans le graphe.
 	var r = get_result_value_mcq(res, lastExerciceExecuted.exercice.options, lastExerciceExecuted.exercice.response)
-	print(r)
 	if r >= 0.5: #succes
 		actions_fifo.insert(0, lastExerciceExecuted.succes)
+		var exo_id = lastExerciceExecuted.exercice.id
+		if not gm.exercisesCompleted.has(exo_id):
+			gm.exercisesCompleted.append(exo_id)
 	else: #echec
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
 	executeNextAction()
