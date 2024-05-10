@@ -168,8 +168,8 @@ func exo_result(res:Array):
 	if r >= 0.5: #succes
 		actions_fifo.insert(0, lastExerciceExecuted.succes)
 		var exo_id = lastExerciceExecuted.exercice.id
-		if not gm.exercisesCompleted.has(exo_id):
-			gm.exercisesCompleted.append(exo_id)
+		if not gm.exercisesCompleted.has(int(exo_id)):
+			gm.exercisesCompleted.append(int(exo_id))
 	else: #echec
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
 	executeNextAction()
