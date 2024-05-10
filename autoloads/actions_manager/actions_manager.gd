@@ -97,9 +97,6 @@ func readAction(id, action):
 		"aller":
 			aller(action.target, action.page)
 			return true
-		"changer":
-			aller(action.target, action.page)
-			return true
 		"executer":
 			executer(id, action.page)
 			return true

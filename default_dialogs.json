@@ -89,7 +89,17 @@
 			"pages": [
 				[
 					{
-						"text": "Hmmmm ...",
+						"text": "Je suis un PANNEAU ! Pas un PNJ !",
+						"type": "dire"
+					},
+					{
+						"type":"executer",
+						"page":1
+					}
+				],
+				[
+					{
+						"text":"Ne me reparle pas ! Je suis un panneau.",
 						"type": "dire"
 					}
 				]
