@@ -49,8 +49,9 @@
 						"type": "dire"
 					},
 					{
-						"target": -4,
-						"type": "exercice",
+						"type":"donner",
+						"id": -4,
+						"target": "exercice",
 						"echec": {
 							"text": "Ok.",
 							"type": "dire"
@@ -133,8 +134,9 @@
 						"type": "dire"
 					},
 					{
-						"target": -5,
-						"type": "exercice",
+						"type":"donner",
+						"id": -5,
+						"target": "exercice",
 						"echec": {
 							"text": "Et non !",
 							"type": "dire"
@@ -171,8 +173,9 @@
 						"type": "dire"
 					},
 					{
-						"target": -6,
-						"type": "exercice",
+						"type":"donner",
+						"id": -6,
+						"target": "exercice",
 						"echec": {
 							"text": "COUBEH !!!",
 							"type": "dire"

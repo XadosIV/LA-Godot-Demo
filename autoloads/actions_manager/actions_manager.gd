@@ -91,9 +91,6 @@ func readAction(id, action):
 		"dire":
 			dire(getName(id, action), action.text)
 			return false
-		"exercice":
-			exercice(getName(id, action), action.target, action.echec, action.succes)
-			return false
 		"aller":
 			aller(action.target, action.page)
 			return true
@@ -101,7 +98,10 @@ func readAction(id, action):
 			executer(id, action.page)
 			return true
 		"donner":
-			donner(action.target)
+			if action.target == "object":
+				donner(action.id)
+			elif action.target == "exercice":
+				exercice(getName(id, action), action.id, action.echec, action.succes)
 			return false
 		"choisir":
 			choisir(getName(id, action), action.text, action.target)
