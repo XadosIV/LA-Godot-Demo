@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvwjk4wy0awfg"]
+[gd_scene load_steps=14 format=3 uid="uid://bvwjk4wy0awfg"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_xadht"]
 [ext_resource type="TileSet" uid="uid://8irg51c2c8ud" path="res://scenes/levels/tiles_maps/tileset/interiors_building.tres" id="2_68q1g"]
@@ -7,6 +7,12 @@
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="4_p1gst"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="5_iauw0"]
 [ext_resource type="PackedScene" uid="uid://dgf1bg7ra1non" path="res://scenes/characteres/players/Player.tscn" id="6_5rlgr"]
+[ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="7_5k6fy"]
+[ext_resource type="SpriteFrames" uid="uid://ccq6ucon021wo" path="res://scenes/characteres/players/resources/Samuel.tres" id="8_tidmr"]
+[ext_resource type="SpriteFrames" uid="uid://bfnsa1wr6sd3q" path="res://scenes/characteres/players/resources/Ash.tres" id="9_kiomq"]
+[ext_resource type="SpriteFrames" uid="uid://dtxivm7cv8qlu" path="res://scenes/characteres/players/resources/Achille.tres" id="9_yhcg7"]
+[ext_resource type="SpriteFrames" uid="uid://37l7n8myyitp" path="res://scenes/characteres/players/resources/Adam.tres" id="10_epdm4"]
+[ext_resource type="SpriteFrames" uid="uid://detd4roqxxexd" path="res://scenes/characteres/players/resources/Pier.tres" id="12_mtrm5"]
 
 [node name="sv_h2_f1" type="Node2D"]
 y_sort_enabled = true
@@ -35,7 +41,7 @@ format = 2
 layer_0/name = "Layer"
 layer_0/y_sort_enabled = true
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, -262136, 1, 0, -196600, 1, 0, -327672, 1, 0, -393208, 1, 0, -524280, 1, 0, -524281, 1, 0, -524282, 1, 0, -524283, 1, 0, -524284, 1, 0, -524285, 1, 0, -524286, 1, 0, -524287, 1, 0, -524288, 1, 0, -458753, 1, 0, -458754, 1, 0, -458755, 1, 0, -458756, 1, 0, -393220, 1, 0, -327684, 1, 0, -262148, 1, 0, -196612, 1, 0, 65532, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, -393207, 196609, 0, -393206, 196609, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, 11, 1, 0, -65525, 1, 0, -131061, 1, 0, -196597, 1, 0, -262133, 1, 0, -327669, 1, 0, -393205, 1, 0, -458741, 1, 0, -524277, 1, 0, -524279, 1, 0, -524278, 1, 0, -262137, 1, 0, -327673, 1, 0, -327671, 1, 0, -327670, 1, 0, -262134, 1, 0, -262135, 1, 0, -196599, 1, 0, -196598, 1, 0)
+layer_0/tile_data = PackedInt32Array(131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, -262136, 1, 0, -196600, 1, 0, -327672, 1, 0, -393208, 1, 0, -524280, 1, 0, -524281, 1, 0, -524282, 1, 0, -524283, 1, 0, -524284, 1, 0, -524285, 1, 0, -524286, 1, 0, -524287, 1, 0, -524288, 1, 0, -458753, 1, 0, -458754, 1, 0, -458755, 1, 0, -458756, 1, 0, -393220, 1, 0, -327684, 1, 0, -262148, 1, 0, -196612, 1, 0, 65532, 1, 0, -131076, 1, 0, -65540, 1, 0, -4, 1, 0, -393207, 196609, 0, -393206, 196609, 0, -131064, 1, 0, -131063, 1, 0, -131062, 1, 0, 11, 1, 0, -65525, 1, 0, -131061, 1, 0, -196597, 1, 0, -262133, 1, 0, -327669, 1, 0, -393205, 1, 0, -458741, 1, 0, -524277, 1, 0, -524279, 1, 0, -524278, 1, 0, -262137, 1, 0, -327673, 1, 0, -327671, 1, 0, -327670, 1, 0, -262134, 1, 0, -262135, 1, 0, -196599, 1, 0, -196598, 1, 0, -327682, 131073, 0, -65530, 131073, 0, -65527, 131073, 0, -458747, 131073, 0, -131072, 131073, 0)
 script = ExtResource("4_p1gst")
 
 [node name="warp_h2_f1_0" parent="LogicMap" instance=ExtResource("5_iauw0")]
@@ -47,6 +53,35 @@ ENTRY_WARP_NAME = "warp_h2_f0_0"
 position = Vector2(168, -88)
 TARGETED_SCENE = "res://scenes/levels/test_world/starting_village/start_village_h2_f0.tscn"
 ENTRY_WARP_NAME = "warp_h2_f0_1"
+
+[node name="Npc_Titi" parent="LogicMap" instance=ExtResource("7_5k6fy")]
+position = Vector2(153, -8)
+id = -8
+sprite = ExtResource("8_tidmr")
+facing_direction_import = 0
+
+[node name="Npc_Joris" parent="LogicMap" instance=ExtResource("7_5k6fy")]
+position = Vector2(104, -8)
+id = -8
+sprite = ExtResource("9_kiomq")
+facing_direction_import = 1
+
+[node name="Npc_Alexis" parent="LogicMap" instance=ExtResource("7_5k6fy")]
+position = Vector2(8, -24)
+id = -8
+sprite = ExtResource("10_epdm4")
+facing_direction_import = 3
+
+[node name="Npc_Mathys" parent="LogicMap" instance=ExtResource("7_5k6fy")]
+position = Vector2(-24, -88)
+id = -8
+sprite = ExtResource("12_mtrm5")
+
+[node name="Npc_Achille" parent="LogicMap" instance=ExtResource("7_5k6fy")]
+position = Vector2(88, -105)
+id = -8
+sprite = ExtResource("9_yhcg7")
+facing_direction_import = 0
 
 [node name="Player" parent="." instance=ExtResource("6_5rlgr")]
 position = Vector2(8, 8)

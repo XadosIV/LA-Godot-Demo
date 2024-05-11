@@ -11,7 +11,7 @@ class_name DialogBox extends CanvasLayer
 @onready var mChoice_container: VBoxContainer = $ChoiceBox/ScrollContainer/VBoxContainer
 @onready var mChoice_name_label : Label = $ChoiceBox/NameLabel
 
-@onready var player : Player = get_parent().get_parent()
+@export var player : Player
 
 # Variables pour la boite de dialogue à choix multiple
 var current_selected_choice : int = 0

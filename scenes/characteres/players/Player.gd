@@ -10,7 +10,7 @@ var isMoving : bool = false # est en train de se déplacer entre deux cases
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var dialog_box : DialogBox = $Camera2D/DialogBox
+@export var dialog_box : DialogBox
 
 @onready var gm : GameManager = get_tree().root.get_node("GameManager")
 

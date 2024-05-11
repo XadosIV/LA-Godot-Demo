@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var property_container = $Panel/VBoxContainer
-@onready var player = get_parent().get_parent()
+@export var player : Player
 @onready var current_scene_name = player.get_parent().get_name()
 @onready var logic_map = player.get_parent().get_node("LogicMap")
 @onready var gm: GameManager = get_tree().root.get_node("GameManager")

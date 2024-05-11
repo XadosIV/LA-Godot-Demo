@@ -85,6 +85,7 @@
 						},
 						"succes": {
 							"page": 1,
+							"target":-5,
 							"type": "executer"
 						}
 					}
@@ -214,7 +215,72 @@
 					}
 				]
 			]
+		},
+		{
+			"id":-11,
+			"name":"WGSE Titi ✨",
+			"currentPage":0,
+			"pages": [
+				[
+					{
+						"type":"dire",
+						"text":"Mmh... Que choisir... J'ai tellement de choix ! ✨"
+					}
+				]
+			]
+		},
+		{
+			"id":-12,
+			"name":"WGSE Joris",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"dire",
+						"text":"Ca fait 30 minutes qu'on l'attend... Même moi j'ai eu le temps d'arriver alors que j'étais en retard..."
+					}
+				]
+			]
+		},
+		{
+			"id":-13,
+			"name":"WGSE Alexis",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"choisir",
+						"text":"En fait, t'as fait quoi comme études ?",
+						"target":[
+							{"text":"Bah écoute, j'ai fait deux années d'études à Montpellier...", "action":{"type":"executer", "target":-13, "page":1}},
+							{"text":"J'ai pas fait d'études.", "action":{"type":"dire", "text":"Ah ok..."}}
+						]
+					}
+				],
+				[
+					{
+						"type":"choisir",
+						"text":"De ?",
+						"target":[
+							{"text":"Années d'études à Montpellier", "action":{"type":"executer", "target":-13, "page":2}},
+							{"text":"Oh puis ta gueule...", "action":{"type":"aller", "target":-13, "page":0}}
+						]
+					}
+				],
+				[
+					{
+						"text":"Quoi ? Attends mais... Non...",
+						"type":"dire"
+					},
+					{
+						"type":"executer",
+						"target":-13,
+						"page":1
+					}
+				]
+			]
 		}
+		
 	],
 	"exercises":[
 		{
@@ -259,6 +325,10 @@
 		{
 			"id":-2,
 			"name":"Langue des Kaious"
+		},
+		{
+			"id":-3,
+			"name":"Bagnat Thon"
 		}
 	]
 }

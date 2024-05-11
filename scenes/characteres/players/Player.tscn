@@ -8,8 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htuyu"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dialog_box")]
 script = ExtResource("1_mh4ux")
+dialog_box = NodePath("Camera2D/DialogBox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -24,7 +25,9 @@ shape = SubResource("RectangleShape2D_htuyu")
 position = Vector2(0, -8)
 zoom = Vector2(3, 3)
 
-[node name="DialogBox" parent="Camera2D" instance=ExtResource("3_xuoct")]
+[node name="DialogBox" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_xuoct")]
+player = NodePath("../..")
 metadata/_edit_use_anchors_ = true
 
-[node name="DebugPanel" parent="Camera2D" instance=ExtResource("3_s3beh")]
+[node name="DebugPanel" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_s3beh")]
+player = NodePath("../..")
