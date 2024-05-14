@@ -205,7 +205,7 @@
 						"id": -6,
 						"target": "exercice",
 						"echec": {
-							"text": "COUBEH !!!",
+							"text": "FEUR !!!",
 							"type": "dire"
 						},
 						"succes": {
@@ -263,7 +263,7 @@
 						"text":"De ?",
 						"target":[
 							{"text":"Années d'études à Montpellier", "action":{"type":"executer", "target":-13, "page":2}},
-							{"text":"Oh puis ta gueule...", "action":{"type":"aller", "target":-13, "page":0}}
+							{"text":"Oh puis zut... * Partir *", "action":{"type":"aller", "target":-13, "page":0}}
 						]
 					}
 				],
@@ -279,8 +279,37 @@
 					}
 				]
 			]
-		}
-		
+		},
+		{
+			"id":-14,
+			"name":"WGSE Mathys",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"dire",
+						"text":"Rendez-vous sur twitch.tv/magicsss_ pour le grind Challenger la team !"
+					}
+				]
+			]
+		},
+		{
+			"id":-15,
+			"name":"WGSE (?) Achille",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"dire",
+						"text":"Honnêtement, je sais même pas pourquoi je suis là..."
+					},
+					{
+						"type":"dire",
+						"text":"Au moins j'ai un sprite tout rose ! Rpz Polytech !"
+					}
+				]
+			]
+		},
 	],
 	"exercises":[
 		{

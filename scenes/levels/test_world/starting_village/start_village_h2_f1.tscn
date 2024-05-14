@@ -56,30 +56,30 @@ ENTRY_WARP_NAME = "warp_h2_f0_1"
 
 [node name="Npc_Titi" parent="LogicMap" instance=ExtResource("7_5k6fy")]
 position = Vector2(153, -8)
-id = -8
+id = -11
 sprite = ExtResource("8_tidmr")
 facing_direction_import = 0
 
 [node name="Npc_Joris" parent="LogicMap" instance=ExtResource("7_5k6fy")]
 position = Vector2(104, -8)
-id = -8
+id = -12
 sprite = ExtResource("9_kiomq")
 facing_direction_import = 1
 
 [node name="Npc_Alexis" parent="LogicMap" instance=ExtResource("7_5k6fy")]
 position = Vector2(8, -24)
-id = -8
+id = -13
 sprite = ExtResource("10_epdm4")
 facing_direction_import = 3
 
 [node name="Npc_Mathys" parent="LogicMap" instance=ExtResource("7_5k6fy")]
 position = Vector2(-24, -88)
-id = -8
+id = -14
 sprite = ExtResource("12_mtrm5")
 
 [node name="Npc_Achille" parent="LogicMap" instance=ExtResource("7_5k6fy")]
 position = Vector2(88, -105)
-id = -8
+id = -15
 sprite = ExtResource("9_yhcg7")
 facing_direction_import = 0
 

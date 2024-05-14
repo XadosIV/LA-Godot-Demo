@@ -205,7 +205,7 @@ func donner(id):
 	if item:
 		dia.init("Information", "Vous obtenez : " + item.name)
 		dialog_box.init_paragraph(dia)
-		sm.player.inventory_add(item, true)
+		sm.player.inventory_add(item.id)
 
 func choisir(name, question, target):
 	var dialog_box : DialogBox = get_node("/root/SceneManager").player.dialog_box
