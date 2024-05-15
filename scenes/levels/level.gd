@@ -24,22 +24,20 @@ func _ready() -> void:
 	else:
 		lm.init()
 	sm.player.enable()
-	
+
+# Mise à jour du filtre pour l'effet jour/nuit
 func _process(delta):
 	if(canvas_modulate):
 		canvas_modulate.color = gradient.gradient.sample((sin(gm.time - (8/PI)) + 1.0) / 2.0)
 
-#func get_scene_file_path():
-#	return super()
-
+# Création des pnjs dynamiques sur la carte.
 func load_json_data():
 	current_scene_path = self.get_scene_file_path().split("/")
 	current_scene_name = current_scene_path[len(current_scene_path)-1]
 	for i in am.npcs:
 		if i["id"] < 0:
+			# Les pnjs ayant des id négatifs sont supposés être déjà placé dans la scène.
 			continue
-		#print(i["map"] + " - " +self.current_scene_name+" == "+ str((i["map"] == self.current_scene_name)))
-		print(i["map"])
 		if(i["map"] == self.current_scene_name):
 			print(Vector2i(int(i["x"]), int(i["y"])))
 			lm.create_actor(i["id"], Vector2i(int(i["x"]), int(i["y"])), i["sprite"])

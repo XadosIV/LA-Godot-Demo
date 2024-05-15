@@ -20,7 +20,6 @@ func _ready() -> void:
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 
 func load_new_scene(content_path: String, transition_type: String = "fade_to_black") -> void:
-	
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
 	await loading_screen.anim_player.animation_finished

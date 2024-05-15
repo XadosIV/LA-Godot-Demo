@@ -1,21 +1,21 @@
 extends Control
 
-# TODO Créer un autoload avec toutes les varaibles vers les scènes
-
 var in_transition : bool = false
 var path
 
 @onready var actionsManager : ActionsManager = get_node("/root/ActionManager")
 
 func _ready():
+	# Connecte au signal pour savoir quand un fichier est déposé
 	get_viewport().files_dropped.connect(on_files_dropped)
 	$VBoxContainer/Button.visible = false
 
 func on_files_dropped(files):
+	# Gestion du chargement au dépot d'un fichier dans la fenêtre.
 	path = files[0]
 	if path.ends_with(".json"):
 		$VBoxContainer/Button.visible = true
-		actionsManager.read_json(path)
+		actionsManager.read_json(path) # C'est là dedans que la magie opère
 		$Label.text = str(path)
 	else:
 		path = null

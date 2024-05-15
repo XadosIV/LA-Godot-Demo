@@ -4,7 +4,7 @@ class_name Choice extends Control
 @onready var text_label : Label = $Label
 @onready var id : int
 """
-Cette scène est un template pour les boîte de dialogue à option elle remprésente une ligne de la sélection
+Cette scène est un template pour les boîte de dialogue à option elle représente une ligne de la sélection
 """
 
 

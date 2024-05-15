@@ -1,11 +1,11 @@
 class_name DialogBox extends CanvasLayer
 
-# Récupération des Nodes piur la boite de dialogue (paragraphe)
+# Récupération des Nodes pour la boite de dialogue (paragraphe)
 @onready var paragraph_box : Panel = $ParagraphBox
 @onready var paragraph_text_label : Label = $ParagraphBox/VBoxContainer/TextLabel
 @onready var paragraph_name_label : Label = $ParagraphBox/VBoxContainer/NameLabel
 
-# Récupération des Nodes piur la boite de dialogue à choix multiple
+# Récupération des Nodes pour la boite de dialogue à choix multiple
 @onready var mChoice_box : Panel = $ChoiceBox
 @onready var mChoice_scroll_container: ScrollContainer = $ChoiceBox/ScrollContainer
 @onready var mChoice_container: VBoxContainer = $ChoiceBox/ScrollContainer/VBoxContainer
@@ -36,9 +36,10 @@ func _process(delta):
 		2:
 			dialog_choice_interact()
 
+# Initialisation des valeurs du component pour afficher le dialogue en paramètre
 func init_paragraph(dialog: ParagraphDialog) -> void:
 	type = 0
-	if dialog.npc_name == "Kaiou":
+	if dialog.npc_name == "Kaiou": # Hardcode d'une valeur aléatoire pour le pnj Kaiou (easter egg)
 		paragraph_text_label.label_settings.font_size = randi() % 20 + 14
 	else:
 		paragraph_text_label.label_settings.font_size = 14
@@ -199,7 +200,7 @@ func reset_of_mcq() -> void:
 	selected_choice = []
 	current_selected_choice = 0
 
-func convert_choices_to_text ():
+func convert_choices_to_id ():
 	var res = []
 	for elt in selected_choice:
 		res += [elt.get_id()]
@@ -211,7 +212,7 @@ func end_of_mcq ():
 	hide_mChoice_box()
 	paragraph_text_label.lines_skipped = 0
 	dialog_mcq = null
-	var answers = convert_choices_to_text()
+	var answers = convert_choices_to_id()
 	reset_of_mcq()
 	player.enable()
 	player.in_dialog = false
@@ -226,7 +227,7 @@ func end_of_choice ():
 	hide_mChoice_box()
 	paragraph_text_label.lines_skipped = 0
 	dialog_mcq = null
-	var answers = convert_choices_to_text()
+	var answers = convert_choices_to_id()
 	reset_of_mcq()
 	player.enable()
 	player.in_dialog = false

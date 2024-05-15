@@ -14,12 +14,11 @@ var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à
 
 @onready var gm : GameManager = get_tree().root.get_node("GameManager")
 
-@export var MAXHEALTH_POINT : int = 100
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
 @export var SPEED_SPRINT : float = 1.6 #Ajouté au multiplicateur au moment de sprint
 
 func _ready() -> void:
-	gm.healthPoints = MAXHEALTH_POINT
+	pass
 
 func move(direction : Vector2) -> void: #déplace le joueur dans la direction donnée
 	if map.playerMove(direction): #renvoie true si le mouvement a été effectué

@@ -8,6 +8,8 @@ var npcs = []
 var exercises = []
 var items = []
 
+var exercisesCompleted : Array = []
+
 # Variables de sauvegarde du verbe en cours d'exécution si celui-ci
 # nécessite une UI de choix.
 var lastNpcExecuted = -1 # Id du pnj interagi
@@ -233,8 +235,8 @@ func exo_result(res:Array):
 	if r >= 0.5: #succes
 		actions_fifo.insert(0, lastExerciceExecuted.succes)
 		var exo_id = lastExerciceExecuted.exercice.id
-		if not gm.exercisesCompleted.has(int(exo_id)):
-			gm.exercisesCompleted.append(int(exo_id))
+		if not exercisesCompleted.has(int(exo_id)):
+			exercisesCompleted.append(int(exo_id))
 	else: #echec
 		actions_fifo.insert(0, lastExerciceExecuted.echec)
 	executeNextAction()

@@ -2,7 +2,13 @@ class_name Items extends Node2D
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
 @onready var am: ActionsManager = get_tree().root.get_node("ActionManager")
 @export var id: String
-# Action quand le joueur interagit avec un item
+
+"""
+Représente un item au sol.
+"""
+
+
+# Action quand le joueur interagi avec un item
 func interact():
 	var dialog = ParagraphDialog.new()
 	var itemName = am.getItemById(id).name

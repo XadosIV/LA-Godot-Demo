@@ -1,10 +1,6 @@
 class_name Actors extends Node2D
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
-
-var actorName : String = "Je n'ai pas de nom!"
-
-@export var id : int
-
+@export var id : int # id du pnj correspondant
 @export var showed : bool = true
 @export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
@@ -16,8 +12,6 @@ var facing_direction : Vector2
 func _ready():
 	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
-		#animatedSprite.sprite_frames = sprite
-		#animatedSprite.animation = "idle_up"
 		animatedSprite.sprite_frames = sprite
 		match facing_direction_import:
 			1:
@@ -35,6 +29,7 @@ func _ready():
 
 
 # Action quand le joueur interagit avec un acteur
+# (charge la page du pnj correspondant)
 func interact():
 	facing_direction = Vector2.ZERO - sm.player.facing_direction
 	apply_direction_to_sprite(facing_direction)

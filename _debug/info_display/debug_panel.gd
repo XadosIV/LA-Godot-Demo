@@ -26,7 +26,7 @@ func _ready() -> void:
 	add_time_debug_property()
 
 func _input(event) -> void:
-	if visible and  event.is_action_pressed("L_key"):
+	if visible and event.is_action_pressed("L_key"):
 		show_logic_map = !show_logic_map
 		if show_logic_map:
 			logic_map.show_map()
