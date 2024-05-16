@@ -100,7 +100,7 @@ func getName(id, action):
 # Exécute la prochaine action en appelant
 # la fonction correspondante avec les paramètres nécessaires.
 func readAction(id, action):
-	#print(action)
+	# print(action)
 	
 	# Note : return false => N'exécute pas la prochaine action
 	# c'est la valeur 'next' de la fonction 'executeNextAction'
@@ -110,10 +110,10 @@ func readAction(id, action):
 			dire(getName(id, action), action.text)
 			return false
 		"aller":
-			aller(action.target, action.page)
+			aller(action.target, action.page-1)
 			return true
 		"executer":
-			executer(id, action.page)
+			executer(id, action.page-1)
 			return true
 		"donner":
 			if action.target == "object":
@@ -203,7 +203,7 @@ func choisir(name, question, target):
 func tester(type, id, succes, echec):
 	var list = []
 	if type == "exercice":
-		list = gm.exercicesCompleted
+		list = gm.exercisesCompleted
 	elif type == "object":
 		list = gm.inventory
 	else:

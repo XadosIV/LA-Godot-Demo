@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cpn3ydq07leba" path="res://scenes/characteres/players/resources/Oldman_Josh.tres" id="2_opr5a"]
 
 [node name="First Actor" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_x1qeu")
 facing_direction_import = 2
 
