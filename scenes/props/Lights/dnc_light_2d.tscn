@@ -5,10 +5,10 @@
 
 [node name="dncLight2D" type="PointLight2D"]
 position = Vector2(-14, 79)
-energy = 0.6
+energy = 0.8
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 50.0
 texture = ExtResource("1_6ltcp")
-texture_scale = 0.5
+texture_scale = 0.7
 script = ExtResource("2_2gjuo")
