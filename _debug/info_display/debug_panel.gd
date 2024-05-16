@@ -48,7 +48,7 @@ func _process(delta) -> void:
 		# Update player position
 		position_x = player.position.x
 		position_y = player.position.y
-		property_position.text = "X: " + str(position_x) + " ; Y: " + str(position_y)
+		property_position.text = "X: " + str((position_x+8)/16) + " ; Y: " + str((position_y+8)/16)
 		
 		# Update logic map visibility
 		property_show_logic_map.text = "show_logic_map: "+str(show_logic_map)
