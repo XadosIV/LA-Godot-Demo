@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://8irg51c2c8ud"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://8irg51c2c8ud"]
 
 [ext_resource type="Texture2D" uid="uid://ba862mjbti1es" path="res://assets/modern_interior/interior/room_builder/Rooms_Floors.png" id="1_n8uh7"]
 [ext_resource type="Texture2D" uid="uid://c27raxs5ldx7u" path="res://assets/modern_interior/interior/room_builder/Rooms_Arched_Entryways.png" id="2_2pi0h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://itoltq6qsdrg" path="res://assets/modern_interior/interior/room_builder/Rooms_Walls.png" id="5_jsdgo"]
 [ext_resource type="Texture2D" uid="uid://co8oqna1ovi2n" path="res://assets/modern_interior/interior/room_builder/Rooms_Floor_Shadows.png" id="6_5yj4c"]
 [ext_resource type="Texture2D" uid="uid://bpkgu3ohbd7gf" path="res://assets/modern_interior/interior/props/2_LivingRoom_Black_Shadow_16x16.png" id="7_cwm4e"]
+[ext_resource type="Texture2D" uid="uid://3t242mlwfdsv" path="res://assets/modern_interior/interior/props/22_Museum_Black_Shadow_16x16.png" id="8_qemx4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw173"]
 texture = ExtResource("1_n8uh7")
@@ -3308,6 +3309,58 @@ texture = ExtResource("7_cwm4e")
 3:36/size_in_atlas = Vector2i(2, 3)
 3:36/0 = 0
 3:36/0/texture_origin = Vector2i(-8, 16)
+4:28/size_in_atlas = Vector2i(3, 2)
+4:28/0 = 0
+4:28/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dnej"]
+texture = ExtResource("8_qemx4")
+0:0/size_in_atlas = Vector2i(6, 4)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 8)
+13:5/size_in_atlas = Vector2i(2, 1)
+13:5/0 = 0
+13:5/0/texture_origin = Vector2i(8, 0)
+0:50/size_in_atlas = Vector2i(2, 3)
+0:50/0 = 0
+0:50/0/texture_origin = Vector2i(8, 0)
+4:50/size_in_atlas = Vector2i(2, 3)
+4:50/0 = 0
+4:50/0/texture_origin = Vector2i(8, 0)
+2:50/size_in_atlas = Vector2i(2, 3)
+2:50/0 = 0
+2:50/0/texture_origin = Vector2i(8, 0)
+7:39/size_in_atlas = Vector2i(4, 3)
+7:39/0 = 0
+7:39/0/texture_origin = Vector2i(8, 0)
+11:41/size_in_atlas = Vector2i(4, 3)
+11:41/0 = 0
+11:41/0/texture_origin = Vector2i(8, 0)
+5:81/size_in_atlas = Vector2i(5, 3)
+5:81/0 = 0
+11:84/size_in_atlas = Vector2i(5, 4)
+11:84/0 = 0
+11:84/0/texture_origin = Vector2i(0, 8)
+10:61/size_in_atlas = Vector2i(3, 3)
+10:61/0 = 0
+12:64/size_in_atlas = Vector2i(3, 3)
+12:64/0 = 0
+0:105/size_in_atlas = Vector2i(3, 3)
+0:105/0 = 0
+0:108/size_in_atlas = Vector2i(3, 3)
+0:108/0 = 0
+5:23/size_in_atlas = Vector2i(1, 2)
+5:23/0 = 0
+5:23/0/texture_origin = Vector2i(0, 8)
+12:21/size_in_atlas = Vector2i(2, 2)
+12:21/0 = 0
+12:21/0/texture_origin = Vector2i(8, 8)
+14:27/size_in_atlas = Vector2i(1, 2)
+14:27/0 = 0
+14:27/0/texture_origin = Vector2i(0, 8)
+14:29/size_in_atlas = Vector2i(2, 2)
+14:29/0 = 0
+14:29/0/texture_origin = Vector2i(8, 8)
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_xw173")
@@ -3317,3 +3370,4 @@ sources/4 = SubResource("TileSetAtlasSource_gyihi")
 sources/5 = SubResource("TileSetAtlasSource_ky3i1")
 sources/3 = SubResource("TileSetAtlasSource_o6i1h")
 sources/6 = SubResource("TileSetAtlasSource_klkfl")
+sources/7 = SubResource("TileSetAtlasSource_1dnej")
