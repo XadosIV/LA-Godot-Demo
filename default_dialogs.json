@@ -26,7 +26,7 @@
 						"succes": {
 							"type":"executer",
 							"target":-4,
-							"page": 1
+							"page": 2
 						},
 						"echec": {
 							"type":"dire",
@@ -42,7 +42,7 @@
 					{
 						"type":"executer",
 						"target":-4,
-						"page":2
+						"page":3
 					}
 				],
 				[
@@ -84,7 +84,7 @@
 							"type": "dire"
 						},
 						"succes": {
-							"page": 1,
+							"page": 2,
 							"target":-5,
 							"type": "executer"
 						}
@@ -106,7 +106,7 @@
 					{
 						"type": "aller",
 						"target": -5,
-						"page": 0
+						"page": 1
 					}
 				]
 			]
@@ -123,7 +123,7 @@
 					},
 					{
 						"type":"executer",
-						"page":1
+						"page":2
 					}
 				],
 				[
@@ -252,7 +252,7 @@
 						"type":"choisir",
 						"text":"En fait, t'as fait quoi comme études ?",
 						"target":[
-							{"text":"Bah écoute, j'ai fait deux années d'études à Montpellier...", "action":{"type":"executer", "target":-13, "page":1}},
+							{"text":"Bah écoute, j'ai fait deux années d'études à Montpellier...", "action":{"type":"executer", "target":-13, "page":2}},
 							{"text":"J'ai pas fait d'études.", "action":{"type":"dire", "text":"Ah ok..."}}
 						]
 					}
@@ -262,8 +262,8 @@
 						"type":"choisir",
 						"text":"De ?",
 						"target":[
-							{"text":"Années d'études à Montpellier", "action":{"type":"executer", "target":-13, "page":2}},
-							{"text":"Oh puis zut... * Partir *", "action":{"type":"aller", "target":-13, "page":0}}
+							{"text":"Années d'études à Montpellier", "action":{"type":"executer", "target":-13, "page":3}},
+							{"text":"Oh puis zut... * Partir *", "action":{"type":"aller", "target":-13, "page":1}}
 						]
 					}
 				],
@@ -275,7 +275,7 @@
 					{
 						"type":"executer",
 						"target":-13,
-						"page":1
+						"page":2
 					}
 				]
 			]
