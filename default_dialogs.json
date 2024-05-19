@@ -311,6 +311,23 @@
 				]
 			]
 		},
+		{
+			"id":-16,
+			"name":"Cavallinode",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"dire",
+						"text":"*Bzzt!* Ils manifestent contre le Pharo."
+					},
+					{
+						"type":"dire",
+						"text":"La rue est bloquée pour le moment, passez votre chemin."
+					}
+				]
+			]
+		}
 	],
 	"exercises":[
 		{

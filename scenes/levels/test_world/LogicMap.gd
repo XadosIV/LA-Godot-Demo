@@ -16,10 +16,15 @@ func _ready() -> void:
 func init() -> void:
 	posPlayer = local_to_map(player.position)
 
-func load_map() -> void: # pour maintenant
+func load_map() -> void:
 	actors = {}
 	warps = {}
 	items = {}
+	
+	var manif = false
+	var pos1
+	var pos2
+	
 	for child in get_children():
 		var pos = local_to_map(child.position)
 		if isActor(pos):
@@ -28,6 +33,32 @@ func load_map() -> void: # pour maintenant
 			warps[child.name] = [local_to_map(child.position), child]
 		elif isItem(pos):
 			items[child.name] = [local_to_map(child.position), child]
+		else:
+			if child.name == "Manifestant":
+				manif = true
+				pos1 = local_to_map(child.position)
+			elif child.name == "Manifestant2":
+				manif = true
+				pos2 = local_to_map(child.position)
+
+	if manif:
+		var sprites = all_sprites()
+		for x in range(pos1.x, pos2.x+1):
+			for y in range(pos1.y, pos2.y+1):
+				pass
+				create_actor(-2, Vector2i(x,y), sprites[randi()%sprites.size()], false)
+
+func all_sprites():
+	var files = []
+	var dir = DirAccess.open("res://scenes/characteres/players/resources/")
+	dir.list_dir_begin()
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		else:
+			files.append(file)
+	return files
 
 func posToWarp(pos : Vector2) -> Warp :
 	for name in warps:
@@ -98,7 +129,6 @@ func suppr_actor(id):
 	for child in get_children():
 		if child is Actors:
 			if child.id == id:
-				print("supprimé là")
 				set_cell(0, actors[child.name][0])
 				child.queue_free()
 
@@ -114,11 +144,6 @@ func create_actor(id, mapPos, sprite, load=true):
 		res_path += sprite
 	else:
 		"Roki.tres"
-	
-	# hardcode Cavallinode
-	print(sprite)
-	if sprite == "Bruce.tres" and id != 1:
-		res_path = "res://scenes/characteres/players/resources/Bruce_NB.tres"
 	
 	npc.sprite = load(res_path)
 	npc._ready()

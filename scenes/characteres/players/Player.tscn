@@ -26,10 +26,8 @@ position = Vector2(0, -8)
 zoom = Vector2(3, 3)
 
 [node name="DialogBox" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_xuoct")]
-visible = false
 player = NodePath("../..")
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugPanel" parent="Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_s3beh")]
-visible = false
 player = NodePath("../..")

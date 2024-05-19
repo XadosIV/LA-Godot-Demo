@@ -39,7 +39,6 @@ func load_json_data():
 		if i["id"] < 0:
 			continue
 		#print(i["map"] + " - " +self.current_scene_name+" == "+ str((i["map"] == self.current_scene_name)))
-		print(i["map"])
 		if(i["map"] == self.current_scene_name):
 			print(Vector2i(int(i["x"]), int(i["y"])))
 			lm.create_actor(i["id"], Vector2i(int(i["x"]), int(i["y"])), i["sprite"])
