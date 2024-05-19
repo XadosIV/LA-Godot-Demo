@@ -327,6 +327,19 @@
 					}
 				]
 			]
+		},
+		{
+			"id":-17,
+			"name":"Cavallinode",
+			"currentPage":0,
+			"pages":[
+				[
+					{
+						"type":"dire",
+						"text":"*Bzzt!* Bienvenue à LAlini !"
+					}
+				]
+			]
 		}
 	],
 	"exercises":[
