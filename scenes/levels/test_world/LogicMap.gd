@@ -94,6 +94,14 @@ func interact(movement) -> bool:
 		return true
 	return false
 
+func suppr_actor(id):
+	for child in get_children():
+		if child is Actors:
+			if child.id == id:
+				print("supprimé là")
+				set_cell(0, actors[child.name][0])
+				child.queue_free()
+
 func create_actor(id, mapPos, sprite, load=true):
 	var npc = npc_scene.instantiate()
 	add_child(npc)
@@ -106,6 +114,11 @@ func create_actor(id, mapPos, sprite, load=true):
 		res_path += sprite
 	else:
 		"Roki.tres"
+	
+	# hardcode Cavallinode
+	print(sprite)
+	if sprite == "Bruce.tres" and id != 1:
+		res_path = "res://scenes/characteres/players/resources/Bruce_NB.tres"
 	
 	npc.sprite = load(res_path)
 	npc._ready()
