@@ -113,7 +113,7 @@ func readAction(id, action):
 			aller(action.target, action.page-1)
 			return true
 		"executer":
-			executer(id, action.page-1)
+			executer(action.target, action.page-1)
 			return true
 		"donner":
 			if action.target == "object":
