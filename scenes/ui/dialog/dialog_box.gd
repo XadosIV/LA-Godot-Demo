@@ -36,12 +36,20 @@ func _process(delta):
 		2:
 			dialog_choice_interact()
 
-func init_paragraph(dialog: ParagraphDialog) -> void:
-	type = 0
+func kaiou_diff(dialog):
+	if dialog.text.begins_with("*"):
+		dialog.npc_name = "Information"
+	
 	if dialog.npc_name == "Kaiou":
 		paragraph_text_label.label_settings.font_size = randi() % 20 + 14
+		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
 	else:
 		paragraph_text_label.label_settings.font_size = 14
+		paragraph_name_label.label_settings.font_size = 18
+
+func init_paragraph(dialog: ParagraphDialog) -> void:
+	type = 0
+	kaiou_diff(dialog)
 	dialog_paragraph = dialog
 	player.disable()
 	paragraph_text_label.text = dialog_paragraph.text
@@ -76,12 +84,7 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 """
 func init_mcq(dialogue : McqDialog) -> void:
 	type = 1
-	if dialogue.npc_name == "Kaiou":
-		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
-		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
-	else:
-		paragraph_text_label.label_settings.font_size = 14
-		paragraph_name_label.label_settings.font_size = 18
+	kaiou_diff(dialogue)
 	dialog_mcq = dialogue
 	player.disable()
 	selected_choice = []
@@ -105,12 +108,7 @@ func init_mcq(dialogue : McqDialog) -> void:
 
 func init_choice(dialogue : McqDialog) -> void:
 	type = 2
-	if dialogue.npc_name == "Kaiou":
-		paragraph_text_label.label_settings.font_size = randi() % 20 + 60
-		paragraph_name_label.label_settings.font_size = randi() % 40 + 18
-	else:
-		paragraph_text_label.label_settings.font_size = 14
-		paragraph_name_label.label_settings.font_size = 18
+	kaiou_diff(dialogue)
 	dialog_mcq = dialogue
 	player.disable()
 	selected_choice = []

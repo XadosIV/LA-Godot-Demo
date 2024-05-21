@@ -8,6 +8,8 @@ var npcs = []
 var exercises = []
 var items = []
 
+var npcs_disparus = []
+
 # Variables de sauvegarde du verbe en cours d'exécution si celui-ci
 # nécessite une UI de choix.
 var lastNpcExecuted = -1 # Id du pnj interagi
@@ -76,6 +78,7 @@ func loadPage(npcId):
 # Fonction récursive exécutant les actions
 # dans l'ordre de la file
 func executeNextAction():
+	print(npcs_disparus)
 	if actions_fifo.size() != 0:
 		#pop_front => défile l'action mise en paramètre et la renvoie donc
 		var next = readAction(lastNpcExecuted, actions_fifo.pop_front())
@@ -109,6 +112,7 @@ func readAction(id, action):
 			if action.text == "DISPARAITRE":
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
 				logicMap.suppr_actor(id)
+				npcs_disparus.append(int(id))
 				return true
 			else:
 				dire(getName(id, action), action.text)

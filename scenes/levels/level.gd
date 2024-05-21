@@ -35,10 +35,10 @@ func _process(delta):
 func load_json_data():
 	current_scene_path = self.get_scene_file_path().split("/")
 	current_scene_name = current_scene_path[len(current_scene_path)-1]
-	for i in am.npcs:
-		if i["id"] < 0:
+	for npc in am.npcs:
+		if npc["id"] < 0:
 			continue
 		#print(i["map"] + " - " +self.current_scene_name+" == "+ str((i["map"] == self.current_scene_name)))
-		if(i["map"] == self.current_scene_name):
-			print(Vector2i(int(i["x"]), int(i["y"])))
-			lm.create_actor(i["id"], Vector2i(int(i["x"]), int(i["y"])), i["sprite"])
+		if(npc["map"] == self.current_scene_name):
+			lm.create_actor(npc)
+			#lm.create_actor(i["id"], Vector2i(int(i["x"]), int(i["y"])), i["sprite"])

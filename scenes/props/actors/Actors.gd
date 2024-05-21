@@ -16,9 +16,8 @@ var facing_direction : Vector2
 func _ready():
 	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
-		#animatedSprite.sprite_frames = sprite
-		#animatedSprite.animation = "idle_up"
 		animatedSprite.sprite_frames = sprite
+	if not facing_direction:
 		match facing_direction_import:
 			1:
 				facing_direction = Vector2.RIGHT
@@ -28,11 +27,12 @@ func _ready():
 				facing_direction = Vector2.LEFT
 			_:
 				facing_direction = Vector2.UP
-		apply_direction_to_sprite(facing_direction)
-		animatedSprite.play()
+	animatedSprite.play()
 	animatedSprite.visible = showed
 
-
+func _process(delta):
+	apply_direction_to_sprite(facing_direction)
+	
 
 # Action quand le joueur interagit avec un acteur
 func interact():
@@ -41,7 +41,6 @@ func interact():
 	actionsManager.interact(id)
 
 func apply_direction_to_sprite(direction : Vector2):
-	animatedSprite.sprite_frames = sprite
 	match direction:
 		Vector2.RIGHT:
 			animatedSprite.animation = "idle_right"

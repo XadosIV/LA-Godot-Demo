@@ -7,6 +7,7 @@ var items : Dictionary
 
 var npc_scene = preload("res://scenes/props/actors/actor.tscn")
 
+@onready var am : ActionsManager = get_tree().root.get_node("ActionManager")
 @onready var player : Player = get_parent().get_node("Player")
 
 func _ready() -> void:
@@ -43,10 +44,12 @@ func load_map() -> void:
 
 	if manif:
 		var sprites = all_sprites()
-		for x in range(pos1.x, pos2.x+1):
-			for y in range(pos1.y, pos2.y+1):
-				pass
-				create_actor(-2, Vector2i(x,y), sprites[randi()%sprites.size()], false)
+		if pos1 and pos2:
+			for x in range(pos1.x, pos2.x+1):
+				for y in range(pos1.y, pos2.y+1):
+					var false_data = {"id":-2, "x":x, "y":y, "sprite":sprites[randi()%sprites.size()], "name":"ratio"}
+					create_actor(false_data)
+					#create_actor(-2, Vector2i(x,y), sprites[randi()%sprites.size()], false)
 
 func all_sprites():
 	var files = []
@@ -132,20 +135,49 @@ func suppr_actor(id):
 				set_cell(0, actors[child.name][0])
 				child.queue_free()
 
-func create_actor(id, mapPos, sprite, load=true):
+func create_actor(data, load=true):
+	if am.npcs_disparus.has(int(data.id)):
+		return
 	var npc = npc_scene.instantiate()
 	add_child(npc)
-	npc.id = id
+	npc.id = data.id
+	var mapPos = Vector2i(int(data["x"]), int(data["y"]))
 	npc.position = mapPos * 16 + Vector2i(8,8)
+	
+	if not "argName" in data:
+		data.argName = data.name
 	
 	#place holder tant que l'import ne prend pas en charge les sprites
 	var res_path = "res://scenes/characteres/players/resources/"
-	if sprite != null:
-		res_path += sprite
+	if data.sprite != null:
+		res_path += data.sprite
 	else:
 		"Roki.tres"
 	
 	npc.sprite = load(res_path)
+	var charToCut = 0
+	if data.argName.begins_with("."):
+		var args = data.argName.split(" ")
+		for arg in args:
+			charToCut += len(arg)+1
+			if (arg == "." or arg.begins_with("_")):
+				pass
+			elif (arg.begins_with("D:")):
+				var orientation = arg.split(":")[1]
+				match orientation:
+					"E":
+						npc.facing_direction = Vector2.RIGHT
+					"S":
+						npc.facing_direction = Vector2.DOWN
+					"O":
+						npc.facing_direction = Vector2.LEFT
+					"N":
+						npc.facing_direction = Vector2.UP
+			else:
+				charToCut -= len(arg)+1
+				break
+		if data.name == data.argName:
+			data.name = data.name.erase(0, charToCut)
 	npc._ready()
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
