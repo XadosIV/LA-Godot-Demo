@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8tuxyjml3gtw"
-path="res://.godot/imported/campfire.png-65c48467e7cb62a63ebfdd815f381fad.ctex"
+uid="uid://chq1e2iptc237"
+path="res://.godot/imported/water_wave.png-090e959040561d16c263f5c50bea286c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/serene_village/campfire.png"
-dest_files=["res://.godot/imported/campfire.png-65c48467e7cb62a63ebfdd815f381fad.ctex"]
+source_file="res://assets/modern_exterior/water_wave.png"
+dest_files=["res://.godot/imported/water_wave.png-090e959040561d16c263f5c50bea286c.ctex"]
 
 [params]
 

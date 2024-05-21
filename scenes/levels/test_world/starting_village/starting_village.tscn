@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="7_so687"]
 [ext_resource type="SpriteFrames" uid="uid://cpn3ydq07leba" path="res://scenes/characteres/players/resources/Oldman_Josh.tres" id="8_rm2c6"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="9_a3n1m"]
-[ext_resource type="Texture2D" uid="uid://veifnt8kpulr" path="res://assets/Toothless-tileset.png" id="10_bdkea"]
-[ext_resource type="Texture2D" uid="uid://d14rneil6asjx" path="res://assets/light.png" id="13_shsux"]
+[ext_resource type="Texture2D" uid="uid://veifnt8kpulr" path="res://assets/LA-Demo/Toothless-tileset.png" id="10_bdkea"]
+[ext_resource type="Texture2D" uid="uid://d14rneil6asjx" path="res://assets/LA-Demo/light.png" id="13_shsux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08yjp"]
 atlas = ExtResource("10_bdkea")
