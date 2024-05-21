@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://veifnt8kpulr"
-path="res://.godot/imported/Toothless-tileset.png-d11a93e7df1b1deaf169de6951fbd29b.ctex"
+uid="uid://0ujt24vn3eun"
+path="res://.godot/imported/la.png-867684af64e00983f61759433122aded.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Toothless-tileset.png"
-dest_files=["res://.godot/imported/Toothless-tileset.png-d11a93e7df1b1deaf169de6951fbd29b.ctex"]
+source_file="res://assets/LA-Demo/la.png"
+dest_files=["res://.godot/imported/la.png-867684af64e00983f61759433122aded.ctex"]
 
 [params]
 

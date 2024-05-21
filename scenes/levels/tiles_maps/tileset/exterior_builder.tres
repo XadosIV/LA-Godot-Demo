@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cp5md7vlynhqd" path="res://assets/modern_exterior/2_City_Terrains.png" id="4_gr2he"]
 [ext_resource type="Texture2D" uid="uid://dovbei6qx17ri" path="res://assets/modern_exterior/13_School.png" id="4_rkuki"]
 [ext_resource type="Texture2D" uid="uid://cds3bb17hdi4s" path="res://assets/modern_exterior/1_Terrains_and_Fences.png" id="5_c7f1j"]
-[ext_resource type="Texture2D" uid="uid://t2d1m0nleto0" path="res://assets/modern_exterior/Wind_Turbine.png" id="5_y516w"]
+[ext_resource type="Texture2D" path="res://assets/modern_exterior/Wind_Turbine.png" id="5_y516w"]
 [ext_resource type="Texture2D" uid="uid://cw2aoieoihnc8" path="res://assets/modern_exterior/11_Camping.png" id="6_jp1w3"]
 [ext_resource type="Texture2D" uid="uid://wm2sg7ptuc6c" path="res://assets/modern_exterior/3_City_Props.png" id="7_n8bct"]
 [ext_resource type="Texture2D" uid="uid://reog0ljald1q" path="res://assets/modern_exterior/5_Floor_Modular_Buildings.png" id="8_8ifeq"]

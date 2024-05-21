@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24frxfk4jsjo"
-path="res://.godot/imported/bagnatThon.png-b9deed972e0b9e1ac2acfd3dac6f2c4c.ctex"
+uid="uid://veifnt8kpulr"
+path="res://.godot/imported/Toothless-tileset.png-40f7a1d28826f360128c23569812c2c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bagnatThon.png"
-dest_files=["res://.godot/imported/bagnatThon.png-b9deed972e0b9e1ac2acfd3dac6f2c4c.ctex"]
+source_file="res://assets/LA-Demo/Toothless-tileset.png"
+dest_files=["res://.godot/imported/Toothless-tileset.png-40f7a1d28826f360128c23569812c2c2.ctex"]
 
 [params]
 

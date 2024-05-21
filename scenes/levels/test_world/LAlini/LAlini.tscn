@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scenes/levels/test_world/LogicMap.gd" id="6_qmyso"]
 [ext_resource type="PackedScene" uid="uid://c2fsq2pxv5y56" path="res://scenes/props/warp/warp.tscn" id="7_smecq"]
 [ext_resource type="PackedScene" uid="uid://c428rxsmkxacc" path="res://scenes/props/actors/actor.tscn" id="9_sdk4u"]
-[ext_resource type="SpriteFrames" uid="uid://jkss8r7axj1v" path="res://scenes/characteres/players/resources/Bruce_NB.tres" id="10_1lvl2"]
+[ext_resource type="SpriteFrames" uid="uid://ccwvtse0m6pp7" path="res://scenes/characteres/players/resources/Bruce_NB.tres" id="10_1lvl2"]
 
 [node name="ExteriorTemplateMap" type="Node2D"]
 y_sort_enabled = true
