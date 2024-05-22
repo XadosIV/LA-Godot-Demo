@@ -7,6 +7,7 @@ var in_dialog : bool = false
 var gridPos : Vector2 #correspond aux coordonnées du milieu de la case où est censé être le joueur
 var isMoving : bool = false # est en train de se déplacer entre deux cases
 							# d'entrée dans la zone
+var isMoved : bool = false # se fait déplacer par un acteur
 var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à changer.
 @onready var map : LogicMap = get_parent().get_node("LogicMap")
 @onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -18,8 +19,31 @@ var currentMovement : Vector2 = Vector2(0, 0) # valeur par défaut hardcodé, à
 @export var SPEED_MULTIPLICATOR : float = 1.6 #attention, c'est bien un x1.X la vitesse
 @export var SPEED_SPRINT : float = 1.6 #Ajouté au multiplicateur au moment de sprint
 
+var distance_a_parcourir
+var actorControlling
+
 func _ready() -> void:
 	gm.healthPoints = MAXHEALTH_POINT
+
+func forcedMove(cases, direction, actor):
+	actorControlling = actor
+	facing_direction = direction
+	distance_a_parcourir = int(cases) * 16
+	isMoved = true
+	map.playerMove(facing_direction*int(cases))
+	
+
+	#setCurrentMovement(direction)
+func forcedVisualMove() -> void: #Gere le visuel du déplacement
+	position = position + facing_direction
+	distance_a_parcourir -= abs(facing_direction.x + facing_direction.y)
+	currentMovement = facing_direction
+	
+	if distance_a_parcourir == 0:
+		isMoved = false
+		currentMovement = Vector2.ZERO
+		
+		actorControlling.next()
 
 func move(direction : Vector2) -> void: #déplace le joueur dans la direction donnée
 	if map.playerMove(direction): #renvoie true si le mouvement a été effectué
@@ -55,7 +79,6 @@ func visualMove() -> void: #Gere le visuel du déplacement
 func setCurrentMovement(movement : Vector2) -> void: #Redéfinie le mouvement en cours, vecteur de taille 1 OU vecteur zero
 	currentMovement = movement
 	isMoving = movement != Vector2.ZERO
-	apply_direction_on_sprite()
 
 func playerMoveInput() -> bool: # Vérifie, et exécute, l'input de déplacement du joueur.
 	var input: Vector2 = Vector2.ZERO
@@ -76,6 +99,11 @@ func playerMoveInput() -> bool: # Vérifie, et exécute, l'input de déplacement
 	return false
 
 func _process(delta) -> void:
+	if isMoved:
+		forcedVisualMove()
+		apply_direction_on_sprite()
+		return
+		
 	if isMoving and position != gridPos:
 		visualMove()
 	elif isMoving:
@@ -93,6 +121,8 @@ func _process(delta) -> void:
 	
 	if Input.is_action_just_pressed("interact") and movement_allowed and not in_dialog:
 		await map.interact(facing_direction)
+	
+	apply_direction_on_sprite()
 
 func enable():
 	movement_allowed = true

@@ -12,5 +12,5 @@ facing_direction_import = 2
 y_sort_enabled = true
 position = Vector2(0, -8)
 sprite_frames = ExtResource("2_opr5a")
-animation = &"idle_down"
+animation = &"move_left"
 autoplay = "idle_down"

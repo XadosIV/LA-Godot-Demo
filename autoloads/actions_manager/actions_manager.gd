@@ -124,6 +124,13 @@ func readAction(id, action):
 				if npc:
 					npc.look(args[1])
 				return true
+			elif action.text.begins_with("."):
+				var args = action.text.split(" ")
+				var logicMap = sm.player.get_parent().get_node("LogicMap")
+				var npc = logicMap.idToNpcNode(id)
+				if npc:
+					npc.do(Array(args))
+				return false
 			else:
 				dire(getName(id, action), action.text)
 				return false
