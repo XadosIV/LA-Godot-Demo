@@ -136,12 +136,13 @@ func interact(movement) -> bool:
 		return true
 	return false
 
-func suppr_actor(id):
+func suppr_actor(id, node=true):
 	for child in get_children():
 		if child is Actors:
 			if child.id == id:
 				set_cell(0, actors[child.name][0])
-				child.queue_free()
+				if node:
+					child.queue_free()
 
 func create_actor(data, load=true):
 	if am.npcs_disparus.has(int(data.id)):

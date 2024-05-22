@@ -68,7 +68,6 @@ func end_of_paragraph() -> void:	#gere le cas ou l'on arrive à la fin d'un para
 	hide_paragraph_box()
 	paragraph_text_label.lines_skipped = 0
 	dialog_paragraph = null
-	player.enable()
 	player.in_dialog = false
 	# Envoi signal de la prochain action au manager
 	var am : ActionManager = get_tree().root.get_node("ActionManager")
@@ -209,7 +208,6 @@ func end_of_mcq ():
 	dialog_mcq = null
 	var answers = convert_choices_to_text()
 	reset_of_mcq()
-	player.enable()
 	player.in_dialog = false
 	
 	#l'appel de ma fonction magique
@@ -224,7 +222,6 @@ func end_of_choice ():
 	dialog_mcq = null
 	var answers = convert_choices_to_text()
 	reset_of_mcq()
-	player.enable()
 	player.in_dialog = false
 	
 	#l'appel de ma fonction magique

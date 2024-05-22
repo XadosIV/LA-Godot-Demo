@@ -45,4 +45,4 @@ TARGETED_SCENE = "res://scenes/levels/test_world/LAlini/LAlini.tscn"
 ENTRY_WARP_NAME = "warp_LAlini_h1_f0"
 
 [node name="Player" parent="." instance=ExtResource("7_gkbl7")]
-position = Vector2(8, 8)
+position = Vector2(-24, -40)

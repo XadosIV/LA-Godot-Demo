@@ -63,6 +63,7 @@ func getItemById(id):
 # Charge la page du pnj en question (via son id)
 # Et exécute les actions correspondantes.
 func interact(id):
+	sm.player.disable()
 	loadPage(id)
 	executeNextAction()
 
@@ -88,6 +89,8 @@ func executeNextAction():
 		if next:
 			executeNextAction()
 	else:
+		sm.player.enable()
+		
 		actions_ended.emit()
 		
 # Fonction tentant d'obtenir un nom affichable pour le dialogue
@@ -117,6 +120,10 @@ func readAction(id, action):
 				logicMap.suppr_actor(id)
 				npcs_disparus.append(int(id))
 				return true
+			elif action.text == "OFF_COLLISION":
+				var logicMap = sm.player.get_parent().get_node("LogicMap")
+				logicMap.suppr_actor(id, false)
+				return true
 			elif action.text.begins_with("LOOK"):
 				var args = action.text.split(" ")
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
@@ -124,6 +131,8 @@ func readAction(id, action):
 				if npc:
 					npc.look(args[1])
 				return true
+			elif action.text == "WARP":
+				SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_h1_f0.tscn", "fade_to_black")
 			elif action.text.begins_with("."):
 				var args = action.text.split(" ")
 				var logicMap = sm.player.get_parent().get_node("LogicMap")

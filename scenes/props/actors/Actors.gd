@@ -73,6 +73,7 @@ func charToDirection(char):
 
 func look(directionString):
 	facing_direction = charToDirection(directionString)
+	first_direction = facing_direction
 
 # Action quand le joueur interagit avec un acteur
 func interact():
@@ -107,6 +108,9 @@ func next():
 			lm.player.forcedMove(args[3], charToDirection(args[2]),self)
 		elif action.begins_with("PL"):
 			lm.player.facing_direction = charToDirection(action.split("L")[1])
+			next()
+		elif action.begins_with("CAMUP"):
+			get_viewport().get_camera_2d().offset = Vector2(0,-40)
 			next()
 
 func move(action):

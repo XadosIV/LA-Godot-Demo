@@ -30,9 +30,9 @@ func on_files_dropped(files):
 		$Label.text = "NULL"
 
 func _on_button_button_up():
-	SceneManager.load_new_scene("res://scenes/levels/test_world/starting_village/starting_village.tscn")
+	SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_office_f1.tscn")
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not in_transition and path != null:
 		in_transition = true
-		SceneManager.load_new_scene("res://scenes/levels/test_world/starting_village/starting_village.tscn")
+		SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_office_f1.tscn")
