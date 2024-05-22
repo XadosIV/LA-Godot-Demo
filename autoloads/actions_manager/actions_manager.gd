@@ -3,6 +3,8 @@ class_name ActionsManager extends Node
 @onready var sm = get_tree().root.get_node("SceneManager")
 @onready var gm = get_tree().root.get_node("GameManager")
 
+signal actions_ended
+
 # Contient tout les éléments chargés des données
 var npcs = [] 
 var exercises = []
@@ -78,7 +80,6 @@ func loadPage(npcId):
 # Fonction récursive exécutant les actions
 # dans l'ordre de la file
 func executeNextAction():
-	print(npcs_disparus)
 	if actions_fifo.size() != 0:
 		#pop_front => défile l'action mise en paramètre et la renvoie donc
 		var next = readAction(lastNpcExecuted, actions_fifo.pop_front())
@@ -86,7 +87,9 @@ func executeNextAction():
 		# false dans le cas où on requiert un choix de l'utilisateur (exercice, choice, ...)
 		if next:
 			executeNextAction()
-
+	else:
+		actions_ended.emit()
+		
 # Fonction tentant d'obtenir un nom affichable pour le dialogue
 # Regarde dans action.name et npc.name, renvoie une valeur par défaut
 # si aucun des deux n'est défini.
@@ -113,6 +116,13 @@ func readAction(id, action):
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
 				logicMap.suppr_actor(id)
 				npcs_disparus.append(int(id))
+				return true
+			elif action.text.begins_with("LOOK"):
+				var args = action.text.split(" ")
+				var logicMap = sm.player.get_parent().get_node("LogicMap")
+				var npc = logicMap.idToNpcNode(id)
+				if npc:
+					npc.look(args[1])
 				return true
 			else:
 				dire(getName(id, action), action.text)
