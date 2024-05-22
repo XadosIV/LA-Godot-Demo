@@ -100,8 +100,9 @@ func isItem(mapPos : Vector2) -> bool:
 func idToNpcNode(id):
 	for k in actors:
 		var node = actors[k][1]
-		if node.id == id:
-			return node
+		if is_instance_valid(node):
+			if node.id == id:
+				return node
 	return null
 
 func playerMove(movement) -> bool: # renvoie si le mouvement a pu être fait ou non
