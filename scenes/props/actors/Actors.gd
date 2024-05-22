@@ -9,6 +9,7 @@ var actorName : String = "Je n'ai pas de nom!"
 @export var sprite : SpriteFrames
 @onready var sm: SceneManager = get_tree().root.get_node("SceneManager")
 @onready var am: ActionManager = get_node("/root/ActionManager")
+@onready var lm: LogicMap
 @export_enum("north", "east", "south", "west") var facing_direction_import = 0
 
 var facing_direction : Vector2
@@ -43,8 +44,11 @@ func initialiser():
 	animatedSprite.visible = showed
 	first_direction = facing_direction
 	
+	lm = get_parent()
+	
 	#Connecte à l'actionManager
 	am.actions_ended.connect(onEndInteraction)
+	
 
 func onEndInteraction():
 	if interacted:
@@ -56,17 +60,19 @@ func _process(delta):
 		visualMove()
 	apply_direction_to_sprite(facing_direction)
 
-func look(directionString):
-	match directionString:
+func charToDirection(char):
+	match char:
 		"N":
-			facing_direction = Vector2.UP
+			return Vector2.UP
 		"S":
-			facing_direction = Vector2.DOWN
+			return Vector2.DOWN
 		"E":
-			facing_direction = Vector2.RIGHT
+			return Vector2.RIGHT
 		"O":
-			facing_direction = Vector2.LEFT
-	
+			return Vector2.LEFT
+
+func look(directionString):
+	facing_direction = charToDirection(directionString)
 
 # Action quand le joueur interagit avec un acteur
 func interact():
@@ -89,7 +95,6 @@ func next():
 		am.executeNextAction()
 	else:
 		var action = fifo_actions.pop_front()
-		print(action)
 		if action.begins_with("."):
 			next()
 		elif action.begins_with("L"):
@@ -97,13 +102,17 @@ func next():
 			next()
 		elif action.begins_with("M"):
 			move(Array(action.split("")))
+		elif action.begins_with("PM"):
+			var args = Array(action.split(""))
+			lm.player.forcedMove(args[3], charToDirection(args[2]),self)
+		elif action.begins_with("PL"):
+			lm.player.facing_direction = charToDirection(action.split("L")[1])
+			next()
 
 func move(action):
 	var direction = action[1]
 	var cases = action[2]
-
 	look(direction)
-
 	distance_a_parcourir = int(cases) * 16
 	isMoving = true
 
