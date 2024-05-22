@@ -60,9 +60,6 @@ position = Vector2(-56, -80)
 [node name="dncLight2D6" parent="TileMap" instance=ExtResource("5_aasob")]
 position = Vector2(-296, -80)
 
-[node name="dncLight2D7" parent="TileMap" instance=ExtResource("5_aasob")]
-position = Vector2(-296, -80)
-
 [node name="dncLight2D9" parent="TileMap" instance=ExtResource("5_aasob")]
 position = Vector2(40, -240)
 
@@ -90,8 +87,13 @@ position = Vector2(-424, -384)
 [node name="dncLight2D23" parent="TileMap" instance=ExtResource("5_aasob")]
 position = Vector2(-424, -224)
 
-[node name="dncLight2D24" parent="TileMap" instance=ExtResource("5_aasob")]
+[node name="dncLight2D28" parent="TileMap" instance=ExtResource("5_aasob")]
 position = Vector2(-424, -80)
+texture_scale = 0.5
+
+[node name="dncLight2D29" parent="TileMap" instance=ExtResource("5_aasob")]
+position = Vector2(-296, -79)
+texture_scale = 0.8
 
 [node name="dncLight2D25" parent="TileMap" instance=ExtResource("5_aasob")]
 position = Vector2(-664, 16)
