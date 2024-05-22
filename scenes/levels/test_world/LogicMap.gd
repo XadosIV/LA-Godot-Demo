@@ -189,7 +189,7 @@ func create_actor(data, load=true):
 	npc.sprite = load(res_path)
 	
 	
-	npc._ready()
+	npc.initialiser()
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
 		load_map()
