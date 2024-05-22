@@ -153,15 +153,6 @@ func create_actor(data, load=true):
 	
 	if not "argName" in data:
 		data.argName = data.name
-	
-	#place holder tant que l'import ne prend pas en charge les sprites
-	var res_path = "res://scenes/characteres/players/resources/"
-	if data.sprite != null:
-		res_path += data.sprite
-	else:
-		"Roki.tres"
-	
-	npc.sprite = load(res_path)
 	var charToCut = 0
 	if data.argName.begins_with("."):
 		var args = data.argName.split(" ")
@@ -185,6 +176,18 @@ func create_actor(data, load=true):
 				break
 		if data.name == data.argName:
 			data.name = data.name.erase(0, charToCut)
+	
+	var res_path = "res://scenes/characteres/players/resources/"
+	if data.sprite != null:
+		if data.name == "WGSE (?) Achille":
+			res_path += "Achille.tres"
+		else:
+			res_path += data.sprite
+	else:
+		res_path += "Roki.tres"
+	npc.sprite = load(res_path)
+	
+	
 	npc._ready()
 	set_cell(0, mapPos, get_tileset().get_source_id(0), Vector2i(2,0), 0)
 	if load:
