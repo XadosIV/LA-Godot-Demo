@@ -37,8 +37,6 @@ func _process(delta):
 			dialog_choice_interact()
 
 func kaiou_diff(dialog):
-	if dialog.text.begins_with("*"):
-		dialog.npc_name = "Information"
 	
 	if dialog.npc_name == "Kaiou":
 		paragraph_text_label.label_settings.font_size = randi() % 20 + 14

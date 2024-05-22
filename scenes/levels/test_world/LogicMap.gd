@@ -97,6 +97,13 @@ func isWall(mapPos : Vector2) -> bool:
 func isItem(mapPos : Vector2) -> bool:
 	return isTile(mapPos, Vector2i(1,0))
 
+func idToNpcNode(id):
+	for k in actors:
+		var node = actors[k][1]
+		if node.id == id:
+			return node
+	return null
+
 func playerMove(movement) -> bool: # renvoie si le mouvement a pu être fait ou non
 	var mapPos = posPlayer + movement
 	get_parent().get_node("Player").gridPos = Vector2(posPlayer.x * 16 + 8, posPlayer.y * 16 + 8)
