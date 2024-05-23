@@ -819,9 +819,6 @@ gradient = ExtResource("2_pt3t2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_drkxi")]
-position = Vector2(-136, -24)
-
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = ExtResource("3_wov40")
@@ -975,3 +972,6 @@ scale = Vector2(0.3125, 0.3125)
 sprite_frames = SubResource("SpriteFrames_f5a3i")
 autoplay = "default"
 frame_progress = 0.652066
+
+[node name="Player" parent="." instance=ExtResource("2_drkxi")]
+position = Vector2(8, 8)
