@@ -28,7 +28,7 @@ var actions_fifo = []
 func _ready():
 	read_json("res://default_dialogs.json")
 	
-	for i in range(200,400):
+	for i in range(216,300):
 		npcs_disparus.append(i)
 
 # Charge les données à partir du chemin du fichier d'export.
@@ -150,8 +150,11 @@ func readAction(id, action):
 					npcs_disparus = []
 					for i in range(-20,200):
 						npcs_disparus.append(i)
+					for i in already_loaded:
+						npcs_disparus.append(i)
 				return true
 			elif action.text == "WARP":
+				sm.entry_warp_name = ""
 				SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_h1_f0.tscn", "fade_to_black")
 			elif action.text == "WARPEND":
 				sm.entry_warp_name = ""

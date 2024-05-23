@@ -1880,7 +1880,7 @@
                 [
                     {
                         "type": "dire",
-                        "text": "*Un homme en short claquette, plein de boue, dors paisiblement sur le banc."
+                        "text": "*Cet homme rêve qu'il va à ses cours de programmation C*"
                     }
                 ]
             ],
@@ -4229,7 +4229,7 @@
                                 "action": {
                                     "type": "executer",
                                     "target": 104,
-                                    "page": null
+                                    "page": 3
                                 }
                             },
                             {
@@ -4245,15 +4245,24 @@
                 [
                     {
                         "type": "dire",
-                        "text": "PARTIE3"
+                        "text": "Montez à l'étage je vous prie."
+                    },
+                    {
+                        "type": "dire",
+                        "text": "DISPARAITRE"
+                    },
+                    {
+                        "type": "executer",
+                        "target": 106,
+                        "page": 2
                     }
                 ]
             ],
             "currentPage": 0,
+            "sprite": "Bruce_NB.tres",
             "map": "LAlini_office.tscn",
-            "x": "-6",
-            "y": "-13",
-            "sprite": "Bruce_NB.tres"
+            "x": -6,
+            "y": -13
         },
         {
             "id": 106,
@@ -4265,13 +4274,24 @@
                         "target": 104,
                         "page": 1
                     }
+                ],
+                [
+                    {
+                        "type": "dire",
+                        "text": "DISPARAITRE"
+                    },
+                    {
+                        "type": "executer",
+                        "target": 107,
+                        "page": 2
+                    }
                 ]
             ],
             "currentPage": 0,
-            "x": "-5",
-            "y": "-13",
+            "sprite": "Bruce_NB.tres",
             "map": "LAlini_office.tscn",
-            "sprite": "Bruce_NB.tres"
+            "x": -5,
+            "y": -13
         },
         {
             "id": 107,
@@ -4283,13 +4303,24 @@
                         "target": 104,
                         "page": 1
                     }
+                ],
+                [
+                    {
+                        "type": "dire",
+                        "text": "DISPARAITRE"
+                    },
+                    {
+                        "type": "executer",
+                        "target": 108,
+                        "page": 2
+                    }
                 ]
             ],
             "currentPage": 0,
+            "sprite": "Bruce_NB.tres",
             "map": "LAlini_office.tscn",
-            "x": "3",
-            "y": "-13",
-            "sprite": "Bruce_NB.tres"
+            "x": 3,
+            "y": -13
         },
         {
             "id": 108,
@@ -4301,14 +4332,2453 @@
                         "target": 104,
                         "page": 1
                     }
+                ],
+                [
+                    {
+                        "type": "dire",
+                        "text": "DISPARAITRE"
+                    }
                 ]
             ],
             "currentPage": 0,
+            "sprite": "Bruce_NB.tres",
             "map": "LAlini_office.tscn",
-            "x": "4",
-            "y": "-13",
-            "sprite": "Bruce_NB.tres"
-        }
+            "x": 4,
+            "y": -13
+        },
+    
+            {
+                "id": 201,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Bien, la soutenance va commencer. Installez-vous."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN4 ME1 LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "OFF_COLLISION"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 202,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -9,
+                "y": -3
+            },
+            {
+                "id": 202,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 201,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MN4 MO1 LE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "OFF_COLLISION"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PMN9 PMN4 PME1 PMN1 PME7 PMS1 PLN CAMUP"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 203,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -10,
+                "y": -3
+            },
+            {
+                "id": 203,
+                "name": "Flora",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Mesdames et messieurs ! Bonsoir !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MS1"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ce soir, nous allons voir les groupes participant au concours \"Projet\" ainsi que leurs avancées technologiques !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Je suis accompagné aujourd'hui des vainqueurs de l'année précédente : Tutollini, Hyver Nabirinthe et Christine Peugeot !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ils peuvent venir me rejoindre sur scène !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 206,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Merci de tous avoir répondu présent ce soir !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Juste avant qu'on commence… J'ai une surprise à vous annoncer."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "En effet, vous n'êtes pas sans savoir que les Cavallinodes ont sensiblement changé notre manière de vivre depuis l'année dernière."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Grâce à eux, nous vivons en paix, leur surveillance constante nous a permis de relever un taux de criminalité de zéro dans la ville sur toute cette année !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et le fait qu'on n'ait plus besoin de payer des policiers humains nous a également permis de financer la création du parc \"En Auvergne\" !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Le projet de Tutollini est une véritable révolution, non pas qu'à notre échelle, mais à l'échelle internationale !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Enfin bref, anyway comme ils disent ! Ahah !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Voici l'annonce : Nous avons réussi à négocier des partenariats avec de grandes entreprises afin de commercialiser les Cavallinodes partout dans le pays !!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Le concours \"Projet\" va changer la face du monde grâce à cette innovation !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Des Cavallinodes marcheront dans les rues de toutes les grandes villes !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MO2 LN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et rassurez vous, monsieur Tutollini, vous n'aurez plus besoin de les contrôler vous même…"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Puisque nous créons avec ça une nouvelle formation ! Le Master Anyway !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il permettra en deux ans de formation de contrôler à la perfection un nombre suffisant de Cavallinodes pour gérer une ville !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Avec l'argent qu'on va générer, vous allez pouvoir partir à la retraite dès maintenant ! Et plein les poches en plus !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 205,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MS1 ME1 LN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Attends ! Calme toi ! Tu es fou ?!"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 6
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Quoi ?!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Non.. Attend-"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 212,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Adam.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -1,
+                "y": -21
+            },
+            {
+                "id": 204,
+                "name": ". D:N Tutollini",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MO2 MN5 ME6 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Bonsoir à tous !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Vous m'avez sûrement déjà croisé plusieurs fois !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "J'ai pu voir un peu tout les projets, et je pense savoir lequel va gagner..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Je paris sur celui de Madame Bouvelot !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ahahaahahah... Anyway. Bonne chance à tous les autres."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 LS"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 203,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Pourquoi..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Vous ne m'avez pas demandé mon avis ?"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ce pouvoir que j'ai... En contrôlant ces Cavallinodes..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il vaut plus que tout au monde !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Jamais je ne m'en débarrasserais !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". ME1"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et jamais personne ne me le prendra !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 205,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME1"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 206,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "ABSURDE ?!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Vous voulez voler ma création ? Et c'est moi qui dit des choses insensés ?!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "NON... ELLE EST A MOI ! A MOII !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "ANYWAY..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 207,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MO1 MS2"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Vous ! Vous vous moquez de moi ?"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Soit. Faites vos prières !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 203,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Hors de mon chemin."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Cavallinodes ! Zap."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 213,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -7,
+                "y": -15
+            },
+            {
+                "id": 205,
+                "name": ". D:N Christine Peugeot",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME3 MN5 MO5 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Bonjour à tous ! Egalement ravi d'être là ! J'espère que les projets vont flamboyer cette année !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 LS"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MN1 MO3 MS1 LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ahah ! Surprise !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "J'espère que tu apprécies ! On a géré tout les trucs administratifs avec Hyver..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 206,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME1 LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Mais enfin ! C'est absurde !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 3
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Conference_Woman.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 4,
+                "y": -15
+            },
+            {
+                "id": 206,
+                "name": ". D:N Hyver Nabirinthe",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME2 MN5 MO6 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Bonsoir à tous ! Je suis ravi d'être là !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "J'espère que cette soirée se passera bien, et bonne chances aux participants !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 LS"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 205,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MS1 MO2"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ahah oui ! La galère ! Un vrai labyrinthe ces papiers !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Au moins, t'as plus qu'à profiter !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". LN"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 4
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bouncer.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 5,
+                "y": -15
+            },
+            {
+                "id": 207,
+                "name": ". D:N Alexis Sauvageau",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". PLO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "\"Anyway\" ahahahahah il commence vraiment bien ce spectacle !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 208,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Ash.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -3,
+                "y": -15
+            },
+            {
+                "id": 208,
+                "name": ". D:N Joris",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "C'était un véritable anyway d'antagoniste ! Ahahah !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 209,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Ash.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -4,
+                "y": -15
+            },
+            {
+                "id": 209,
+                "name": ". _FAKE Vous",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*C'était vraiment pas le moment de blaguer... Ils sont fous ?*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PLN"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 204,
+                            "page": 5
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Rob.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 99,
+                "y": 99
+            },
+            {
+                "id": 210,
+                "name": "Cavallinode",
+                "pages": [
+                    []
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -7,
+                "y": -19
+            },
+            {
+                "id": 211,
+                "name": "Cavallinode",
+                "pages": [
+                    []
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 5,
+                "y": -19
+            },
+            {
+                "id": 212,
+                "name": ". _Gauche Cavallinodes",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME3"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Anyway ! Sanction Irrévocable ! Annihilation !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 203,
+                            "page": 4
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*BZZT*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt.* Sanction appliquée. Cible éliminée."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 214,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": -6,
+                "y": -19
+            },
+            {
+                "id": 213,
+                "name": ". _Droite Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MO5"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 212,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 4,
+                "y": -19
+            },
+            {
+                "id": 214,
+                "name": ". D:N Santa Le Beau",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Il est devenu fou ! FUYEZ !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "ACTE3"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "WARP"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Oldman_Josh.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 2,
+                "y": -15
+            },
+            {
+                "id": 215,
+                "name": ". D:N William Sanvoa",
+                "pages": [
+                    []
+                ],
+                "currentPage": 0,
+                "sprite": "Edward.tres",
+                "map": "LAlini_office_f1.tscn",
+                "x": 1,
+                "y": -15
+            },
+            {
+                "id": 216,
+                "name": "Santa Le Beau",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "J'arrive pas à y croire..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il a pris le contrôle de la ville..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il y a des Cavallinodes partout en ville à notre recherche."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Qu'est-ce qu'on peut faire ?"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 217,
+                            "page": 4
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "On peut demander de l'aide à Christine Peugeot et Hyver Nabirinthe ! Ils ont développé les Cavallinodes avec Tutollini, ils doivent savoir comment ça marche !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Où sont-ils ?"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 217,
+                            "page": 5
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Bien, alors ta première mission sera d'aller secourir Hyver Nabirinthe et Christine Peugeot à la station TV... Là où le drame a eu lieu."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Bonne chance !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 217,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "tester",
+                            "target": "object",
+                            "succes": {
+                                "type": "executer",
+                                "target": 216,
+                                "page": 5
+                            },
+                            "echec": {
+                                "type": "dire",
+                                "text": "Ta première mission est d'aller secourir Hyver Nabirinthe et Christine Peugeot à la station TV... Là où le drame a eu lieu."
+                            },
+                            "id": 241
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Oh ! Tu as récupéré le plan de fabrication des Cavallinodes !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Mmh... Le mot de sécurité \"FREE MEMORY\"... Ca pourrait nous aider."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Je pense que tu es prêt à aller te battre contre Tutollini."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Nos informateurs nous ont dit l'avoir vu au musée, c'est le gros bâtiment au nord d'ici."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Prends ça, ça te permettra d'écrire le mot FREE MEMORY et neutraliser les Cavallinodes !"
+                        },
+                        {
+                            "type": "donner",
+                            "target": "object",
+                            "id": 242
+                        },
+                        {
+                            "type": "executer",
+                            "target": 216,
+                            "page": 6
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Rends toi au musée. Bonne chance !"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Oldman_Josh.tres",
+                "map": "LAlini_h1_f0.tscn",
+                "x": -2,
+                "y": -6
+            },
+            {
+                "id": 217,
+                "name": ". D:N William Sanvoa",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Il chuchote*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "C'est trop dangereux de sortir pour l'instant..."
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". ME3 MN4 ME3 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 225,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Il faut comprendre comment marche les Cavallinodes... Ils ont forcément une faille !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 216,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Je ne les ai pas vu quitter le bâtiment..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ils doivent encore être là-bas !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 216,
+                            "page": 3
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Edward.tres",
+                "map": "LAlini_h1_f0.tscn",
+                "x": -2,
+                "y": -1
+            },
+            {
+                "id": 218,
+                "name": ". D:O Titi ✨",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 219,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Ca va aller... On est là..."
+                        },
+                        {
+                            "type": "aller",
+                            "target": 218,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Samuel.tres",
+                "map": "LAlini_h1_f0.tscn",
+                "x": 4,
+                "y": -2
+            },
+            {
+                "id": 219,
+                "name": ". D:E Secrétaire de Flora",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Elle est vraiment... Flora... Elle est morte..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 218,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Amelia.tres",
+                "map": "LAlini_h1_f0.tscn",
+                "x": 3,
+                "y": -2
+            },
+            {
+                "id": 220,
+                "name": "Christine Peugeot",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 221,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Quand j'ai modélisé les Cavallinodes, j'y ai inclus un code spécial d'arrêt d'urgence..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il suffit de dire : FREE MEMORY !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "On va rentrer chez nous maintenant !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 221,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Conference_Woman.tres",
+                "map": "LAlini_office.tscn",
+                "x": -1,
+                "y": -10
+            },
+            {
+                "id": 221,
+                "name": "Hyver Nabirinthe",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Merci de nous avoir sauvé !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Vous voulez des informations sur les Cavallinodes je suppose..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 220,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Tiens, prends ce plan de fabrication des Cavallinodes !"
+                        },
+                        {
+                            "type": "donner",
+                            "target": "object",
+                            "id": 241
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Si ça peut t'aider d'une manière ou d'une autre..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Sur ce, bonne chance !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 220,
+                            "page": 3
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bouncer.tres",
+                "map": "LAlini_office.tscn",
+                "x": -2,
+                "y": -10
+            },
+            {
+                "id": 222,
+                "name": ". _NV Maxime Le Prompter",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MO3 MN5 ME2 MN1 ME2 LN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ah là ! Je vais me faire péter !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 239,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Ash.tres",
+                "map": "LAlini_office.tscn",
+                "x": -2,
+                "y": 0
+            },
+            {
+                "id": 223,
+                "name": ". _NV Elias Le Prompter",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". ME3 MN5 LO"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 223,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Oh mon dieu ! Il s'est vraiment fait péter !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Il m'a même pas attendu !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Explose*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bob.tres",
+                "map": "LAlini_office.tscn",
+                "x": 0,
+                "y": 0
+            },
+            {
+                "id": 225,
+                "name": ". _NV _After William Sanvoa",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "aller",
+                            "target": 216,
+                            "page": 4
+                        },
+                        {
+                            "type": "aller",
+                            "target": 225,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Bonne chance, fais attention à toi."
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Edward.tres",
+                "map": "LAlini_h1_f0.tscn",
+                "x": 4,
+                "y": -5
+            },
+            {
+                "id": 226,
+                "name": ". D:N Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Intrus détectés !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* Suivez-nous !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MS1"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 227,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 229,
+                            "page": 3
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini.tscn",
+                "x": 22,
+                "y": -2
+            },
+            {
+                "id": 227,
+                "name": ". D:E Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 226,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MS1"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 228,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 230,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini.tscn",
+                "x": 21,
+                "y": -3
+            },
+            {
+                "id": 228,
+                "name": ". D:O Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 226,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MS1 PMS1"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 229,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 230,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini.tscn",
+                "x": 23,
+                "y": -3
+            },
+            {
+                "id": 229,
+                "name": ". _NV Père Nail",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*frappe le Cavallinode avec sa crocs*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ahah prends ça !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 228,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". MS2 LE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bonk*"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 226,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". LN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Bonne chance."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bouncer.tres",
+                "map": "LAlini.tscn",
+                "x": 21,
+                "y": -3
+            },
+            {
+                "id": 230,
+                "name": ". _NV JCM",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*donne un grand coup de seau au Cavallinode*"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 227,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Il va falloir se battre jeune homme !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MO1 LS PLN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Tiens, prend ce brouilleur optique de ma conception."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Si Tutollini a épluché son seau, donc s'il a utilisé des bidouilles... Les Cavallinodes ne devraient plus te voir !"
+                        },
+                        {
+                            "type": "donner",
+                            "target": "object",
+                            "id": 231
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Fais attention à toi bonhomme !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "On part détruire d'autres Cavallinodes avec Père Nail !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 229,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Oldman_Josh.tres",
+                "map": "LAlini.tscn",
+                "x": 23,
+                "y": -3
+            },
+            {
+                "id": 232,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Il ne semble pas vous voir*"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": -6,
+                "y": -13
+            },
+            {
+                "id": 233,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Il ne semble pas vous voir*"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": -5,
+                "y": -13
+            },
+            {
+                "id": 234,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Il ne semble pas vous voir*"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": 3,
+                "y": -13
+            },
+            {
+                "id": 235,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Il ne semble pas vous voir*"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": 4,
+                "y": -13
+            },
+            {
+                "id": 236,
+                "name": ". _Master Cavallinodes",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Je ne passerai pas tout seul...*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PMS1 PLN"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 222,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "~Anywayyy"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Les Cavallinodes explosent*"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 223,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": -1,
+                "y": -7
+            },
+            {
+                "id": 237,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 236,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 236,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": -2,
+                "y": -7
+            },
+            {
+                "id": 238,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 236,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 237,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": -3,
+                "y": -7
+            },
+            {
+                "id": 239,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 236,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 240,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": 0,
+                "y": -7
+            },
+            {
+                "id": 240,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 236,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 238,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_office.tscn",
+                "x": 1,
+                "y": -7
+            },
+            {
+                "id": 243,
+                "name": ". _Musee Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt*"
+                        },
+                        {
+                            "type": "tester",
+                            "target": "object",
+                            "succes": {
+                                "type": "executer",
+                                "target": 243,
+                                "page": 2
+                            },
+                            "echec": {
+                                "type": "dire",
+                                "text": "*Il ne semble pas vous voir*"
+                            },
+                            "id": 242
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*FREE MEMORY*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* FREE MEMORY. EXTINCTION DES SYSTEMES."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*POUF!*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Tutollini a dû prendre des précautions, si les Cavallinodes s'éteignent, ils explosent...*"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini.tscn",
+                "x": -8,
+                "y": -34
+            },
+            {
+                "id": 244,
+                "name": ". D:E Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 245,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -3,
+                "y": -1
+            },
+            {
+                "id": 245,
+                "name": ". D:E Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Intrus !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*FREE MEMORY*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 244,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -3,
+                "y": -2
+            },
+            {
+                "id": 246,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Intrus !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*FREE MEMORY*"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 247,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -6,
+                "y": -4
+            },
+            {
+                "id": 247,
+                "name": "Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "executer",
+                            "target": 246,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -5,
+                "y": -4
+            },
+            {
+                "id": 248,
+                "name": "Tutollini",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Toi..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PMS3 PLN MS3 PLN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "C'est toi qui t'es moqué de moi..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PMS1 PLN MS1 PLN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et maintenant... Tu te permets de détruire mes Cavallinodes ?!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". PMS2 PLN"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "ANYWAY..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Tout ça sera bientôt fini..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 250,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Ahahahahah Anyway~"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Tu pensais réellement que je n'allais pas patché cette faille ?"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Allez. Finissons-en."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Cavallinodes !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "ZAP!"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 254,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Quoi ?"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 255,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": ". LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Comment ? Comment tu as fait ?"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 256,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Anyway~ Tu ne m'auras pas avec tes fourberies vieux sorcier !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 256,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Noooon ! Mon projet ! Mes recherches !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 256,
+                            "page": 4
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -1,
+                "y": -15
+            },
+            {
+                "id": 249,
+                "name": ". _NV D:E Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 251,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 250,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": -8
+            },
+            {
+                "id": 250,
+                "name": ". _NV D:N Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 249,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 248,
+                            "page": 6
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -1,
+                "y": -7
+            },
+            {
+                "id": 251,
+                "name": ". _NV D:O Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 252,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 249,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": 0,
+                "y": -8
+            },
+            {
+                "id": 252,
+                "name": ". _NV Cavallinode",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 253,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 251,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -1,
+                "y": -9
+            },
+            {
+                "id": 253,
+                "name": ". _FAKE Vous",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Ces Cavallinodes ne me feront plus rien !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "J'ai le mot de sécurité maintenant !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*FREE MEMORY* !!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*FREE MEMORY* !!"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 254,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Samuel.tres",
+                "map": "LAlini_museum.tscn",
+                "x": 111,
+                "y": 111
+            },
+            {
+                "id": 254,
+                "name": ". _FAKE Cavallinodes",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Mot-clé inconnu."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 248,
+                            "page": 2
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Exécution !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* Error : Canons dysfonctionnels."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 248,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt!* Notre dernière règle de conception est..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* NullPointerException !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* > Forever start index.js"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* > Rebooting..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 256,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* Redémarrage terminé !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "*Bzzt* Erreur ! Extinction des systèmes !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 252,
+                            "page": 2
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bruce_NB.tres",
+                "map": "LAlini_museum.tscn",
+                "x": 122,
+                "y": 122
+            },
+            {
+                "id": 255,
+                "name": ". _NV Alexis Sauvageau",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 MO3 MN6 LE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "COUBEH"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ahahahahahah !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Anyway."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "DISPARAITRE"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 248,
+                            "page": 4
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Ash.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": 0
+            },
+            {
+                "id": 256,
+                "name": ". _NV JCM",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Tu as été mon élève... Tutollini..."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Tu as beau avoir réécrit tout le code de tes Cavallinodes... As-tu suivi mes leçons ?"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 248,
+                            "page": 5
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Ah oui ? Test de bidouille numéro 4 ! Oh GPT-Cavallinodes ! Affichez moi votre dernière règle de conception !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 254,
+                            "page": 3
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "Ahahah ! Vite trafiquez les Cavallinodes ! Avant qu'ils redémarrent !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 257,
+                            "page": 1
+                        }
+                    ],
+                    [
+                        {
+                            "type": "dire",
+                            "text": "C'est fini Tutollini. Tu ne peux plus faire de mal à personne."
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MO1 MS4 ME1 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et toi, merci pour tout !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "On aurait jamais pu y arriver sans toi."
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Merci d'avoir sauvé la ville !"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "WARPEND"
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Oldman_Josh.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -1,
+                "y": -13
+            },
+            {
+                "id": 257,
+                "name": ". _NV Christine Peugeot",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 MO3 MN6 ME2"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Je vais leur concoter un diagramme de classe horrible..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 258,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Conference_Woman.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": 0
+            },
+            {
+                "id": 258,
+                "name": ". _NV Hyver Nabirinthe",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 MO3 MN3 ME5 MN2 ME1 MN1 LO"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Ils vont devoir faire tourner un algo de Dijkstra sur 3 milliards de noeuds avant de redémarrer..."
+                        },
+                        {
+                            "type": "executer",
+                            "target": 259,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Bouncer.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": 0
+            },
+            {
+                "id": 259,
+                "name": ". _NV William Sanvoa",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 MO3 MN3 ME4 MN1"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Leur BDD ne respectera plus aucune des trois formes normales !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 260,
+                            "page": 1
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Edward.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": 0
+            },
+            {
+                "id": 260,
+                "name": ". _NV Santa Le Beau",
+                "pages": [
+                    [
+                        {
+                            "type": "dire",
+                            "text": "APPARAITRE"
+                        },
+                        {
+                            "type": "dire",
+                            "text": ". MN2 MO3 MN7 ME3 MN1 ME1 LS"
+                        },
+                        {
+                            "type": "dire",
+                            "text": "Et hup ! Je leur installe Pharo !"
+                        },
+                        {
+                            "type": "executer",
+                            "target": 254,
+                            "page": 4
+                        }
+                    ]
+                ],
+                "currentPage": 0,
+                "sprite": "Oldman_Josh.tres",
+                "map": "LAlini_museum.tscn",
+                "x": -2,
+                "y": 0
+            }
+
+
     ],
     "items": [
         {
@@ -4406,6 +6876,18 @@
         {
             "id": 105,
             "name": "Place au premier rang"
+        },
+        {
+            "id": 231,
+            "name": "Brouilleur Optique de JCM"
+        },
+        {
+            "id": 241,
+            "name": "Plan de fabrication des Cavallinodes"
+        },
+        {
+            "id": 242,
+            "name": "Invite de commande"
         }
     ],
     "exercises": [
