@@ -71,7 +71,8 @@ func posToWarp(pos : Vector2) -> Warp :
 func posToActor(pos : Vector2) -> Actors:
 	for name in actors:
 		if actors[name][0] == Vector2i(pos):
-			return actors[name][1]
+			if is_instance_valid(actors[name][1]):
+				return actors[name][1]
 	return null
 	
 func posToItem(pos : Vector2) -> Items :
