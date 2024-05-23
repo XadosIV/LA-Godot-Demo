@@ -97,6 +97,7 @@ func do(args):
 	
 func next():
 	if len(fifo_actions) == 0:
+		lm.update_actor(self)
 		am.executeNextAction()
 	else:
 		var action = fifo_actions.pop_front()

@@ -19,6 +19,7 @@ var lastExerciceExecuted = {} # Exercice en cours
 var lastChoicesAction = [] # Choix en cours
 
 var acte3 = false
+var already_loaded = []
 
 # File des verbes d'actions à exécuter
 var actions_fifo = []
@@ -122,6 +123,12 @@ func readAction(id, action):
 				logicMap.suppr_actor(id)
 				npcs_disparus.append(int(id))
 				return true
+			elif action.text == "APPARAITRE":
+				var index = npcs_disparus.find(int(id))
+				npcs_disparus.remove_at(index)
+				var logicMap = sm.player.get_parent().get_node("LogicMap")
+				logicMap.create_actor(getNpcById(id))
+				return true
 			elif action.text == "OFF_COLLISION":
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
 				logicMap.suppr_actor(id, false)
@@ -141,7 +148,7 @@ func readAction(id, action):
 				return true
 			elif action.text == "WARP":
 				SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_h1_f0.tscn", "fade_to_black")
-			elif action.text.begins_with("."):
+			elif action.text.begins_with(". "):
 				var args = action.text.split(" ")
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
 				var npc = logicMap.idToNpcNode(id)

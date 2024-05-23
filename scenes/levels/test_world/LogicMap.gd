@@ -49,7 +49,6 @@ func load_map() -> void:
 				for y in range(pos1.y, pos2.y+1):
 					var false_data = {"id":-2, "x":x, "y":y, "sprite":sprites[randi()%sprites.size()], "name":"ratio"}
 					create_actor(false_data)
-					#create_actor(-2, Vector2i(x,y), sprites[randi()%sprites.size()], false)
 
 func all_sprites():
 	var files = []
@@ -69,7 +68,7 @@ func posToWarp(pos : Vector2) -> Warp :
 			return warps[name][1]
 	return null
 
-func posToActor(pos : Vector2) -> Actors :
+func posToActor(pos : Vector2) -> Actors:
 	for name in actors:
 		if actors[name][0] == Vector2i(pos):
 			return actors[name][1]
@@ -145,6 +144,12 @@ func suppr_actor(id, node=true):
 					child.queue_free()
 
 func create_actor(data, load=true):
+	print(data.name)
+	if not "argName" in data:
+		data.argName = data.name
+	if data.argName.contains("_NV") and not int(data.id) in am.already_loaded:
+		am.already_loaded.append(int(data.id))
+		am.npcs_disparus.append(int(data.id))
 	if am.npcs_disparus.has(int(data.id)):
 		return
 	var npc = npc_scene.instantiate()
@@ -153,8 +158,6 @@ func create_actor(data, load=true):
 	var mapPos = Vector2i(int(data["x"]), int(data["y"]))
 	npc.position = mapPos * 16 + Vector2i(8,8)
 	
-	if not "argName" in data:
-		data.argName = data.name
 	var charToCut = 0
 	if data.argName.begins_with("."):
 		var args = data.argName.split(" ")
@@ -185,7 +188,7 @@ func create_actor(data, load=true):
 		if data.name == "WGSE (?) Achille":
 			res_path += "Achille.tres"
 		elif am.acte3 and data.name.contains("Cavallinode"):
-			res_path += "Bruce_NB_Evil.tres"
+			res_path = "res://scenes/characteres/players/" + "Bruce_NB_Evil.tres"
 		else:
 			res_path += data.sprite
 	else:
@@ -200,6 +203,12 @@ func create_actor(data, load=true):
 
 func _process(delta) -> void:
 	pass
+
+func update_actor(child):
+	set_cell(0, actors[child.name][0])
+	set_cell(0, local_to_map(child.position), get_tileset().get_source_id(0), Vector2i(2,0), 0)
+	load_map()
+	
 
 func hide_map():
 	set_layer_modulate(0, Color(1.0, 1.0, 1.0, 0.0))
