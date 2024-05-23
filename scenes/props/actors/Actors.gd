@@ -29,6 +29,10 @@ func _ready():
 func initialiser():
 	# Applique le sprite à un acteur et le met dans la bonne direction
 	if sprite:
+		var res_path = "res://scenes/characteres/players/resources/"
+		if am.acte3 and name.contains("Cavallinode"):
+			res_path += "Bruce_NB_Evil.tres"
+			sprite = load(res_path)
 		animatedSprite.sprite_frames = sprite
 	if not facing_direction:
 		match facing_direction_import:

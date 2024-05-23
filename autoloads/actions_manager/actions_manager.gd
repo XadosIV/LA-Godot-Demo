@@ -18,6 +18,8 @@ var lastNpcExecuted = -1 # Id du pnj interagi
 var lastExerciceExecuted = {} # Exercice en cours
 var lastChoicesAction = [] # Choix en cours
 
+var acte3 = false
+
 # File des verbes d'actions à exécuter
 var actions_fifo = []
 
@@ -130,6 +132,12 @@ func readAction(id, action):
 				var npc = logicMap.idToNpcNode(id)
 				if npc:
 					npc.look(args[1])
+				return true
+			elif action.text == "ACTE3":
+				acte3 = !acte3
+				if acte3:
+					for i in range(-20,200):
+						npcs_disparus.append(i)
 				return true
 			elif action.text == "WARP":
 				SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_h1_f0.tscn", "fade_to_black")

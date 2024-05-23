@@ -27,7 +27,10 @@ func _ready() -> void:
 	
 func _process(delta):
 	if(canvas_modulate):
-		canvas_modulate.color = gradient.gradient.sample((sin(gm.time - (8/PI)) + 1.0) / 2.0)
+		if am.acte3:
+			canvas_modulate.color = Color(0.74, 0.14, 0.14, 1)
+		else:
+			canvas_modulate.color = gradient.gradient.sample((sin(gm.time - (8/PI)) + 1.0) / 2.0)
 
 #func get_scene_file_path():
 #	return super()

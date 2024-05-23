@@ -179,10 +179,13 @@ func create_actor(data, load=true):
 		if data.name == data.argName:
 			data.name = data.name.erase(0, charToCut)
 	
+	
 	var res_path = "res://scenes/characteres/players/resources/"
 	if data.sprite != null:
 		if data.name == "WGSE (?) Achille":
 			res_path += "Achille.tres"
+		elif am.acte3 and data.name.contains("Cavallinode"):
+			res_path += "Bruce_NB_Evil.tres"
 		else:
 			res_path += data.sprite
 	else:
