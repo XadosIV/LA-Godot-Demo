@@ -12,6 +12,7 @@ var items = []
 
 var npcs_disparus = []
 
+
 # Variables de sauvegarde du verbe en cours d'exécution si celui-ci
 # nécessite une UI de choix.
 var lastNpcExecuted = -1 # Id du pnj interagi
@@ -26,6 +27,9 @@ var actions_fifo = []
 
 func _ready():
 	read_json("res://default_dialogs.json")
+	
+	for i in range(200,400):
+		npcs_disparus.append(i)
 
 # Charge les données à partir du chemin du fichier d'export.
 func read_json(path):
@@ -143,11 +147,15 @@ func readAction(id, action):
 			elif action.text == "ACTE3":
 				acte3 = !acte3
 				if acte3:
+					npcs_disparus = []
 					for i in range(-20,200):
 						npcs_disparus.append(i)
 				return true
 			elif action.text == "WARP":
 				SceneManager.load_new_scene("res://scenes/levels/test_world/LAlini/LAlini_h1_f0.tscn", "fade_to_black")
+			elif action.text == "WARPEND":
+				sm.entry_warp_name = ""
+				SceneManager.load_new_scene("res://scenes/levels/test_world/LAFin.tscn", "fade_to_black")
 			elif action.text.begins_with(". "):
 				var args = action.text.split(" ")
 				var logicMap = sm.player.get_parent().get_node("LogicMap")
@@ -162,6 +170,7 @@ func readAction(id, action):
 			aller(action.target, action.page-1)
 			return true
 		"executer":
+			print(action)
 			executer(action.target, action.page-1)
 			return true
 		"donner":

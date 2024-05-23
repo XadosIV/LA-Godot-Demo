@@ -145,7 +145,6 @@ func suppr_actor(id, node=true):
 					child.queue_free()
 
 func create_actor(data, load=true):
-	print(data.name)
 	if not "argName" in data:
 		data.argName = data.name
 	if data.argName.contains("_NV") and not int(data.id) in am.already_loaded:
@@ -194,6 +193,7 @@ func create_actor(data, load=true):
 			res_path += data.sprite
 	else:
 		res_path += "Roki.tres"
+	print(res_path)
 	npc.sprite = load(res_path)
 	
 	

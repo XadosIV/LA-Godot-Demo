@@ -1,7 +1,7 @@
 extends Node
 
 var exercisesCompleted : Array = []
-var inventory : Array = []
+var inventory : Array = [105]
 var healthPoints : int = 1
 
 const MINUTES_PER_DAY = 1440
